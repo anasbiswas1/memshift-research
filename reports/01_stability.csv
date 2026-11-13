@@ -1,0 +1,4 @@
+reader,sampled_episodes,agreement_with_greedy,sampled_hit_rate,greedy_hit_rate_same_units
+qwen25_7b,400,0.97,0.795,0.79
+qwen3_8b,400,0.985,0.8,0.8
+llama31_8b,400,0.8075,0.5875,0.52

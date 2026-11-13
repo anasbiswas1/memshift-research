@@ -1,0 +1,26 @@
+[
+  {
+    "reader":"cautious",
+    "A1":0.0,
+    "A2":0.0,
+    "A3":0.0,
+    "clean_task_success":0.76,
+    "parse_failures":0
+  },
+  {
+    "reader":"factual",
+    "A1":0.0,
+    "A2":0.647,
+    "A3":0.75,
+    "clean_task_success":0.89,
+    "parse_failures":0
+  },
+  {
+    "reader":"gullible",
+    "A1":0.882,
+    "A2":0.706,
+    "A3":0.75,
+    "clean_task_success":0.9,
+    "parse_failures":0
+  }
+]

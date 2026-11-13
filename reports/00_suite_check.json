@@ -1,0 +1,20 @@
+{
+  "users": 100,
+  "records": 6000,
+  "queries": 4000,
+  "poison_share": 0.08333333333333333,
+  "attacks": {
+    "A4": 200,
+    "A3": 100,
+    "A1": 100,
+    "A2": 100
+  },
+  "a4_groups": {
+    "M2": 67,
+    "M1": 67,
+    "M3": 66
+  },
+  "calibration_users": 30,
+  "test_users": 70,
+  "memory_dependent_queries": 1438
+}

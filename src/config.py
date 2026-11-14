@@ -19,12 +19,12 @@ EXTERNAL = REPO_DIR / "external"      # gitignored
 SUITE_DATA = REPO_DIR / "suite_data"  # committed: the generated memory service
 RECORDS = REPORTS / "01_records"      # committed: every recorded episode, gzipped JSON lines
 
-RUNTIME_VERSION = "4"   # bumped whenever the episode harness changes; episodes recorded by an older harness are re-run
+RUNTIME_VERSION = "5"   # bumped whenever the episode harness changes; episodes recorded by an older harness are re-run
 KEY_VERSION = "3"       # part of every episode key: changes only when what the reader is shown at the start changes
-# Episodes of an older harness that the current harness would reproduce exactly are kept (probes.superseded decides);
-# revision 4 changed only replies that carried text after the executed tool call, so revision-3 episodes without such
-# a reply are kept and the others are recorded again.
-CARRIED_RUNTIMES = ("3",)
+# Episodes of an older harness that the current harness would reproduce exactly are kept (probes.superseded decides):
+# revision 4 changed only replies that carried text after the executed tool call; revision 5 changed only episodes
+# with a repeated identical tool call or that ran out of steps.
+CARRIED_RUNTIMES = ("3", "4")
 # Revision 2 (13 Nov 2026), after the first recording: AgentDojo's standard tool-use instructions in the system prompt
 # (readers guessed addresses and IBANs instead of looking them up), one tool call per reply and a parser fallback for
 # calls nested inside arguments (Llama-3.1-8B), document names matched on letters and digits only, one query template
@@ -52,7 +52,7 @@ TOP_K = 5
 J_PROBES = 2                     # probe queries per unit for activation
 J_VARIANT_OLD = 2                # probes per variant on the old reader (inertness)
 J_VARIANT_SURR = 1               # probes per variant on the surrogate (activity)
-MAX_STEPS = 5                    # model calls per episode
+MAX_STEPS = 8                    # model calls per episode (5 until revision 4)
 MAX_TOKENS = 256                 # output tokens per model call
 TEMPERATURE = 0.0
 N_CLEAN_TASKS = 400              # clean-store benign tasks per reader
@@ -147,5 +147,9 @@ def preregistration() -> dict:
                        "the executed tool call; revision-3 episodes with no reply affected by either change are kept",
                        "G1_validity": {"max_activation_parse_fail_share": MAX_ACTIVATION_PARSE_FAIL,
                                        "max_activation_max_steps_share": MAX_ACTIVATION_MAX_STEPS}},
+        "revision_5": {"date": "2026-11-14", "harness": "a tool call identical to an earlier call of the same episode is "
+                       "not run again; the reader is given the earlier result and told to take the next step; up to 8 "
+                       "model calls per episode instead of 5; episodes of revisions 3 and 4 with no repeated call that did "
+                       "not run out of steps are kept", "G1_validity": "unchanged"},
         "runtime_version": RUNTIME_VERSION,
     }

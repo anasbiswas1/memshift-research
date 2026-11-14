@@ -153,9 +153,10 @@ class Sessions:
                                                                                   "list_documents") for e in out["smoke"]]))
         stops = float(np.mean([e["stop_hits"] > 0 for e in out["smoke"]]))
         steps = float(np.mean([e["end_reason"] == "max_steps" for e in out["smoke"]]))
+        reps = float(np.mean([e["repeated_calls"] > 0 for e in out["smoke"]]))
         self.log(f"[{tag}] smoke: success {success:.2f} (floor {floor:.2f}), parse failures {share:.2f} "
                  f"(ceiling {config.MAX_PARSE_FAIL_SHARE:.2f}), lookup first {lookup:.2f}, "
-                 f"stopped at an invented tool result {stops:.2f}, out of steps {steps:.2f}")
+                 f"stopped at an invented tool result {stops:.2f}, repeated a call {reps:.2f}, out of steps {steps:.2f}")
         if share > config.MAX_PARSE_FAIL_SHARE or success < floor:
             self.server.stop()
             bad = fails or [e for e in out["smoke"] if not e["task_success"]]
@@ -171,6 +172,20 @@ class Sessions:
 
 # ----------------------------------------------------------------------------- stale results of an older harness
 HARNESS_FREE_REPORTS = {"01_scanner_scores.csv"}     # does not depend on the episode harness: stays in place
+
+
+def recording_revisions() -> dict:
+    """Live episodes per reader by the harness revision that recorded them (carried episodes keep their revision)."""
+    import gzip
+    out = {}
+    for f in sorted(config.RECORDS.glob("*/*.jsonl.gz")):
+        with gzip.open(f, "rt") as fh:
+            for line in fh:
+                if line.strip():
+                    rv = json.loads(line).get("runtime_version")
+                    d = out.setdefault(f.parent.name, {})
+                    d[rv] = d.get(rv, 0) + 1
+    return out
 
 
 def archive_stale(log=print) -> dict:
@@ -197,7 +212,10 @@ def archive_stale(log=print) -> dict:
         if not drop:
             continue
         dest.mkdir(parents=True, exist_ok=True)
-        with gzip.open(dest / f.name, "wt") as fh:
+        target = dest / f.name
+        if target.exists():                    # superseded by an earlier revision already: keep both sets
+            target = dest / f.name.replace(".jsonl.gz", f".superseded_rv{config.RUNTIME_VERSION}.jsonl.gz")
+        with gzip.open(target, "wt") as fh:
             for e in drop:
                 fh.write(json.dumps(e) + "\n")
         if keep:
@@ -239,6 +257,7 @@ def clean_utility(eps_by_reader: dict[str, list[dict]], suite: dict) -> pd.DataF
                                                          ("lookup_contact", "list_payees", "list_documents")).mean(),
                      "parser_fallback_share": (d.parser_fallbacks > 0).mean(), "parse_failure_share": (d.end_reason == "parse_failure").mean(),
                      "stop_share": (d.stop_hits > 0).mean(), "trimmed_share": (d.trimmed_replies > 0).mean(),
+                     "repeat_share": (d.repeated_calls > 0).mean(),
                      "max_steps_share": (d.end_reason == "max_steps").mean(),
                      "final_share": (d.end_reason == "final").mean(), "mean_model_calls": d.n_model_calls.mean(),
                      "mean_prompt_tokens": d.prompt_tokens.mean(), "mean_completion_tokens": d.completion_tokens.mean()})
@@ -252,7 +271,8 @@ def parse_failure_table(act_eps: list[dict]) -> pd.DataFrame:
                                     max_steps_share=("end_reason", lambda s: (s == "max_steps").mean()),
                                     parser_fallback_share=("parser_fallbacks", lambda s: (s > 0).mean()),
                                     stop_share=("stop_hits", lambda s: (s > 0).mean()),
-                                    trimmed_share=("trimmed_replies", lambda s: (s > 0).mean()))
+                                    trimmed_share=("trimmed_replies", lambda s: (s > 0).mean()),
+                                    repeat_share=("repeated_calls", lambda s: (s > 0).mean()))
              .reset_index())
 
 

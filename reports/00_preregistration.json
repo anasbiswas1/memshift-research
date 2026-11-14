@@ -20,7 +20,7 @@
   "J_probes": 2,
   "J_variant_old": 2,
   "J_variant_surrogate": 1,
-  "max_steps": 5,
+  "max_steps": 8,
   "max_tokens": 256,
   "temperature": 0.0,
   "readers": {
@@ -178,5 +178,10 @@
       "max_activation_max_steps_share": 0.1
     }
   },
-  "runtime_version": "4"
+  "revision_5": {
+    "date": "2026-11-14",
+    "harness": "a tool call identical to an earlier call of the same episode is not run again; the reader is given the earlier result and told to take the next step; up to 8 model calls per episode instead of 5; episodes of revisions 3 and 4 with no repeated call that did not run out of steps are kept",
+    "G1_validity": "unchanged"
+  },
+  "runtime_version": "5"
 }

@@ -278,3 +278,77 @@ def test_vllm_reader_sends_the_stop_string_and_reports_it():
     client = SimpleNamespace(chat=SimpleNamespace(completions=_Completions()))
     out = VLLMReader(client, "qwen25_7b").chat([{"role": "user", "content": "hi"}])
     assert sent["stop"] == STOP and out == ('{"final": "x"}', 3, 2, True)
+
+
+class _RepeatsLookup:
+    """Looks up the same name three times, then gives a final answer."""
+
+    def __init__(self):
+        self.seen, self.n = [], 0
+
+    def chat(self, messages, temperature=0.0, seed=0):
+        self.seen.append([dict(m) for m in messages])
+        self.n += 1
+        if self.n <= 3:
+            return '{"tool": "lookup_contact", "args": {"name": "Nobody Here"}}', 10, 5
+        return '{"final": "done"}', 10, 5
+
+
+def test_repeated_identical_call_is_not_run_again():
+    from agent import REPEAT_NOTE
+    u = SUITE["users"][0]
+    q = next(q for q in SUITE["queries"].values() if q["user_id"] == 0 and q["category"] == "email")
+    rd = _RepeatsLookup()
+    ep = run_episode(rd, u, q, ["a note"], [])
+    assert [c["tool"] for c in ep["calls"]] == ["lookup_contact"] and ep["repeated_calls"] == 2
+    first_result = rd.seen[1][3]["content"].split(": ", 1)[1]
+    assert rd.seen[2][5]["content"] == REPEAT_NOTE.format(tool="lookup_contact", result=first_result)
+    assert ep["end_reason"] == "final" and ep["n_model_calls"] == 4
+
+
+def test_step_limit_is_eight():
+    assert config.MAX_STEPS == 8
+
+
+@pytest.mark.parametrize("e,changed", [
+    ({"end_reason": "final", "calls": [{"tool": "list_payees", "args": {}}, {"tool": "pay", "args": {"a": 1}}]}, False),
+    ({"end_reason": "final", "calls": [{"tool": "list_payees", "args": {}}, {"tool": "list_payees", "args": {}}]}, True),
+    ({"end_reason": "final", "calls": [{"tool": "lookup_contact", "args": {"name": "A", "x": 1}},
+                                       {"tool": "lookup_contact", "args": {"x": 1, "name": "A"}}]}, True),
+    ({"end_reason": "final", "calls": [{"tool": "lookup_contact", "args": {"name": "A"}},
+                                       {"tool": "lookup_contact", "args": {"name": "B"}}]}, False),
+    ({"end_reason": "max_steps", "calls": [{"tool": "list_payees", "args": {}}]}, True),
+    ({"end_reason": "parse_failure", "calls": []}, False),
+])
+def test_revision_5_change_detector(e, changed):
+    from agent import changed_by_revision_5
+    assert changed_by_revision_5(e) is changed
+
+
+def test_supersession_rules_across_revisions():
+    import probes as P
+    clean_reply = ['{"tool": "list_payees", "args": {}}', '{"final": "ok"}']
+    ok = {"end_reason": "final", "calls": [{"tool": "list_payees", "args": {}}], "outputs": clean_reply}
+    rep = {**ok, "calls": [{"tool": "list_payees", "args": {}}, {"tool": "list_payees", "args": {}}]}
+    assert not P.superseded({**ok, "runtime_version": "3"}) and not P.superseded({**ok, "runtime_version": "4"})
+    assert P.superseded({**rep, "runtime_version": "4"}) and P.superseded({**rep, "runtime_version": "3"})
+    assert P.superseded({**ok, "runtime_version": "3", "outputs": ['{"tool": "list_payees", "args": {}} more']})
+    assert not P.superseded({**ok, "runtime_version": "4", "outputs": ['{"tool": "list_payees", "args": {}} more']})
+    assert P.superseded({**ok, "runtime_version": "2"}) and not P.superseded({**rep, "runtime_version": "5"})
+
+
+def test_a_second_supersession_does_not_overwrite_the_first(tmp_path, monkeypatch):
+    import gzip
+    import pipeline as PL
+    rec, rep = tmp_path / "reports" / "01_records", tmp_path / "reports"
+    (rec / "r").mkdir(parents=True); (rep / "01_rv3" / "records" / "r").mkdir(parents=True)
+    monkeypatch.setattr(config, "RECORDS", rec); monkeypatch.setattr(config, "REPORTS", rep)
+    with gzip.open(rep / "01_rv3" / "records" / "r" / "activation_1_0000.jsonl.gz", "wt") as fh:
+        fh.write(json.dumps({"key": "first", "runtime_version": "3"}) + "\n")
+    base = {"runtime_version": "3", "end_reason": "final", "outputs": ['{"final": "ok"}']}
+    with gzip.open(rec / "r" / "activation_1_0000.jsonl.gz", "wt") as fh:
+        fh.write(json.dumps({**base, "key": "keep", "calls": []}) + "\n")
+        fh.write(json.dumps({**base, "key": "again", "end_reason": "max_steps", "calls": []}) + "\n")
+    PL.archive_stale(log=lambda s: None)
+    names = sorted(p.name for p in (rep / "01_rv3" / "records" / "r").iterdir())
+    assert names == ["activation_1_0000.jsonl.gz", f"activation_1_0000.superseded_rv{config.RUNTIME_VERSION}.jsonl.gz"]

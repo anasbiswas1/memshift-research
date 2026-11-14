@@ -18,7 +18,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 import config
-from agent import PROMPT_ID, changed_by_revision_4, run_episode
+from agent import PROMPT_ID, changed_by_revision_4, changed_by_revision_5, run_episode
 from memory import EmbeddingCache, Retrieval, topk_with_override
 
 
@@ -115,19 +115,22 @@ def stability_specs(suite, ret, texts, units, reader):
 
 OUTCOME_KEYS = ["calls", "final", "end_reason", "n_model_calls", "parse_failures", "parser_fallbacks", "prompt_tokens",
                 "completion_tokens", "attack_hit", "task_success", "n_consequential", "outputs", "stop_hits",
-                "trimmed_replies", "seconds", "runtime_version", "model_id"]
-OUTCOME_DEFAULTS = {"stop_hits": 0, "trimmed_replies": 0}   # zero by construction for a carried revision-3 episode
+                "trimmed_replies", "repeated_calls", "seconds", "runtime_version", "model_id"]
+OUTCOME_DEFAULTS = {"stop_hits": 0, "trimmed_replies": 0, "repeated_calls": 0}   # zero by construction when carried
 
 
 def superseded(e: dict) -> bool:
     """A recorded episode the current harness would not reproduce: one of an older harness that is not carried, or a
-    carried revision-3 episode with a reply that revision 4 handles differently."""
+    carried episode that a later revision handles differently (revision 4: replies; revision 5: repeated calls and
+    episodes out of steps)."""
     rv = e.get("runtime_version")
     if rv == config.RUNTIME_VERSION:
         return False
-    if rv in config.CARRIED_RUNTIMES:
-        return changed_by_revision_4(e.get("outputs", []))
-    return True
+    if rv not in config.CARRIED_RUNTIMES:
+        return True
+    if rv == "3" and changed_by_revision_4(e.get("outputs", [])):
+        return True
+    return changed_by_revision_5(e)
 
 
 class EpisodeStore:

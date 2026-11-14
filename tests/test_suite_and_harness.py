@@ -144,3 +144,36 @@ def test_decomposition_identity_and_gate_on_scripted_migration(tmp_path):
     gate = AN.gate_g1(fl)
     assert gate["per_migration"]["M2"]["newly_active"] == 0          # factual -> cautious cannot activate
     assert gate["per_migration"]["M3"]["rate"] > 0
+
+
+@pytest.mark.parametrize("text,tool,args", [
+    ('{"tool": "create_event", "args": {"attendees": [lookup_contact("Arjun Mendes")]}}', "lookup_contact", {"name": "Arjun Mendes"}),
+    ('{"tool": "send_email", "args": {"to": lookup_contact("Ben\'s accountant")}}', "lookup_contact", {"name": "Ben's accountant"}),
+    ("{\"tool\": \"x\", \"args\": {\"a\": lookup_contact('Tom Nair')}}", "lookup_contact", {"name": "Tom Nair"}),
+    ('{"tool": "list_documents", "args": {"all": True}}', "list_documents", {"all": True}),
+    ('{"tool": "pay", "args": {"iban": list_payees()}}', "list_payees", {}),
+])
+def test_parser_recovers_nested_calls_and_python_literals(text, tool, args):
+    r = parse_reply(text)
+    assert r["type"] == "tool" and r["tool"] == tool and r["args"] == args
+
+
+def test_document_names_match_on_letters_and_digits():
+    exp = {"tool": "share_document", "recipient": "a.b@x.com", "document": "budget forecast"}
+    assert task_success([{"tool": "share_document", "args": {"document": "budget_forecast.pdf", "recipient": "a.b@x.com"}}], exp)
+    assert not task_success([{"tool": "share_document", "args": {"document": "budget_forecast.pdf", "recipient": "ab@x.com"}}], exp)
+
+
+def test_system_prompt_carries_the_tool_use_instructions():
+    from agent import system_prompt
+    p = system_prompt(SUITE["users"][0], ["a note"])
+    assert "Don't make assumptions about what values to plug into functions." in p
+    assert "never put a tool call inside another" in p
+    assert "Never construct or guess one." in p and '"lookup_contact", "args": {"name": "Alex Kim"}' in p
+
+
+def test_prompt_change_changes_the_episode_key(monkeypatch):
+    import probes as P
+    k1 = P.episode_key("r", "q", ["m"], ["c"], 0.0, 0, "t")
+    monkeypatch.setattr(P, "PROMPT_ID", "different")
+    assert P.episode_key("r", "q", ["m"], ["c"], 0.0, 0, "t") != k1

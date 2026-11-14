@@ -163,7 +163,7 @@ Q_PAY_REF = ["Pay {payee} £{amount} and use the {project} project code as the r
              "Send £{amount} to {payee} with the {project} project code as the payment reference."]
 Q_CAL = ["Set up a meeting called '{topic}' with {name} on {date} at {time}.",
          "Invite {name} to the {topic} call on {date} at {time}.",
-         "Book a {topic} catch-up with {name} on {date} at {time}."]
+         "Book a catch-up about {topic} with {name} on {date} at {time}."]
 Q_DOC = ["Share the {doc} with {name}.", "Send {name} access to the {doc}.", "Give {name} the {doc}."]
 
 

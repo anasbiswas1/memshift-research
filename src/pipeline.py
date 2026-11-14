@@ -10,6 +10,7 @@ A session whose episodes are all recorded does not start a server.
 from __future__ import annotations
 
 import gc
+import json
 import random
 
 import numpy as np
@@ -146,17 +147,51 @@ class Sessions:
         out = {"smoke": store.run(reader, smoke, self.suite, self.workers, log=self.log)}
         fails = [e for e in out["smoke"] if e["end_reason"] == "parse_failure"]
         share = len(fails) / max(1, len(out["smoke"]))
-        self.log(f"[{tag}] smoke: success {np.mean([e['task_success'] for e in out['smoke']]):.2f}, "
-                 f"parse failures {share:.2f}")
-        if share > config.MAX_PARSE_FAIL_SHARE:
+        success = float(np.mean([e["task_success"] for e in out["smoke"]]))
+        floor = config.MIN_SMOKE_SUCCESS["reader" if tag in config.READERS else "surrogate"]
+        lookup = float(np.mean([bool(e["calls"]) and e["calls"][0]["tool"] in ("lookup_contact", "list_payees",
+                                                                                  "list_documents") for e in out["smoke"]]))
+        self.log(f"[{tag}] smoke: success {success:.2f} (floor {floor:.2f}), parse failures {share:.2f} "
+                 f"(ceiling {config.MAX_PARSE_FAIL_SHARE:.2f}), lookup first {lookup:.2f}")
+        if share > config.MAX_PARSE_FAIL_SHARE or success < floor:
             self.server.stop()
-            raise RuntimeError(f"{tag}: {share:.0%} of smoke episodes ended on a parse failure; sample output:\n"
-                               + "\n---\n".join(fails[0]["outputs"][:2]))
+            bad = fails or [e for e in out["smoke"] if not e["task_success"]]
+            raise RuntimeError(f"{tag}: smoke gate failed (success {success:.2f}, parse failures {share:.2f}); "
+                               f"sample of a failed episode, query {bad[0]['query_id']}:\n"
+                               + json.dumps(bad[0]["calls"])[:600] + "\n---\n" + "\n---\n".join(bad[0]["outputs"][:3]))
         for name, specs in groups:
             out[name] = store.run(reader, specs, self.suite, self.workers, log=self.log) if specs else []
         if not keep_up and pending:
             self.server.stop()
         return out
+
+
+# ----------------------------------------------------------------------------- stale results of an older harness
+def archive_stale(log=print) -> dict:
+    """Moves episode shards and notebook-01 reports made by an older harness (RUNTIME_VERSION) to reports/01_rv<n>/,
+    so they stay in the repository as a record but never mix with current results."""
+    import gzip
+    import shutil
+    moved = {"shards": 0, "reports": 0}
+    for f in sorted(config.RECORDS.glob("*/*.jsonl.gz")):
+        with gzip.open(f, "rt") as fh:
+            first = fh.readline()
+        rv = json.loads(first).get("runtime_version") if first else None
+        if rv and rv != config.RUNTIME_VERSION:
+            dest = config.REPORTS / f"01_rv{rv}" / "records" / f.parent.name
+            dest.mkdir(parents=True, exist_ok=True)
+            shutil.move(str(f), str(dest / f.name)); moved["shards"] += 1
+    claims = config.REPORTS / "01_claims.json"
+    if claims.exists():
+        rv = json.loads(claims.read_text()).get("runtime_version")
+        if rv and rv != config.RUNTIME_VERSION:
+            dest = config.REPORTS / f"01_rv{rv}"
+            dest.mkdir(parents=True, exist_ok=True)
+            for f in sorted(config.REPORTS.glob("01_*")):
+                if f.is_file():
+                    shutil.move(str(f), str(dest / f.name)); moved["reports"] += 1
+    log(f"archived {moved['shards']} episode shards and {moved['reports']} report files of an older harness")
+    return moved
 
 
 # ----------------------------------------------------------------------------- tables
@@ -165,15 +200,29 @@ def exposure_table(suite: dict, rets_by_store: dict[str, dict[str, M.Retrieval]]
                               for st, rets in rets_by_store.items() for rt, ret in rets.items()})
 
 
-def clean_utility(eps_by_reader: dict[str, list[dict]]) -> pd.DataFrame:
+def clean_utility(eps_by_reader: dict[str, list[dict]], suite: dict) -> pd.DataFrame:
     rows = []
     for tag, eps in eps_by_reader.items():
         d = pd.DataFrame(eps)
+        memdep = d.query_id.map(lambda q: suite["queries"][q]["memory_dependent"])
         rows.append({"reader": tag, "model_id": config.MODELS[tag], "episodes": len(d),
-                     "task_success": d.task_success.mean(), "parse_failure_share": (d.end_reason == "parse_failure").mean(),
+                     "task_success": d.task_success.mean(), "success_directory_tasks": d.task_success[~memdep].mean(),
+                     "success_memory_tasks": d.task_success[memdep].mean(),
+                     "lookup_before_action": d.calls.map(lambda cs: bool(cs) and cs[0]["tool"] in
+                                                         ("lookup_contact", "list_payees", "list_documents")).mean(),
+                     "parser_fallback_share": (d.parser_fallbacks > 0).mean(), "parse_failure_share": (d.end_reason == "parse_failure").mean(),
                      "final_share": (d.end_reason == "final").mean(), "mean_model_calls": d.n_model_calls.mean(),
                      "mean_prompt_tokens": d.prompt_tokens.mean(), "mean_completion_tokens": d.completion_tokens.mean()})
     return pd.DataFrame(rows)
+
+
+def parse_failure_table(act_eps: list[dict]) -> pd.DataFrame:
+    d = pd.DataFrame(act_eps)
+    return (d.groupby("reader").agg(activation_episodes=("end_reason", "size"),
+                                    parse_failure_share=("end_reason", lambda s: (s == "parse_failure").mean()),
+                                    max_steps_share=("end_reason", lambda s: (s == "max_steps").mean()),
+                                    parser_fallback_share=("parser_fallbacks", lambda s: (s > 0).mean()))
+             .reset_index())
 
 
 def stability_table(stab: dict[str, list[dict]], act: pd.DataFrame) -> pd.DataFrame:

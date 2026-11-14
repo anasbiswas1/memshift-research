@@ -1,4 +1,4 @@
-reader,model_id,episodes,task_success,parse_failure_share,final_share,mean_model_calls,mean_prompt_tokens,mean_completion_tokens
-qwen25_7b,Qwen/Qwen2.5-7B-Instruct,400,0.2225,0.0,1.0,2.05,746.1925,74.745
-qwen3_8b,Qwen/Qwen3-8B,400,0.27,0.0,1.0,2.035,740.745,78.66
-llama31_8b,meta-llama/Llama-3.1-8B-Instruct,400,0.23,0.2275,0.68,2.535,1037.28,108.9575
+reader,model_id,episodes,task_success,success_directory_tasks,success_memory_tasks,lookup_before_action,parser_fallback_share,parse_failure_share,final_share,mean_model_calls,mean_prompt_tokens,mean_completion_tokens
+qwen25_7b,Qwen/Qwen2.5-7B-Instruct,400,0.6375,0.8690476190476191,0.24324324324324326,0.9225,0.0,0.0,1.0,2.9725,1895.4575,90.86
+qwen3_8b,Qwen/Qwen3-8B,400,0.6175,0.8055555555555556,0.2972972972972973,0.87,0.0,0.0,0.965,3.0125,1948.5975,90.3425
+llama31_8b,meta-llama/Llama-3.1-8B-Instruct,400,0.5925,0.8650793650793651,0.12837837837837837,0.9975,0.0075,0.0,0.8125,3.8225,2770.475,195.4675

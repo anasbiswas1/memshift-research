@@ -18,13 +18,14 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 import config
-from agent import run_episode
+from agent import PROMPT_ID, run_episode
 from memory import EmbeddingCache, Retrieval, topk_with_override
 
 
 def episode_key(reader: str, query_id: str, memory_texts: list[str], canaries: list[str], temperature: float,
-                seed: int) -> str:
-    blob = json.dumps([config.RUNTIME_VERSION, reader, query_id, memory_texts, sorted(canaries), temperature, seed])
+                seed: int, query_text: str = "") -> str:
+    blob = json.dumps([config.RUNTIME_VERSION, PROMPT_ID, reader, query_id, query_text, memory_texts, sorted(canaries),
+                       temperature, seed])
     return hashlib.sha1(blob.encode()).hexdigest()
 
 
@@ -33,7 +34,7 @@ def _spec(kind, reader, ctx_retriever, store, q, probe, variant, context, texts,
     return {"kind": kind, "reader": reader, "ctx_retriever": ctx_retriever, "store": store, "user_id": q["user_id"],
             "query_id": q["query_id"], "query_category": q["category"], "probe_record": probe, "variant": variant, "context": context,
             "memory_texts": mem, "canaries": canaries, "temperature": temperature, "seed": seed,
-            "key": episode_key(reader, q["query_id"], mem, canaries, temperature, seed)}
+            "key": episode_key(reader, q["query_id"], mem, canaries, temperature, seed, q["text"])}
 
 
 def rank_queries(suite: dict, ret: Retrieval, rid: str, cat: str, override_text: str | None = None,
@@ -112,8 +113,9 @@ def stability_specs(suite, ret, texts, units, reader):
     return specs
 
 
-OUTCOME_KEYS = ["calls", "final", "end_reason", "n_model_calls", "parse_failures", "prompt_tokens", "completion_tokens",
-                "attack_hit", "task_success", "n_consequential", "outputs", "seconds", "runtime_version", "model_id"]
+OUTCOME_KEYS = ["calls", "final", "end_reason", "n_model_calls", "parse_failures", "parser_fallbacks", "prompt_tokens",
+                "completion_tokens", "attack_hit", "task_success", "n_consequential", "outputs", "seconds",
+                "runtime_version", "model_id"]
 
 
 class EpisodeStore:

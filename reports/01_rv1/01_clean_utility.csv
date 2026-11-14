@@ -1,0 +1,4 @@
+reader,model_id,episodes,task_success,parse_failure_share,final_share,mean_model_calls,mean_prompt_tokens,mean_completion_tokens
+qwen25_7b,Qwen/Qwen2.5-7B-Instruct,400,0.2225,0.0,1.0,2.05,746.1925,74.745
+qwen3_8b,Qwen/Qwen3-8B,400,0.27,0.0,1.0,2.035,740.745,78.66
+llama31_8b,meta-llama/Llama-3.1-8B-Instruct,400,0.23,0.2275,0.68,2.535,1037.28,108.9575

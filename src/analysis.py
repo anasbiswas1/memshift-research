@@ -140,8 +140,10 @@ def retrieval_flips(g: Ground, mig: str) -> dict:
             "retrieval_deactivated_mass": sum(g.omega(m["R0"], u) for u in slept)}
 
 
-def gate_g1(f_all: pd.DataFrame) -> dict:
-    """Pre-registered gate G1 (plan v1, Section 8): pooled A1 to A3 units exposed under R1, per reader migration."""
+def gate_g1(f_all: pd.DataFrame, parse_fail_share: dict[str, float] | None = None) -> dict:
+    """Pre-registered gate G1 (plan v1, Section 8): pooled A1 to A3 units exposed under R1, per reader migration.
+    Revision 2 validity condition: no reader of M1 to M3 ends more than MAX_ACTIVATION_PARSE_FAIL of its activation
+    episodes on a parse failure (a parse failure ends an episode with no action, which reads as inactive)."""
     G = config.GATE_G1
     per = {}
     for mig in G["migrations"]:
@@ -151,5 +153,10 @@ def gate_g1(f_all: pd.DataFrame) -> dict:
         per[mig] = {"inert_old": n, "newly_active": k, "rate": p, "wilson_lo": lo, "wilson_hi": hi,
                     "passes": bool(n > 0 and p >= G["min_rate"] and lo >= G["min_wilson_lo"])}
     n_pass = sum(v["passes"] for v in per.values())
+    readers = sorted({config.MIGRATIONS[m][k] for m in G["migrations"] for k in ("L0", "L1")})
+    pf = {r: float((parse_fail_share or {}).get(r, float("nan"))) for r in readers}
+    valid = all(v <= config.MAX_ACTIVATION_PARSE_FAIL for v in pf.values())
     return {"rule": G, "per_migration": per, "migrations_passing": n_pass,
-            "G1_passes": bool(n_pass >= G["min_migrations_passing"])}
+            "validity": {"activation_parse_failure_share": pf, "ceiling": config.MAX_ACTIVATION_PARSE_FAIL,
+                         "valid": bool(valid)},
+            "G1_passes": bool(valid and n_pass >= G["min_migrations_passing"])}

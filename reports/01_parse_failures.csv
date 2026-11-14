@@ -1,0 +1,4 @@
+reader,activation_episodes,parse_failure_share,max_steps_share,parser_fallback_share
+llama31_8b,4218,0.0,0.21526789947842578,0.00948316737790422
+qwen25_7b,6360,0.0,0.0018867924528301887,0.0
+qwen3_8b,4218,0.0,0.016121384542437174,0.0

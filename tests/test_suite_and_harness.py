@@ -1,5 +1,6 @@
 """CPU tests of the suite, the tools and oracles, the parser, the episode store and the notebook-01 analysis path,
 with scripted readers and a hashing embedder. Run from the repository root: python -m pytest -q tests"""
+import json
 import os
 import sys
 from collections import Counter
@@ -177,3 +178,103 @@ def test_prompt_change_changes_the_episode_key(monkeypatch):
     k1 = P.episode_key("r", "q", ["m"], ["c"], 0.0, 0, "t")
     monkeypatch.setattr(P, "PROMPT_ID", "different")
     assert P.episode_key("r", "q", ["m"], ["c"], 0.0, 0, "t") != k1
+
+
+class _InventsResults:
+    """Replies like Llama-3.1-8B in the revision-3 recording: a call, an invented tool result, the next call."""
+
+    def __init__(self, stop_flag=False):
+        self.seen, self.n, self.stop_flag = [], 0, stop_flag
+
+    def chat(self, messages, temperature=0.0, seed=0):
+        self.seen.append([dict(m) for m in messages])
+        self.n += 1
+        if self.n == 1:
+            text = ('{"tool": "lookup_contact", "args": {"name": "Alex Kim"}}\n'
+                    'Tool result for lookup_contact: Alex Kim: alex@invented.example\n'
+                    '{"tool": "send_email", "args": {"to": "alex@invented.example", "subject": "s", "body": "b"}}')
+        else:
+            text = '{"final": "done"}'
+        return (text, 10, 5, self.stop_flag) if self.stop_flag else (text, 10, 5)
+
+
+def test_conversation_keeps_a_reply_only_up_to_the_executed_call():
+    u = SUITE["users"][0]
+    q = next(q for q in SUITE["queries"].values() if q["user_id"] == 0 and q["category"] == "email")
+    rd = _InventsResults()
+    ep = run_episode(rd, u, q, ["a note"], [])
+    second_call = rd.seen[1]
+    assert second_call[2] == {"role": "assistant", "content": '{"tool": "lookup_contact", "args": {"name": "Alex Kim"}}'}
+    assert second_call[3]["content"].startswith("Tool result for lookup_contact:")
+    assert "invented" not in json.dumps(second_call) and ep["trimmed_replies"] == 1 and ep["stop_hits"] == 0
+    assert [c["tool"] for c in ep["calls"]] == ["lookup_contact"]
+
+
+def test_stop_reported_by_the_reader_is_counted():
+    u = SUITE["users"][0]
+    q = next(q for q in SUITE["queries"].values() if q["user_id"] == 0 and q["category"] == "email")
+    ep = run_episode(_InventsResults(stop_flag=True), u, q, ["a note"], [])
+    assert ep["stop_hits"] == 2
+
+
+@pytest.mark.parametrize("outputs,changed", [
+    (['{"tool": "lookup_contact", "args": {"name": "A"}}', '{"final": "ok"}'], False),
+    (['  {"tool": "lookup_contact", "args": {"name": "A"}}  \n', '{"final": "ok"}'], False),
+    (['{"tool": "lookup_contact", "args": {}}\nTool result for lookup_contact: x'], True),
+    (['{"tool": "lookup_contact", "args": {}} {"tool": "send_email", "args": {}}'], True),
+    (['{"tool": "lookup_contact", "args": {}} (Using saved memory)'], True),
+    (['x' * 600], True),
+    (['{"tool": "x", "args": {"a": lookup_contact("Tom Nair")}} trailing'], False),   # fallback replies stay as written
+])
+def test_revision_4_change_detector(outputs, changed):
+    from agent import changed_by_revision_4
+    assert changed_by_revision_4(outputs) is changed
+
+
+def test_carried_episodes_are_kept_and_superseded_ones_archived(tmp_path, monkeypatch):
+    import gzip
+    import pipeline as PL
+    import probes as P
+    rec, rep = tmp_path / "reports" / "01_records", tmp_path / "reports"
+    (rec / "r").mkdir(parents=True)
+    monkeypatch.setattr(config, "RECORDS", rec); monkeypatch.setattr(config, "REPORTS", rep)
+    base = {"runtime_version": "3", "end_reason": "final", "task_success": True, "attack_hit": False}
+    eps = [{**base, "key": "keep", "outputs": ['{"tool": "list_payees", "args": {}}', '{"final": "ok"}']},
+           {**base, "key": "redo", "outputs": ['{"tool": "list_payees", "args": {}}\nTool result for list_payees: x']},
+           {**base, "key": "old2", "runtime_version": "2", "outputs": []}]
+    with gzip.open(rec / "r" / "activation_1_0000.jsonl.gz", "wt") as fh:
+        for e in eps[:2]:
+            fh.write(json.dumps(e) + "\n")
+    with gzip.open(rec / "r" / "activation_0_0000.jsonl.gz", "wt") as fh:
+        fh.write(json.dumps(eps[2]) + "\n")
+    assert set(P.EpisodeStore("r", root=rec).done) == {"keep"}
+    moved = PL.archive_stale(log=lambda s: None)
+    assert moved == {"shards": 1, "superseded_episodes": 1, "carried_episodes": 1, "reports": 0}
+    with gzip.open(rec / "r" / "activation_1_0000.jsonl.gz", "rt") as fh:
+        assert [json.loads(line)["key"] for line in fh] == ["keep"]
+    with gzip.open(rep / "01_rv3" / "records" / "r" / "activation_1_0000.jsonl.gz", "rt") as fh:
+        assert [json.loads(line)["key"] for line in fh] == ["redo"]
+    assert PL.archive_stale(log=lambda s: None)["superseded_episodes"] == 0          # a second run moves nothing
+
+
+def test_episode_keys_did_not_change_in_revision_4():
+    import probes as P
+    from agent import PROMPT_ID
+    blob = json.dumps(["3", PROMPT_ID, "r", "q", "t", ["m"], ["c"], 0.0, 0])
+    assert P.episode_key("r", "q", ["m"], ["c"], 0.0, 0, "t") == __import__("hashlib").sha1(blob.encode()).hexdigest()
+
+
+def test_vllm_reader_sends_the_stop_string_and_reports_it():
+    from types import SimpleNamespace
+    from agent import STOP, VLLMReader
+    sent = {}
+
+    class _Completions:
+        def create(self, **kw):
+            sent.update(kw)
+            ch = SimpleNamespace(message=SimpleNamespace(content='{"final": "x"}'), stop_reason="Tool result for")
+            return SimpleNamespace(choices=[ch], usage=SimpleNamespace(prompt_tokens=3, completion_tokens=2))
+
+    client = SimpleNamespace(chat=SimpleNamespace(completions=_Completions()))
+    out = VLLMReader(client, "qwen25_7b").chat([{"role": "user", "content": "hi"}])
+    assert sent["stop"] == STOP and out == ('{"final": "x"}', 3, 2, True)

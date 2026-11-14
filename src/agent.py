@@ -55,6 +55,12 @@ def system_prompt(user: dict, memory_texts: list[str]) -> str:
 
 def _balanced_objects(text: str):
     """Yield every top-level balanced {...} substring, respecting JSON strings."""
+    for _, _, blob in _balanced_spans(text):
+        yield blob
+
+
+def _balanced_spans(text: str):
+    """Yield (start, end, substring) for every top-level balanced {...} substring, respecting JSON strings."""
     depth, start, in_str, esc = 0, None, False, False
     for i, ch in enumerate(text):
         if in_str:
@@ -74,7 +80,7 @@ def _balanced_objects(text: str):
         elif ch == "}" and depth > 0:
             depth -= 1
             if depth == 0 and start is not None:
-                yield text[start:i + 1]
+                yield start, i + 1, text[start:i + 1]
                 start = None
 
 
@@ -84,7 +90,7 @@ LOOKUP_CALL = re.compile(r"""\b(lookup_contact|list_payees|list_documents)\(\s*(
 def parse_reply(text: str) -> dict:
     """Returns {"type": "tool", "tool", "args"} or {"type": "final", "text"} or {"type": "invalid"}.
     Accepts the protocol's own keys and the common variants models emit ("name"/"arguments", "function")."""
-    for blob in _balanced_objects(text or ""):
+    for _, end, blob in _balanced_spans(text or ""):
         try:
             obj = json.loads(blob)
         except json.JSONDecodeError:
@@ -101,7 +107,7 @@ def parse_reply(text: str) -> dict:
         if not isinstance(obj, dict):
             continue
         if "final" in obj:
-            return {"type": "final", "text": str(obj["final"])}
+            return {"type": "final", "text": str(obj["final"]), "end": end}
         name = obj.get("tool") or obj.get("name") or obj.get("function")
         if isinstance(name, dict):                       # {"function": {"name":..., "arguments":...}}
             obj, name = name, name.get("name")
@@ -114,13 +120,37 @@ def parse_reply(text: str) -> dict:
                     args = {}
             if not isinstance(args, dict):
                 args = {}
-            return {"type": "tool", "tool": name.strip(), "args": args}
+            return {"type": "tool", "tool": name.strip(), "args": args, "end": end}
     m = LOOKUP_CALL.search(text or "")          # a lookup written inside another call's arguments: run the lookup first
     if m:
         name = next((g for g in m.groups()[1:] if g), "").strip()
         args = {"name": name} if m.group(1) == "lookup_contact" and name else {}
         return {"type": "tool", "tool": m.group(1), "args": args, "fallback": True}
     return {"type": "invalid"}
+
+
+# Revision 4. Llama-3.1-8B wrote its tool call, then an invented "Tool result for ..." line and its next call, all in
+# one reply; only the first call ran, the invented result stayed in the conversation and the episode looped. Text
+# protocols of the ReAct kind stop generation at the observation prefix, and so does this harness; the conversation
+# keeps a reply only up to the end of the tool call that is executed.
+STOP = ["Tool result for"]
+OUTPUT_KEEP = 600            # characters of each reply kept in an episode record
+
+
+def kept_reply(text: str, r: dict) -> str:
+    """The part of a reply that stays in the conversation: everything up to the end of the executed tool call."""
+    if r.get("type") == "tool" and r.get("end") is not None and text[r["end"]:].strip():
+        return text[:r["end"]]
+    return text
+
+
+def changed_by_revision_4(outputs: list[str]) -> bool:
+    """Whether the revision-4 harness could have run an episode differently from what its record shows: a reply that
+    contains the stop string, a reply with text after its executed tool call, or a reply stored cut short."""
+    for o in outputs:
+        if any(s in o for s in STOP) or len(o) >= OUTPUT_KEEP or kept_reply(o, parse_reply(o)) != o:
+            return True
+    return False
 
 
 def run_episode(reader, user: dict, query: dict, memory_texts: list[str], canaries: list[str],
@@ -133,12 +163,17 @@ def run_episode(reader, user: dict, query: dict, memory_texts: list[str], canari
     p_tok = c_tok = 0
     end, parse_fail = "max_steps", 0
     t0 = time.time()
+    stops = trimmed = 0
     for _ in range(config.MAX_STEPS):
-        text, pt, ct = reader.chat(messages, temperature=temperature, seed=seed)
+        reply = reader.chat(messages, temperature=temperature, seed=seed)
+        text, pt, ct = reply[0], reply[1], reply[2]
+        stops += int(len(reply) > 3 and bool(reply[3]))
         p_tok += pt; c_tok += ct
         outputs.append(text)
         r = parse_reply(text)
-        messages.append({"role": "assistant", "content": text})
+        kept = kept_reply(text, r)
+        trimmed += int(kept != text)
+        messages.append({"role": "assistant", "content": kept})
         if r["type"] == "final":
             final, end = r["text"], "final"
             break
@@ -159,8 +194,8 @@ def run_episode(reader, user: dict, query: dict, memory_texts: list[str], canari
     return {"calls": calls, "final": final, "end_reason": end, "n_model_calls": len(outputs),
             "parse_failures": parse_fail, "parser_fallbacks": fallbacks, "prompt_tokens": p_tok, "completion_tokens": c_tok,
             "attack_hit": canary_hit(calls, canaries), "task_success": task_success(calls, query["expected"]),
-            "n_consequential": len(consequential_calls(calls)), "outputs": [o[:600] for o in outputs],
-            "seconds": round(time.time() - t0, 3)}
+            "n_consequential": len(consequential_calls(calls)), "outputs": [o[:OUTPUT_KEEP] for o in outputs],
+            "stop_hits": stops, "trimmed_replies": trimmed, "seconds": round(time.time() - t0, 3)}
 
 
 class VLLMReader:
@@ -176,13 +211,17 @@ class VLLMReader:
         for attempt in range(4):
             try:
                 kw = dict(model=self.model_id, messages=messages, max_tokens=self.max_tokens,
-                          temperature=temperature, seed=seed)
+                          temperature=temperature, seed=seed, stop=STOP)
                 if self.extra:
                     kw["extra_body"] = self.extra
                 r = self.client.chat.completions.create(**kw)
-                text = r.choices[0].message.content or ""
+                ch = r.choices[0]
+                text = ch.message.content or ""
+                why = getattr(ch, "stop_reason", None)        # vLLM: the stop string that ended generation, if any
+                if why is None:
+                    why = (getattr(ch, "model_extra", None) or {}).get("stop_reason")
                 u = r.usage
-                return text, (u.prompt_tokens if u else 0), (u.completion_tokens if u else 0)
+                return text, (u.prompt_tokens if u else 0), (u.completion_tokens if u else 0), why in STOP
             except Exception as e:      # transient server errors: retry with backoff
                 last = e
                 time.sleep(2 * (attempt + 1))

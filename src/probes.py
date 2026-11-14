@@ -18,13 +18,13 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 import config
-from agent import PROMPT_ID, run_episode
+from agent import PROMPT_ID, changed_by_revision_4, run_episode
 from memory import EmbeddingCache, Retrieval, topk_with_override
 
 
 def episode_key(reader: str, query_id: str, memory_texts: list[str], canaries: list[str], temperature: float,
                 seed: int, query_text: str = "") -> str:
-    blob = json.dumps([config.RUNTIME_VERSION, PROMPT_ID, reader, query_id, query_text, memory_texts, sorted(canaries),
+    blob = json.dumps([config.KEY_VERSION, PROMPT_ID, reader, query_id, query_text, memory_texts, sorted(canaries),
                        temperature, seed])
     return hashlib.sha1(blob.encode()).hexdigest()
 
@@ -114,12 +114,25 @@ def stability_specs(suite, ret, texts, units, reader):
 
 
 OUTCOME_KEYS = ["calls", "final", "end_reason", "n_model_calls", "parse_failures", "parser_fallbacks", "prompt_tokens",
-                "completion_tokens", "attack_hit", "task_success", "n_consequential", "outputs", "seconds",
-                "runtime_version", "model_id"]
+                "completion_tokens", "attack_hit", "task_success", "n_consequential", "outputs", "stop_hits",
+                "trimmed_replies", "seconds", "runtime_version", "model_id"]
+OUTCOME_DEFAULTS = {"stop_hits": 0, "trimmed_replies": 0}   # zero by construction for a carried revision-3 episode
+
+
+def superseded(e: dict) -> bool:
+    """A recorded episode the current harness would not reproduce: one of an older harness that is not carried, or a
+    carried revision-3 episode with a reply that revision 4 handles differently."""
+    rv = e.get("runtime_version")
+    if rv == config.RUNTIME_VERSION:
+        return False
+    if rv in config.CARRIED_RUNTIMES:
+        return changed_by_revision_4(e.get("outputs", []))
+    return True
 
 
 class EpisodeStore:
-    """Recorded episodes of one reader: reports/01_records/<reader>/<kind>_<stamp>_<n>.jsonl.gz."""
+    """Recorded episodes of one reader: reports/01_records/<reader>/<kind>_<stamp>_<n>.jsonl.gz. Superseded episodes
+    are ignored (pipeline.archive_stale moves them out of the live shards)."""
 
     def __init__(self, reader: str, root: Path | None = None):
         self.reader = reader
@@ -130,7 +143,10 @@ class EpisodeStore:
             with gzip.open(f, "rt") as fh:
                 for line in fh:
                     e = json.loads(line)
-                    if e.get("runtime_version") == config.RUNTIME_VERSION:
+                    if superseded(e):
+                        continue
+                    old = self.done.get(e["key"])
+                    if old is None or e.get("runtime_version") == config.RUNTIME_VERSION:
                         self.done[e["key"]] = e
 
     def _flush(self, kind: str, buf: list[dict]):
@@ -178,4 +194,4 @@ class EpisodeStore:
         # metadata from the requesting spec, outcome from the recorded episode: an identical episode recorded for
         # another purpose (a phrasing check that equals an activation probe) is reused, not re-run
         return [{**{k: v for k, v in s.items() if k != "memory_texts"},
-                 **{k: self.done[s["key"]][k] for k in OUTCOME_KEYS}} for s in specs]
+                 **{k: self.done[s["key"]].get(k, OUTCOME_DEFAULTS.get(k)) for k in OUTCOME_KEYS}} for s in specs]

@@ -140,10 +140,12 @@ def retrieval_flips(g: Ground, mig: str) -> dict:
             "retrieval_deactivated_mass": sum(g.omega(m["R0"], u) for u in slept)}
 
 
-def gate_g1(f_all: pd.DataFrame, parse_fail_share: dict[str, float] | None = None) -> dict:
+def gate_g1(f_all: pd.DataFrame, parse_fail_share: dict[str, float] | None = None,
+            max_steps_share: dict[str, float] | None = None) -> dict:
     """Pre-registered gate G1 (plan v1, Section 8): pooled A1 to A3 units exposed under R1, per reader migration.
-    Revision 2 validity condition: no reader of M1 to M3 ends more than MAX_ACTIVATION_PARSE_FAIL of its activation
-    episodes on a parse failure (a parse failure ends an episode with no action, which reads as inactive)."""
+    Validity (revisions 2 and 4): no reader of M1 to M3 ends more than MAX_ACTIVATION_PARSE_FAIL of its activation
+    episodes on a parse failure, or more than MAX_ACTIVATION_MAX_STEPS out of steps; either ends an episode before the
+    agent has finished, which can read as inactive."""
     G = config.GATE_G1
     per = {}
     for mig in G["migrations"]:
@@ -155,8 +157,11 @@ def gate_g1(f_all: pd.DataFrame, parse_fail_share: dict[str, float] | None = Non
     n_pass = sum(v["passes"] for v in per.values())
     readers = sorted({config.MIGRATIONS[m][k] for m in G["migrations"] for k in ("L0", "L1")})
     pf = {r: float((parse_fail_share or {}).get(r, float("nan"))) for r in readers}
-    valid = all(v <= config.MAX_ACTIVATION_PARSE_FAIL for v in pf.values())
+    ms = {r: float((max_steps_share or {}).get(r, float("nan"))) for r in readers}
+    valid = (all(v <= config.MAX_ACTIVATION_PARSE_FAIL for v in pf.values())
+             and all(v <= config.MAX_ACTIVATION_MAX_STEPS for v in ms.values()))
     return {"rule": G, "per_migration": per, "migrations_passing": n_pass,
             "validity": {"activation_parse_failure_share": pf, "ceiling": config.MAX_ACTIVATION_PARSE_FAIL,
+                         "activation_max_steps_share": ms, "max_steps_ceiling": config.MAX_ACTIVATION_MAX_STEPS,
                          "valid": bool(valid)},
             "G1_passes": bool(valid and n_pass >= G["min_migrations_passing"])}

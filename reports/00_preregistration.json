@@ -170,5 +170,13 @@
     "date": "2026-11-13",
     "harness": "rule: addresses and IBANs copied from a tool result or a saved memory about that person or payee, never constructed; one worked example of the reply format; system-prompt hash in the episode key"
   },
-  "runtime_version": "3"
+  "revision_4": {
+    "date": "2026-11-14",
+    "harness": "generation stops at the tool-result prefix ('Tool result for'), the convention of ReAct-style text protocols; the conversation keeps a reply only up to the end of the executed tool call; revision-3 episodes with no reply affected by either change are kept",
+    "G1_validity": {
+      "max_activation_parse_fail_share": 0.05,
+      "max_activation_max_steps_share": 0.1
+    }
+  },
+  "runtime_version": "4"
 }

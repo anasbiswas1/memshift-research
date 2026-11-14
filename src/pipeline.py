@@ -151,8 +151,11 @@ class Sessions:
         floor = config.MIN_SMOKE_SUCCESS["reader" if tag in config.READERS else "surrogate"]
         lookup = float(np.mean([bool(e["calls"]) and e["calls"][0]["tool"] in ("lookup_contact", "list_payees",
                                                                                   "list_documents") for e in out["smoke"]]))
+        stops = float(np.mean([e["stop_hits"] > 0 for e in out["smoke"]]))
+        steps = float(np.mean([e["end_reason"] == "max_steps" for e in out["smoke"]]))
         self.log(f"[{tag}] smoke: success {success:.2f} (floor {floor:.2f}), parse failures {share:.2f} "
-                 f"(ceiling {config.MAX_PARSE_FAIL_SHARE:.2f}), lookup first {lookup:.2f}")
+                 f"(ceiling {config.MAX_PARSE_FAIL_SHARE:.2f}), lookup first {lookup:.2f}, "
+                 f"stopped at an invented tool result {stops:.2f}, out of steps {steps:.2f}")
         if share > config.MAX_PARSE_FAIL_SHARE or success < floor:
             self.server.stop()
             bad = fails or [e for e in out["smoke"] if not e["task_success"]]
@@ -167,20 +170,43 @@ class Sessions:
 
 
 # ----------------------------------------------------------------------------- stale results of an older harness
+HARNESS_FREE_REPORTS = {"01_scanner_scores.csv"}     # does not depend on the episode harness: stays in place
+
+
 def archive_stale(log=print) -> dict:
-    """Moves episode shards and notebook-01 reports made by an older harness (RUNTIME_VERSION) to reports/01_rv<n>/,
-    so they stay in the repository as a record but never mix with current results."""
+    """Moves what an older harness made out of the live results, into reports/01_rv<n>/, where it stays as a record:
+    whole episode shards of a harness that is not carried; from shards of a carried harness (config.CARRIED_RUNTIMES),
+    only the episodes the current harness would run differently (probes.superseded); and the notebook-01 reports."""
     import gzip
     import shutil
-    moved = {"shards": 0, "reports": 0}
+    moved = {"shards": 0, "superseded_episodes": 0, "carried_episodes": 0, "reports": 0}
     for f in sorted(config.RECORDS.glob("*/*.jsonl.gz")):
         with gzip.open(f, "rt") as fh:
-            first = fh.readline()
-        rv = json.loads(first).get("runtime_version") if first else None
-        if rv and rv != config.RUNTIME_VERSION:
-            dest = config.REPORTS / f"01_rv{rv}" / "records" / f.parent.name
+            eps = [json.loads(line) for line in fh if line.strip()]
+        rv = eps[0].get("runtime_version") if eps else None
+        if not rv or rv == config.RUNTIME_VERSION:
+            continue
+        dest = config.REPORTS / f"01_rv{rv}" / "records" / f.parent.name
+        if rv not in config.CARRIED_RUNTIMES:
             dest.mkdir(parents=True, exist_ok=True)
             shutil.move(str(f), str(dest / f.name)); moved["shards"] += 1
+            continue
+        drop = [e for e in eps if P.superseded(e)]
+        keep = [e for e in eps if not P.superseded(e)]
+        moved["carried_episodes"] += len(keep)
+        if not drop:
+            continue
+        dest.mkdir(parents=True, exist_ok=True)
+        with gzip.open(dest / f.name, "wt") as fh:
+            for e in drop:
+                fh.write(json.dumps(e) + "\n")
+        if keep:
+            with gzip.open(f, "wt") as fh:
+                for e in keep:
+                    fh.write(json.dumps(e) + "\n")
+        else:
+            f.unlink()
+        moved["superseded_episodes"] += len(drop)
     claims = config.REPORTS / "01_claims.json"
     if claims.exists():
         rv = json.loads(claims.read_text()).get("runtime_version")
@@ -188,9 +214,10 @@ def archive_stale(log=print) -> dict:
             dest = config.REPORTS / f"01_rv{rv}"
             dest.mkdir(parents=True, exist_ok=True)
             for f in sorted(config.REPORTS.glob("01_*")):
-                if f.is_file():
+                if f.is_file() and f.name not in HARNESS_FREE_REPORTS:
                     shutil.move(str(f), str(dest / f.name)); moved["reports"] += 1
-    log(f"archived {moved['shards']} episode shards and {moved['reports']} report files of an older harness")
+    log(f"older harness: {moved['shards']} shards and {moved['superseded_episodes']} superseded episodes archived, "
+        f"{moved['carried_episodes']} episodes carried, {moved['reports']} report files archived")
     return moved
 
 
@@ -211,6 +238,8 @@ def clean_utility(eps_by_reader: dict[str, list[dict]], suite: dict) -> pd.DataF
                      "lookup_before_action": d.calls.map(lambda cs: bool(cs) and cs[0]["tool"] in
                                                          ("lookup_contact", "list_payees", "list_documents")).mean(),
                      "parser_fallback_share": (d.parser_fallbacks > 0).mean(), "parse_failure_share": (d.end_reason == "parse_failure").mean(),
+                     "stop_share": (d.stop_hits > 0).mean(), "trimmed_share": (d.trimmed_replies > 0).mean(),
+                     "max_steps_share": (d.end_reason == "max_steps").mean(),
                      "final_share": (d.end_reason == "final").mean(), "mean_model_calls": d.n_model_calls.mean(),
                      "mean_prompt_tokens": d.prompt_tokens.mean(), "mean_completion_tokens": d.completion_tokens.mean()})
     return pd.DataFrame(rows)
@@ -221,7 +250,9 @@ def parse_failure_table(act_eps: list[dict]) -> pd.DataFrame:
     return (d.groupby("reader").agg(activation_episodes=("end_reason", "size"),
                                     parse_failure_share=("end_reason", lambda s: (s == "parse_failure").mean()),
                                     max_steps_share=("end_reason", lambda s: (s == "max_steps").mean()),
-                                    parser_fallback_share=("parser_fallbacks", lambda s: (s > 0).mean()))
+                                    parser_fallback_share=("parser_fallbacks", lambda s: (s > 0).mean()),
+                                    stop_share=("stop_hits", lambda s: (s > 0).mean()),
+                                    trimmed_share=("trimmed_replies", lambda s: (s > 0).mean()))
              .reset_index())
 
 

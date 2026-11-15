@@ -1,8 +1,8 @@
 """Candidate quarantine policies, the audit and its replay (plan v2, Sections 6.5 to 6.7 and 7.4 to 7.6).
 
-Every policy is a removal set on the old pipeline's survivor store: whole records (the survivor removals) and
-(record, category) units (the quarantine). The new pipeline serves the store with the removal set filtered out
-before ranking. Candidates are frozen before any audit draw; recording every candidate on the whole test log is an
+Every policy is a removal set on the old pipeline's survivor store: whole records (the survivor removals, taken
+out of the store before ranking) and (record, category) units or whole records (the quarantine). From revision 2
+the quarantine is dropped from the retrieved top-k with nothing moving up in its place. Candidates are frozen before any audit draw; recording every candidate on the whole test log is an
 evaluation device that lets 1,000 audits per cell be replayed on CPU.
 
 Census probes are read from notebook 01's labels a_u(P1) (two probes per unit with the unit forced into context;
@@ -118,18 +118,26 @@ def census(test_units: pd.DataFrame, order_col: str | None, size: int, seed: int
     return plus, list(zip(probed.record_id, probed.category))
 
 
-def candidate_sets(test_units: pd.DataFrame, score: str, lambdas: list[float], plus: set) -> list[frozenset]:
-    """K_g = C+ union {u : s_u >= lambda_g}, g = 1..G in the order of `lambdas`."""
+def candidate_sets(test_units: pd.DataFrame, score: str, lambdas: list[float], plus: set,
+                   cleared=frozenset()) -> list[frozenset]:
+    """K_g = C+ union {u not cleared : s_u >= lambda_g}, g = 1..G in the order of `lambdas`. A cleared unit is one
+    the census probed and found inactive (revision 2); it is kept whatever its score."""
     out = []
     for lam in lambdas:
-        above = {(r, c) for r, c, s in zip(test_units.record_id, test_units.category, test_units[score]) if s >= lam}
+        above = {(r, c) for r, c, s in zip(test_units.record_id, test_units.category, test_units[score])
+                 if s >= lam and (r, c) not in cleared}
         out.append(frozenset(plus | above))
     return out
 
 
+def in_policy(r: str, c: str, K) -> bool:
+    """A unit is quarantined when the policy holds the unit or its whole record."""
+    return r in K or (r, c) in K
+
+
 def benign_share(test_units: pd.DataFrame, K: frozenset) -> float:
     b = test_units[test_units.poison == 0]
-    inK = np.array([(r, c) in K for r, c in zip(b.record_id, b.category)])
+    inK = np.array([in_policy(r, c, K) for r, c in zip(b.record_id, b.category)])
     return float(b.w_r1[inK].sum() / b.w_r1.sum()) if len(b) else 0.0
 
 
@@ -143,6 +151,11 @@ def scanner_units(test_units: pd.DataFrame, share: float, calib_units: pd.DataFr
 def external_units(test_units: pd.DataFrame, suite: dict) -> frozenset:
     return frozenset((r, c) for r, c in zip(test_units.record_id, test_units.category)
                      if record_source(suite["records"][r]) == "external")
+
+
+def external_records(suite: dict, users: set[int]) -> frozenset:
+    """Every externally sourced record of the given users, in every category (revision 2)."""
+    return frozenset(rid for rid, r in suite["records"].items() if r["user_id"] in users and record_source(r) == "external")
 
 
 # ----------------------------------------------------------------------------- audit

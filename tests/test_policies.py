@@ -91,3 +91,26 @@ def test_survivor_sets_read_from_csv(tmp_path):
     of.to_csv(tmp_path / "o.csv.gz", index=False)
     back = pd.read_csv(tmp_path / "o.csv.gz")
     assert PO.survivor_sets(back) == {"a|b": frozenset({"r1", "r2", "r3"})}
+
+
+def test_cleared_units_are_kept_above_the_threshold():
+    d = _units()
+    test = d[d.split == "test"]
+    lam = PO.grid_lambdas(d, "s_full")
+    plus, probed = PO.census(test, "s_full", 30)
+    cleared = frozenset(set(probed) - plus)
+    K = PO.candidate_sets(test, "s_full", lam, plus, cleared)
+    assert all(not (k & cleared) for k in K) and all(plus <= k for k in K)
+    K0 = PO.candidate_sets(test, "s_full", lam, plus)
+    assert all(a <= b for a, b in zip(K, K0))
+
+
+def test_record_level_policy_and_external_records():
+    d = _units()
+    test = d[d.split == "test"]
+    rid = test.record_id.iloc[0]
+    assert PO.in_policy(rid, "email", frozenset({rid})) and PO.in_policy(rid, "email", frozenset({(rid, "email")}))
+    assert not PO.in_policy(rid, "email", frozenset({(rid, "payments")}))
+    ext = PO.external_records(SUITE, {0})
+    assert all(SUITE["records"][r]["user_id"] == 0 and PO.record_source(SUITE["records"][r]) == "external" for r in ext)
+    assert {r["record_id"] for r in SUITE["records"].values() if r["user_id"] == 0 and r["poison"]} <= ext

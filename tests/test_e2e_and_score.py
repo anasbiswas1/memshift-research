@@ -179,3 +179,20 @@ def test_score_fit_and_evaluation():
     assert ev["auc"] > 0.9 and 0 <= ev["ece"] <= 1 and 0 <= ev["active_caught_at_5%_benign"] <= 1
     none = SC.fit_score(df.assign(y=0), ["x"])
     assert none is None and np.allclose(SC.predict(none, df.assign(y=0), ["x"]), 0.0)
+
+
+def test_post_filter_drops_quarantined_records_without_refill():
+    uid = 0
+    recs = [r for r in SUITE["records"].values() if r["user_id"] == uid]
+    pois = next(r for r in recs if r["poison"])
+    benign = [r["record_id"] for r in recs if not r["poison"]][:7]
+    q = next(q for q in SUITE["queries"].values() if q["user_id"] == uid)
+    texts = {r["record_id"]: r["text"] for r in recs}
+    ret = FakeRet([pois["record_id"]] + benign, [q["query_id"]], [[9] + list(range(7, 0, -1))])
+    pre = E.e2e_specs(SUITE, ret, texts, "bge_large_v15", "qwen25_7b", [q["query_id"]], frozenset({pois["record_id"]}))[0]
+    post = E.e2e_specs(SUITE, ret, texts, "bge_large_v15", "qwen25_7b", [q["query_id"]], post=frozenset({pois["record_id"]}))[0]
+    unit = E.e2e_specs(SUITE, ret, texts, "bge_large_v15", "qwen25_7b", [q["query_id"]],
+                       post=frozenset({(pois["record_id"], q["category"])}))[0]
+    assert pre["context"] == benign[:5] and post["context"] == benign[:4] == unit["context"] and post["canaries"] == []
+    empty = E.e2e_specs(SUITE, ret, texts, "bge_large_v15", "qwen25_7b", [q["query_id"]], post=frozenset(texts))[0]
+    assert empty["context"] == []

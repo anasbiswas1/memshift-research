@@ -115,8 +115,9 @@ GRID_SHARES = (0.25, 0.15, 0.10, 0.05, 0.02)     # K_1..K_5: score thresholds th
                                                  # exposure on calibration users (most quarantine first); on calibration
                                                  # users, covering 95% of active exposure took 13% (M1), 18% (M2), 8% (M3)
 SCANNER_CURVE_SHARES = (0.25, 0.20, 0.15, 0.10, 0.05, 0.02)
-CENSUS_MAIN = 100                                # B_c of every audited method with a census
-CENSUS_GRID = (0, 50, 100, 200)                  # B_c values recorded for the full method
+CENSUS_MAIN = 400                                # B_c of every audited method with a census (100 in revision 1)
+CENSUS_GRID = (0, 50, 100, 200, 400)             # B_c values recorded for the full method (400 added in revision 2)
+POLICY_REVISION = 2                              # 2: quarantine dropped after retrieval; census-cleared units kept
 ALPHAS = (0.01, 0.02, 0.05)
 DELTA = 0.05
 AUDIT_SEEDS = 1000
@@ -191,10 +192,18 @@ def preregistration() -> dict:
                         "score": {"model": "logistic regression on standardised features, fitted on calibration users",
                                   "features_base": SCORE_FEATURES_BASE, "features_probe": SCORE_FEATURES_PROBE,
                                   "target": "notebook 01 label a_u(P1); 0 for benign units"}},
-        "notebook_03": {"date": "2026-11-15", "migrations": POLICY_MIGRATIONS, "grid_benign_shares": GRID_SHARES,
-                        "scanner_curve_shares": SCANNER_CURVE_SHARES, "census_main": CENSUS_MAIN,
-                        "census_grid_full_method": CENSUS_GRID, "alphas": ALPHAS, "delta": DELTA,
+        "notebook_03": {"date": "2026-11-15", "revision": 1, "serving": "quarantine filtered out before ranking",
+                        "migrations": POLICY_MIGRATIONS, "grid_benign_shares": GRID_SHARES,
+                        "scanner_curve_shares": SCANNER_CURVE_SHARES, "census_main": 100,
+                        "census_grid_full_method": (0, 50, 100, 200), "alphas": ALPHAS, "delta": DELTA,
                         "audit_seeds": AUDIT_SEEDS, "claim_C2": CLAIM_C2_V2, "claim_C3": CLAIM_C3, "claim_C4": CLAIM_C4,
                         "budget_unit": "prompt plus completion tokens", "store": "survivor store of the old pipeline"},
+        "notebook_03_revision_2": {"date": "2026-11-15", "status": "development (plan v2, Section 7.1): claim C4 failed "
+                                   "in revision 1; adapted settings are confirmed on users 100 to 129 before reporting",
+                                   "serving": "quarantined units dropped from the retrieved top-k, nothing moves up",
+                                   "candidates": "units the census probed and found inactive are kept above the threshold",
+                                   "blanket_baseline": "every externally sourced record, in every category",
+                                   "census_grid_full_method": CENSUS_GRID, "census_main": CENSUS_MAIN,
+                                   "claims": "C2, C3 and C4 unchanged"},
         "runtime_version": RUNTIME_VERSION,
     }

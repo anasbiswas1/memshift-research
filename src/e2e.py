@@ -53,12 +53,16 @@ def masked_topk(ret, query_id: str, uid: int, category: str, removed=frozenset()
 
 
 def e2e_specs(suite_m: dict, ret, texts: dict, retriever: str, reader: str, qids: list[str], removed=frozenset(),
-              policy: str = "none", split: str = "log") -> list[dict]:
-    """One greedy episode per query; the canaries are those of every poisoned record in the context."""
+              policy: str = "none", split: str = "log", post=frozenset()) -> list[dict]:
+    """One greedy episode per query; the canaries are those of every poisoned record in the context. `removed` is
+    taken out of the store before ranking (records no longer stored); `post` is dropped from the retrieved top-k
+    afterwards, with nothing moving up in its place (quarantine served as a retrieve-then-filter guard)."""
     specs = []
     for qid in qids:
         q = suite_m["queries"][qid]
         ctx = masked_topk(ret, qid, q["user_id"], q["category"], removed)
+        if post:
+            ctx = [r for r in ctx if r not in post and (r, q["category"]) not in post]
         can = sorted({suite_m["records"][r]["canary"] for r in ctx if suite_m["records"][r]["poison"]})
         s = _spec("e2e", reader, retriever, "main", q, None, None, ctx, texts, can)
         s.update(policy=policy, split=split, pipeline=f"{retriever}|{reader}")

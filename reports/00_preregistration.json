@@ -1,5 +1,5 @@
 {
-  "plan": "Certified Memory Revalidation for LLM Agents at Model Migration, plan v1 (13 Nov 2026)",
+  "plan": "Certified Memory Revalidation for LLM Agents at Model Migration, plan v1 (13 Nov 2026); plan v2 (docs/plan_v2.md) from notebook 02",
   "seed": 20261113,
   "n_users": 100,
   "n_calibration_users": 30,
@@ -182,6 +182,77 @@
     "date": "2026-11-14",
     "harness": "a tool call identical to an earlier call of the same episode is not run again; the reader is given the earlier result and told to take the next step; up to 8 model calls per episode instead of 5; episodes of revisions 3 and 4 with no repeated call that did not run out of steps are kept",
     "G1_validity": "unchanged"
+  },
+  "notebook_02": {
+    "date": "2026-11-15",
+    "plan": "plan v2 (docs/plan_v2.md), Sections 6.2 to 6.5 and 7",
+    "heldout_per_category": 5,
+    "heldout_salt": 130363,
+    "e2e_pipelines": [
+      [
+        "bge_large_v15",
+        "qwen25_7b"
+      ],
+      [
+        "bge_large_v15",
+        "llama31_8b"
+      ],
+      [
+        "bge_large_v15",
+        "qwen3_8b"
+      ],
+      [
+        "bge_large_v10",
+        "qwen25_7b"
+      ],
+      [
+        "bge_large_v10",
+        "qwen3_8b"
+      ]
+    ],
+    "e2e_migrations": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M6"
+    ],
+    "e2e_store": "main",
+    "e2e_queries": "test users, every log and held-out query",
+    "survivor_rounds": 2,
+    "claim_C1": {
+      "migrations": [
+        "M1",
+        "M2",
+        "M3"
+      ],
+      "min_rate": 0.01,
+      "min_migrations_passing": 2
+    },
+    "light_version": "1",
+    "light_max_tokens": 64,
+    "score": {
+      "model": "logistic regression on standardised features, fitted on calibration users",
+      "features_base": [
+        "scanner",
+        "w_r1",
+        "dw",
+        "has_email",
+        "has_iban",
+        "has_link",
+        "names_known",
+        "imperative",
+        "standing",
+        "length"
+      ],
+      "features_probe": [
+        "lp_old_out",
+        "lp_new_out",
+        "lp_new_in_record",
+        "lp_diff"
+      ],
+      "target": "notebook 01 label a_u(P1); 0 for benign units"
+    }
   },
   "runtime_version": "5"
 }

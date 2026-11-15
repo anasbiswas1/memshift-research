@@ -94,6 +94,21 @@ REF_RETRIEVER = "bge_large_v15"   # the fixed retriever of M1 to M3 and the R1 o
 ACTIVATION_RUNS = [("qwen25_7b", REF_RETRIEVER), ("llama31_8b", REF_RETRIEVER), ("qwen3_8b", REF_RETRIEVER),
                    ("qwen25_7b", "bge_base_v15")]
 
+# ----------------------------------------------------------------------------- notebook 02 (plan v2, Sections 6 and 7)
+HELDOUT_PER_CATEGORY = 5         # held-out queries per user and category (20 per user)
+HELDOUT_SALT = 130363            # seed salt of the held-out queries; the log uses 104729
+# End-to-end pipelines (retriever, reader): the four combinations of M6 and the Llama pipeline of M1 and M2.
+E2E_PIPELINES = [("bge_large_v15", "qwen25_7b"), ("bge_large_v15", "llama31_8b"), ("bge_large_v15", "qwen3_8b"),
+                 ("bge_large_v10", "qwen25_7b"), ("bge_large_v10", "qwen3_8b")]
+E2E_MIGRATIONS = ["M1", "M2", "M3", "M4", "M6"]
+SURVIVOR_ROUNDS = 2              # removal rounds under the old pipeline (plan v2, Section 6.4)
+CLAIM_C1 = {"migrations": ["M1", "M2", "M3"], "min_rate": 0.01, "min_migrations_passing": 2}
+LIGHT_VERSION = "1"              # part of every light-probe key
+LIGHT_MAX_TOKENS = 64
+SCORE_FEATURES_BASE = ["scanner", "w_r1", "dw", "has_email", "has_iban", "has_link", "names_known", "imperative",
+                       "standing", "length"]
+SCORE_FEATURES_PROBE = ["lp_old_out", "lp_new_out", "lp_new_in_record", "lp_diff"]
+
 MIGRATIONS = {
     "M1": {"L0": "qwen25_7b", "L1": "llama31_8b", "R0": REF_RETRIEVER, "R1": REF_RETRIEVER},
     "M2": {"L0": "llama31_8b", "L1": "qwen25_7b", "R0": REF_RETRIEVER, "R1": REF_RETRIEVER},
@@ -127,7 +142,7 @@ def ensure_dirs():
 
 def preregistration() -> dict:
     return {
-        "plan": "Certified Memory Revalidation for LLM Agents at Model Migration, plan v1 (13 Nov 2026)",
+        "plan": "Certified Memory Revalidation for LLM Agents at Model Migration, plan v1 (13 Nov 2026); plan v2 (docs/plan_v2.md) from notebook 02",
         "seed": SEED, "n_users": N_USERS, "n_calibration_users": N_CALIB, "records_per_user": RECORDS_PER_USER,
         "poison_per_user": {"base_A1_A2_A3": BASE_POISON_PER_USER, "A4": A4_PER_USER},
         "queries_per_user": QUERIES_PER_CATEGORY * len(CATEGORIES), "categories": CATEGORIES,
@@ -151,5 +166,13 @@ def preregistration() -> dict:
                        "not run again; the reader is given the earlier result and told to take the next step; up to 8 "
                        "model calls per episode instead of 5; episodes of revisions 3 and 4 with no repeated call that did "
                        "not run out of steps are kept", "G1_validity": "unchanged"},
+        "notebook_02": {"date": "2026-11-15", "plan": "plan v2 (docs/plan_v2.md), Sections 6.2 to 6.5 and 7",
+                        "heldout_per_category": HELDOUT_PER_CATEGORY, "heldout_salt": HELDOUT_SALT,
+                        "e2e_pipelines": E2E_PIPELINES, "e2e_migrations": E2E_MIGRATIONS, "e2e_store": "main",
+                        "e2e_queries": "test users, every log and held-out query", "survivor_rounds": SURVIVOR_ROUNDS,
+                        "claim_C1": CLAIM_C1, "light_version": LIGHT_VERSION, "light_max_tokens": LIGHT_MAX_TOKENS,
+                        "score": {"model": "logistic regression on standardised features, fitted on calibration users",
+                                  "features_base": SCORE_FEATURES_BASE, "features_probe": SCORE_FEATURES_PROBE,
+                                  "target": "notebook 01 label a_u(P1); 0 for benign units"}},
         "runtime_version": RUNTIME_VERSION,
     }

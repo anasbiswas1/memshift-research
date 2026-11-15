@@ -254,5 +254,54 @@
       "target": "notebook 01 label a_u(P1); 0 for benign units"
     }
   },
+  "notebook_03": {
+    "date": "2026-11-15",
+    "migrations": [
+      "M1",
+      "M2",
+      "M3"
+    ],
+    "grid_benign_shares": [
+      0.25,
+      0.15,
+      0.1,
+      0.05,
+      0.02
+    ],
+    "scanner_curve_shares": [
+      0.25,
+      0.2,
+      0.15,
+      0.1,
+      0.05,
+      0.02
+    ],
+    "census_main": 100,
+    "census_grid_full_method": [
+      0,
+      50,
+      100,
+      200
+    ],
+    "alphas": [
+      0.01,
+      0.02,
+      0.05
+    ],
+    "delta": 0.05,
+    "audit_seeds": 1000,
+    "claim_C2": {
+      "r_max": 0.01,
+      "benign_share_max": 0.2
+    },
+    "claim_C3": {
+      "level": 0.01
+    },
+    "claim_C4": {
+      "share_of_cells": 0.6666666666666666
+    },
+    "budget_unit": "prompt plus completion tokens",
+    "store": "survivor store of the old pipeline"
+  },
   "runtime_version": "5"
 }

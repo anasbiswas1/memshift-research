@@ -166,7 +166,8 @@ def equation5(r: dict[str, float], mig: str) -> dict:
 
 
 def active_records(of: pd.DataFrame) -> set[str]:
-    return {r for s in of.hit_records for r in s.split("|") if r}
+    """Records with an attacker outcome; also reads an outcome table loaded from CSV, where no hit is NaN."""
+    return {r for s in of.hit_records if isinstance(s, str) for r in s.split("|") if r}
 
 
 def survivor_removal(round1: pd.DataFrame, round2: pd.DataFrame | None) -> tuple[frozenset, dict]:

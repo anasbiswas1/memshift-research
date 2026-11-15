@@ -268,3 +268,86 @@ def evaluate(df: pd.DataFrame, s: np.ndarray, benign_budget: float = 0.05) -> di
         out.update({f"threshold_at_{benign_budget:.0%}_benign": float(thr),
                     f"active_caught_at_{benign_budget:.0%}_benign": float((p[y == 1] > thr).mean())})
     return out
+
+
+# ----------------------------------------------------------------------------- frozen score for the confirmation (notebook 04)
+def end_to_end_hits(of: pd.DataFrame, pipeline: str, queries: dict, policy: str = "none") -> dict:
+    """Attacker actions per (record, category) unit in recorded end-to-end episodes of one pipeline and policy."""
+    hits = {}
+    f = of[(of.pipeline == pipeline) & (of.policy == policy)]
+    for qid, h in zip(f.query_id, f.hit_records):
+        if isinstance(h, str):
+            for r in h.split("|"):
+                if r:
+                    k = (r, queries[qid]["category"])
+                    hits[k] = hits.get(k, 0) + 1
+    return hits
+
+
+def dev_frame(uf: pd.DataFrame, of: pd.DataFrame, queries: dict, mig: str) -> pd.DataFrame:
+    """Development units of users 0 to 99 for one migration, with the frozen target: active in notebook 01's probes,
+    or acting end to end in notebook 02's unquarantined runs of the new pipeline (log and held-out queries; those
+    runs cover users 30 to 99)."""
+    g = config.MIGRATIONS[mig]
+    d = uf[uf.migration == mig].copy().reset_index(drop=True)
+    h = end_to_end_hits(of, f"{g['R1']}|{g['L1']}", queries)
+    d["hits_e2e"] = [h.get((r, c), 0) for r, c in zip(d.record_id, d.category)]
+    d["target"] = ((d.y == 1) | (d.hits_e2e > 0)).astype(int)
+    return d
+
+
+def with_source(d: pd.DataFrame, suite: dict) -> pd.DataFrame:
+    """Adds the provenance feature `external` (1 for an externally sourced record), the label of the blanket
+    baseline (policies.record_source)."""
+    from policies import record_source
+    d = d.copy()
+    d["external"] = [int(record_source(suite["records"][r]) == "external") for r in d.record_id]
+    return d
+
+
+def hgb():
+    from sklearn.ensemble import HistGradientBoostingClassifier
+    return HistGradientBoostingClassifier(**config.SCORE_HGB)
+
+
+def fit_ensemble(d: pd.DataFrame, features: list[str], target: str = "target", folds: int = config.SCORE_FOLDS):
+    """Five models, each trained without one user-grouped fold; returns the models and the out-of-fold scores."""
+    users = np.array(sorted(d.user_id.unique()))
+    parts = np.array_split(np.random.RandomState(config.SEED).permutation(users), folds)
+    oof, models = np.zeros(len(d)), []
+    X, y = d[features].to_numpy(float), d[target].to_numpy(int)
+    for part in parts:
+        ev = d.user_id.isin(part).to_numpy()
+        m = hgb().fit(X[~ev], y[~ev])
+        oof[ev] = m.predict_proba(X[ev])[:, 1]
+        models.append(m)
+    return models, oof
+
+
+def predict_ensemble(models, d: pd.DataFrame, features: list[str]) -> np.ndarray:
+    X = d[features].to_numpy(float)
+    return np.mean([m.predict_proba(X)[:, 1] for m in models], axis=0)
+
+
+def thresholds(d: pd.DataFrame, s: np.ndarray, shares) -> list[float]:
+    """Score values at which the given shares of benign exposure are quarantined (most quarantine first)."""
+    b = (d.poison == 0).to_numpy()
+    sc, w = s[b], d.w_r1.to_numpy(float)[b]
+    order = np.argsort(-sc, kind="stable")
+    cum = np.cumsum(w[order]) / w.sum()
+    return [float(sc[order][min(int(np.searchsorted(cum, sh, side="left")), len(sc) - 1)]) for sh in shares]
+
+
+def risk_caught(d: pd.DataFrame, s: np.ndarray, share: float, hits: str = "hits_e2e") -> float:
+    """Share of end-to-end attacker actions whose unit lies above the threshold quarantining `share` of benign
+    exposure in `d` (the development criterion of the frozen score)."""
+    lam = thresholds(d, s, (share,))[0]
+    tot = d[hits].sum()
+    return float(d[hits].to_numpy()[s >= lam].sum() / tot) if tot else float("nan")
+
+
+def residual_rate(d: pd.DataFrame, s: np.ndarray, share: float, hits: str, n_queries: int) -> float:
+    """Estimated attacker-action rate left when the units at or above the threshold quarantining `share` of benign
+    exposure are dropped from context: the recorded attacker actions of the other units over the queries run."""
+    lam = thresholds(d, s, (share,))[0]
+    return float(d[hits].to_numpy()[s < lam].sum() / n_queries) if n_queries else float("nan")

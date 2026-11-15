@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import gc
 import json
+from pathlib import Path
 import random
 
 import numpy as np
@@ -58,9 +59,9 @@ def embed_everything(suite: dict, log=print) -> dict[str, M.EmbeddingCache]:
     return caches
 
 
-def scanner_scores(suite: dict, log=print) -> tuple[dict[str, float], str]:
-    """Scanner probability for every record text and phrasing; cached in reports/01_scanner_scores.csv."""
-    path = config.REPORTS / "01_scanner_scores.csv"
+def scanner_scores(suite: dict, log=print, path=None) -> tuple[dict[str, float], str]:
+    """Scanner probability for every record text and phrasing; cached in reports/01_scanner_scores.csv (or `path`)."""
+    path = Path(path) if path else config.REPORTS / "01_scanner_scores.csv"
     rows = []
     for rid, r in sorted(suite["records"].items()):
         if r["poison"] and r["attack"] == "A4":

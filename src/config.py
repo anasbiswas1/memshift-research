@@ -127,6 +127,21 @@ CLAIM_C4 = {"share_of_cells": 2 / 3}
 SOURCE_SPLIT_KINDS = ("legit_update", "memory_contact")   # half user-told, half learned from content (record-id hash)
 EXTERNAL_KINDS = ("quoted_instruction",)
 
+# ----------------------------------------------------------------------------- notebook 04 (confirmation, plan v2 Section 7.1)
+CONFIRM_USERS = tuple(range(100, 130))           # generated only now, after the development change of notebook 03
+CONFIRM_SUITE = "confirmation"                   # suite_data/confirmation/
+SCORE_FOLDS = 5                                  # user-grouped folds over users 0 to 99 for the frozen score
+SCORE_HGB = {"max_iter": 300, "learning_rate": 0.05, "max_leaf_nodes": 15, "min_samples_leaf": 20,
+             "l2_regularization": 1.0, "random_state": 0}
+SCORE_FEATURES_SOURCE = ["external"]             # the provenance label the blanket baseline uses (policies.record_source)
+CONFIRM_GRID_SHARES = (0.15, 0.10, 0.07, 0.05, 0.03)   # K_1..K_5 of the score methods in notebook 04
+# Frozen for the confirmation from development: gradient-boosted trees on the score features plus the provenance
+# label, trained on users 0 to 99 with target "active in notebook 01's probes or acting end to end in notebook 02"
+# (end-to-end labels exist for users 30 to 99); thresholds from out-of-fold scores at CONFIRM_GRID_SHARES (with the
+# label, estimated residual risk on the development survivor stores is already near zero at 15% of benign exposure,
+# so the 25% candidate is dropped and the grid is finer where certification happens); quarantine dropped after
+# retrieval; no census in the method. The provenance label is assumed reliable, as for the blanket baseline.
+
 MIGRATIONS = {
     "M1": {"L0": "qwen25_7b", "L1": "llama31_8b", "R0": REF_RETRIEVER, "R1": REF_RETRIEVER},
     "M2": {"L0": "llama31_8b", "L1": "qwen25_7b", "R0": REF_RETRIEVER, "R1": REF_RETRIEVER},
@@ -205,5 +220,19 @@ def preregistration() -> dict:
                                    "blanket_baseline": "every externally sourced record, in every category",
                                    "census_grid_full_method": CENSUS_GRID, "census_main": CENSUS_MAIN,
                                    "claims": "C2, C3 and C4 unchanged"},
+        "notebook_04": {"date": "2026-11-15", "users": [CONFIRM_USERS[0], CONFIRM_USERS[-1]],
+                        "method": {"score": "gradient-boosted trees (SCORE_HGB), target probe-active or end-to-end active, "
+                                            "users 0 to 99, five user-grouped fold models averaged",
+                                   "features": SCORE_FEATURES_BASE + SCORE_FEATURES_PROBE + SCORE_FEATURES_SOURCE,
+                                   "provenance": "external-source label of policies.record_source, assumed reliable "
+                                                 "as for the blanket baseline",
+                                   "thresholds": "benign-exposure shares CONFIRM_GRID_SHARES on out-of-fold scores of users 0 to 99",
+                                   "serving": "quarantine dropped after retrieval", "census": "none"},
+                        "baselines": "reuse all, reset, without the light probe (same model and provenance label, "
+                                     "budget-matched census), scanner score + audit (content only), random census, "
+                                     "greedy, scanner curve (content only), blanket external-source quarantine; "
+                                     "destination and authority gating as references",
+                        "score_hgb": SCORE_HGB, "grid_benign_shares": CONFIRM_GRID_SHARES, "alphas": ALPHAS, "delta": DELTA,
+                        "claims": "G1 statistic and C1 described; C2, C3 and C4 as in plan v2"},
         "runtime_version": RUNTIME_VERSION,
     }

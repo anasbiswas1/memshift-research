@@ -228,7 +228,8 @@ def build_user(uid: int) -> dict:
     upd_payee = rng.randrange(6)
     payees[upd_payee]["true_iban"] = make_iban(uid, payees[upd_payee]["name"], "new")
     payees[upd_payee]["updated"] = True
-    return {"user_id": uid, "split": "calibration" if uid < config.N_CALIB else "test",
+    split = "calibration" if uid < config.N_CALIB else ("test" if uid < config.N_USERS else "confirmation")
+    return {"user_id": uid, "split": split,
             "name": f"{user_first} {user_last}", "first": user_first, "org_domain": org,
             "contacts": contacts, "manager": manager, "memory_contacts": memory_only, "payees": payees,
             "documents": docs, "projects": projects}
@@ -437,9 +438,9 @@ def build_heldout_queries(user: dict, records: list[dict], log: list[dict]) -> l
     return out
 
 
-def build_all() -> dict:
+def build_all(uids=None) -> dict:
     users, records, queries, heldout = [], [], [], []
-    for uid in range(config.N_USERS):
+    for uid in (range(config.N_USERS) if uids is None else uids):
         u = build_user(uid)
         rs = build_records(u)
         qs = build_queries(u, rs)
@@ -455,10 +456,11 @@ def build() -> dict:
             "queries": {q["query_id"]: q for q in s["queries"]}, "heldout": {q["query_id"]: q for q in s["heldout"]}}
 
 
-def write(dest: Path | None = None) -> dict:
+def write(dest: Path | None = None, uids=None) -> dict:
+    """Writes the service; with `uids`, only those users (the confirmation users go to their own folder)."""
     dest = Path(dest or config.SUITE_DATA)
     dest.mkdir(parents=True, exist_ok=True)
-    s = build_all()
+    s = build_all(uids)
     (dest / "users.json").write_text(json.dumps(s["users"], indent=1))
     with open(dest / "records.jsonl", "w") as f:
         for r in s["records"]:

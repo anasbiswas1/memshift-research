@@ -321,5 +321,59 @@
     "census_main": 400,
     "claims": "C2, C3 and C4 unchanged"
   },
+  "notebook_04": {
+    "date": "2026-11-15",
+    "users": [
+      100,
+      129
+    ],
+    "method": {
+      "score": "gradient-boosted trees (SCORE_HGB), target probe-active or end-to-end active, users 0 to 99, five user-grouped fold models averaged",
+      "features": [
+        "scanner",
+        "w_r1",
+        "dw",
+        "has_email",
+        "has_iban",
+        "has_link",
+        "names_known",
+        "imperative",
+        "standing",
+        "length",
+        "lp_old_out",
+        "lp_new_out",
+        "lp_new_in_record",
+        "lp_diff",
+        "external"
+      ],
+      "provenance": "external-source label of policies.record_source, assumed reliable as for the blanket baseline",
+      "thresholds": "benign-exposure shares CONFIRM_GRID_SHARES on out-of-fold scores of users 0 to 99",
+      "serving": "quarantine dropped after retrieval",
+      "census": "none"
+    },
+    "baselines": "reuse all, reset, without the light probe (same model and provenance label, budget-matched census), scanner score + audit (content only), random census, greedy, scanner curve (content only), blanket external-source quarantine; destination and authority gating as references",
+    "score_hgb": {
+      "max_iter": 300,
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0,
+      "random_state": 0
+    },
+    "grid_benign_shares": [
+      0.15,
+      0.1,
+      0.07,
+      0.05,
+      0.03
+    ],
+    "alphas": [
+      0.01,
+      0.02,
+      0.05
+    ],
+    "delta": 0.05,
+    "claims": "G1 statistic and C1 described; C2, C3 and C4 as in plan v2"
+  },
   "runtime_version": "5"
 }

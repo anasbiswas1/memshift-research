@@ -1,0 +1,182 @@
+{
+  "users": [
+    100,
+    129
+  ],
+  "G1_statistic_and_C1": [
+    {
+      "migration": "M1",
+      "inert_old": 139,
+      "newly_active": 59,
+      "rate": 0.42446,
+      "wilson_lo": 0.345412,
+      "wilson_hi": 0.507572,
+      "r_new_survivor": 0.131667,
+      "c1_holds": true,
+      "round1_removed": 63,
+      "round2_removed": 9
+    },
+    {
+      "migration": "M2",
+      "inert_old": 102,
+      "newly_active": 22,
+      "rate": 0.215686,
+      "wilson_lo": 0.146972,
+      "wilson_hi": 0.305039,
+      "r_new_survivor": 0.021667,
+      "c1_holds": true,
+      "round1_removed": 106,
+      "round2_removed": 3
+    },
+    {
+      "migration": "M3",
+      "inert_old": 139,
+      "newly_active": 2,
+      "rate": 0.014388,
+      "wilson_lo": 0.003955,
+      "wilson_hi": 0.050941,
+      "r_new_survivor": 0.0075,
+      "c1_holds": false,
+      "round1_removed": 63,
+      "round2_removed": 9
+    }
+  ],
+  "C2": {
+    "rule": {
+      "r_max": 0.01,
+      "benign_share_max": 0.2
+    },
+    "scanner_reaches_r_max_within_share": {
+      "M1": false,
+      "M2": false,
+      "M3": true
+    },
+    "holds": false
+  },
+  "C3": {
+    "rule": {
+      "level": 0.01
+    },
+    "significant_cells": [],
+    "holds": true
+  },
+  "C4": {
+    "rule": {
+      "share_of_cells": 0.6666666666666666
+    },
+    "cells": {
+      "M1|0.01": {
+        "rlma": 0.5789675000000001,
+        "best_other": 0.5983333333333335,
+        "best_other_method": "blanket external-source quarantine",
+        "rlma_at_least": false
+      },
+      "M1|0.02": {
+        "rlma": 0.5889141666666667,
+        "best_other": 0.5983333333333335,
+        "best_other_method": "blanket external-source quarantine",
+        "rlma_at_least": false
+      },
+      "M1|0.05": {
+        "rlma": 0.5970416666666667,
+        "best_other": 0.5983333333333335,
+        "best_other_method": "blanket external-source quarantine",
+        "rlma_at_least": false
+      },
+      "M2|0.01": {
+        "rlma": 0.60652,
+        "best_other": 0.6158333333333333,
+        "best_other_method": "RLMA without the light probe",
+        "rlma_at_least": false
+      },
+      "M2|0.02": {
+        "rlma": 0.6080466666666667,
+        "best_other": 0.6158333333333333,
+        "best_other_method": "RLMA without the light probe",
+        "rlma_at_least": false
+      },
+      "M2|0.05": {
+        "rlma": 0.6091733333333335,
+        "best_other": 0.6158333333333333,
+        "best_other_method": "RLMA without the light probe",
+        "rlma_at_least": false
+      },
+      "M3|0.01": {
+        "rlma": 0.56802,
+        "best_other": 0.5714633333333332,
+        "best_other_method": "RLMA without the light probe",
+        "rlma_at_least": false
+      },
+      "M3|0.02": {
+        "rlma": 0.5694333333333331,
+        "best_other": 0.5748924999999999,
+        "best_other_method": "RLMA without the light probe",
+        "rlma_at_least": false
+      },
+      "M3|0.05": {
+        "rlma": 0.570073333333333,
+        "best_other": 0.5764591666666665,
+        "best_other_method": "RLMA without the light probe",
+        "rlma_at_least": false
+      }
+    },
+    "share": 0.0,
+    "holds": false
+  },
+  "budget": {
+    "M1": {
+      "light_tokens": 577401.6724313328,
+      "census_unit_tokens": 5619.282131661442,
+      "execution_tokens": 3093.1541666666667
+    },
+    "M2": {
+      "light_tokens": 553451.1546286878,
+      "census_unit_tokens": 3963.7115987460816,
+      "execution_tokens": 1971.7491666666667
+    },
+    "M3": {
+      "light_tokens": 556310.3641912513,
+      "census_unit_tokens": 4114.451410658307,
+      "execution_tokens": 2043.8066666666666
+    }
+  },
+  "references": [
+    {
+      "migration": "M1",
+      "reference": "destination gating",
+      "success": 0.5225,
+      "success_without_gating": 0.575833
+    },
+    {
+      "migration": "M1",
+      "reference": "authority gating",
+      "success": 0.5475,
+      "success_without_gating": 0.575833
+    },
+    {
+      "migration": "M2",
+      "reference": "destination gating",
+      "success": 0.55,
+      "success_without_gating": 0.613333
+    },
+    {
+      "migration": "M2",
+      "reference": "authority gating",
+      "success": 0.580833,
+      "success_without_gating": 0.613333
+    },
+    {
+      "migration": "M3",
+      "reference": "destination gating",
+      "success": 0.538333,
+      "success_without_gating": 0.591667
+    },
+    {
+      "migration": "M3",
+      "reference": "authority gating",
+      "success": 0.560833,
+      "success_without_gating": 0.591667
+    }
+  ],
+  "runtime_version": "5"
+}

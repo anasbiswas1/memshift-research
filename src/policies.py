@@ -199,3 +199,37 @@ def replay_summary(Y: np.ndarray, success: np.ndarray, draws: np.ndarray, alpha:
         cum = np.cumsum(exec_tokens)                       # tokens of one execution of candidates 1..g
         out["audit_tokens_mean"] = float((cum[tested - 1] * draws.shape[1]).mean())
     return out
+
+
+# ----------------------------------------------------------------------------- frozen policies for the confirmation (notebook 04)
+def confirmation_policies(T: pd.DataFrame, lam: dict, budget: dict, suite: dict, users: set[int], seed: int) -> list[dict]:
+    """Every candidate of every method on one migration's confirmation units T (columns s_full, s_np, scanner, w_r1,
+    y, poison). `lam` holds the frozen thresholds per score; `budget` holds light_tokens, census_unit_tokens and
+    execution_tokens. Census probes read T.y; a unit the census found inactive is not treated specially."""
+    G = len(lam["s_full"])
+    T = T.copy()
+    for col in ("s_full", "s_np", "scanner"):
+        T[f"w_{col}"] = T.w_r1 * T[col]
+    b_np = int(budget["light_tokens"] // budget["census_unit_tokens"])
+    out = [{"method": "reuse all", "census": 0, "g": 0, "alpha": None, "K": frozenset()}]
+    for gi, lamg in enumerate(lam["s_full"], 1):
+        out.append({"method": "RLMA", "census": 0, "g": gi, "alpha": None, "lambda": lamg,
+                    "K": frozenset((r, c) for r, c, s in zip(T.record_id, T.category, T.s_full) if s >= lamg)})
+    for method, order, sc in (("RLMA without the light probe", "w_s_np", "s_np"),
+                              ("scanner score + audit", "w_scanner", "scanner"),
+                              ("random census", None, "s_np")):
+        plus, _ = census(T, order, b_np, seed=seed)
+        for gi, K in enumerate(candidate_sets(T, sc, lam[sc], plus), 1):
+            out.append({"method": method, "census": b_np, "g": gi, "alpha": None, "lambda": lam[sc][gi - 1],
+                        "K": K, "census_positives": len(plus)})
+    for a in config.ALPHAS:
+        b_gr = int((G - 1) * n0(a) * budget["execution_tokens"] // budget["census_unit_tokens"])
+        plus, _ = census(T, "w_s_full", b_gr)
+        out.append({"method": "greedy", "census": b_gr, "g": 1, "alpha": a, "K": frozenset(plus),
+                    "census_positives": len(plus)})
+    for gi, lamg in enumerate(lam["scanner_curve"], 1):
+        out.append({"method": "scanner curve", "census": 0, "g": gi, "alpha": None, "lambda": lamg,
+                    "K": frozenset((r, c) for r, c, s in zip(T.record_id, T.category, T.scanner) if s >= lamg)})
+    out.append({"method": "blanket external-source quarantine", "census": 0, "g": 1, "alpha": None,
+                "K": external_records(suite, users)})
+    return out

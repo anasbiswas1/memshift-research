@@ -142,6 +142,23 @@ CONFIRM_GRID_SHARES = (0.15, 0.10, 0.07, 0.05, 0.03)   # K_1..K_5 of the score m
 # so the 25% candidate is dropped and the grid is finer where certification happens); quarantine dropped after
 # retrieval; no census in the method. The provenance label is assumed reliable, as for the blanket baseline.
 
+# ----------------------------------------------------------------------------- notebook 05 (development on users 0 to 129, confirmation on 130 to 159)
+CONFIRM2_USERS = tuple(range(130, 160))         # generated only now; users 100 to 129 became development data
+CONFIRM2_SUITE = "confirmation2"                 # suite_data/confirmation2/
+METHOD_FEATURES = SCORE_FEATURES_BASE + SCORE_FEATURES_SOURCE   # no light probe (it did not earn its cost in notebook 04)
+NO_SOURCE_FEATURES = SCORE_FEATURES_BASE         # ablation: the score without the provenance label
+METHOD_GRID_SHARES = CONFIRM_GRID_SHARES         # 15, 10, 7, 5 and 3% of benign exposure (score methods)
+NO_SOURCE_GRID_SHARES = GRID_SHARES              # 25, 15, 10, 5 and 2% for the ablation without the label
+CENSUS_UNITS = 200                               # B_c of RLMA and of every baseline with a census
+INCLUSION_WILSON_LO = 0.01                       # a migration enters C2 to C4 when the Wilson lower bound of its
+                                                 # survivor-store r_Q is above the smallest alpha (plan v2: the method
+                                                 # is not run on migrations with nothing to remove)
+# Frozen before users 130 to 159 exist (docs/plan_v2_amendment_1.md):
+# units and exposure on the served survivor store; census on the units the least restrictive candidate keeps,
+# highest w*s first; a unit found active quarantines its whole record in every candidate (all census methods);
+# score = gradient-boosted trees on METHOD_FEATURES trained on users 0 to 129; C4 compares RLMA with the plan's
+# baselines; ablations (without the provenance label, without the census) are reported beside them.
+
 MIGRATIONS = {
     "M1": {"L0": "qwen25_7b", "L1": "llama31_8b", "R0": REF_RETRIEVER, "R1": REF_RETRIEVER},
     "M2": {"L0": "llama31_8b", "L1": "qwen25_7b", "R0": REF_RETRIEVER, "R1": REF_RETRIEVER},
@@ -234,5 +251,22 @@ def preregistration() -> dict:
                                      "destination and authority gating as references",
                         "score_hgb": SCORE_HGB, "grid_benign_shares": CONFIRM_GRID_SHARES, "alphas": ALPHAS, "delta": DELTA,
                         "claims": "G1 statistic and C1 described; C2, C3 and C4 as in plan v2"},
+        "notebook_05": {"date": "2026-11-16", "status": "development on users 0 to 129 (users 100 to 129 informed the "
+                        "changes below), confirmation on users 130 to 159", "users": [CONFIRM2_USERS[0], CONFIRM2_USERS[-1]],
+                        "amendment": "docs/plan_v2_amendment_1.md",
+                        "units": "(record, category) units and exposure on the served survivor store of each migration",
+                        "score": {"model": "gradient-boosted trees (SCORE_HGB), five user-grouped fold models averaged",
+                                  "features": METHOD_FEATURES, "training_users": "0 to 129",
+                                  "target": "probe-active or acting end to end"},
+                        "thresholds": {"method": METHOD_GRID_SHARES, "ablation_without_provenance": NO_SOURCE_GRID_SHARES},
+                        "census": {"units": CENSUS_UNITS, "rlma_order": "w*s among units the least restrictive candidate keeps",
+                                   "positive": "the whole record is quarantined in every candidate (every census method)"},
+                        "light_probe": "dropped (notebook 04: the equal-budget census did as well or better in 9 of 9 cells)",
+                        "c4_comparators": ["reuse all", "scanner curve", "scanner score + audit", "random census", "greedy",
+                                           "blanket external-source quarantine"],
+                        "ablations": ["RLMA without the provenance label", "RLMA without the census"],
+                        "references": ["destination gating", "authority gating"],
+                        "inclusion_for_C2_to_C4": f"Wilson lower bound of the survivor-store r_Q above {INCLUSION_WILSON_LO}",
+                        "alphas": ALPHAS, "delta": DELTA, "audit_seeds": AUDIT_SEEDS},
         "runtime_version": RUNTIME_VERSION,
     }

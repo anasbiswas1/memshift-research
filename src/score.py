@@ -351,3 +351,39 @@ def residual_rate(d: pd.DataFrame, s: np.ndarray, share: float, hits: str, n_que
     exposure are dropped from context: the recorded attacker actions of the other units over the queries run."""
     lam = thresholds(d, s, (share,))[0]
     return float(d[hits].to_numpy()[s < lam].sum() / n_queries) if n_queries else float("nan")
+
+
+# ----------------------------------------------------------------------------- notebook 05: units on the served store
+def served_frame(suite: dict, ret_served, recf: pd.DataFrame, labels: dict | None = None, ret_old=None) -> pd.DataFrame:
+    """Units exposed in the log contexts of the store the policies serve (a migration's survivor store, retrieved by
+    `ret_served`): w_r1 = share of the user's category queries that retrieve the record; dw from `ret_old` on the same
+    store (0 for reader migrations, which keep the retriever); record features, the provenance label, the poison flag
+    and, with `labels`, the label y of each unit."""
+    cnt = ret_served.exposure_counts(suite)
+    old = ret_old.exposure_counts(suite) if ret_old is not None else cnt
+    df = pd.DataFrame([{"record_id": r, "category": c, "n_r1": n, "n_r0": int(old.get((r, c), 0))}
+                       for (r, c), n in sorted(cnt.items()) if n > 0])
+    df["w_r1"] = df.n_r1 / config.QUERIES_PER_CATEGORY
+    df["dw"] = (df.n_r1 - df.n_r0).abs() / config.QUERIES_PER_CATEGORY
+    df = df.merge(recf, on="record_id", how="left")
+    df["poison"] = df.record_id.map(lambda r: suite["records"][r]["poison"]).astype(int)
+    df["attack"] = df.record_id.map(lambda r: suite["records"][r]["attack"] or "benign")
+    df["split"] = df.user_id.map(lambda u: suite["users"][u]["split"])
+    df = with_source(df, suite)
+    if labels is not None:
+        df["y"] = [int(labels.get(k, 0)) for k in zip(df.record_id, df.category)]
+    return df
+
+
+def unit_labels(act: pd.DataFrame, reader: str) -> dict:
+    """(record, category) -> 1 when any probe of the unit under `reader` acted for the attacker."""
+    if act is None or act.empty:
+        return {}
+    a = act[act.reader == reader].groupby(["record_id", "category"]).a.max()
+    return {k: int(v) for k, v in a.items()}
+
+
+def training_frame(parts: list[pd.DataFrame], features: list[str]) -> pd.DataFrame:
+    """Development units of several user groups in one frame for fit_ensemble (columns the fit and thresholds use)."""
+    cols = ["record_id", "category", "user_id", "poison", "w_r1", "target"] + [f for f in features if f != "w_r1"]
+    return pd.concat([d[cols] for d in parts], ignore_index=True)

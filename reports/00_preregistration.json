@@ -375,5 +375,79 @@
     "delta": 0.05,
     "claims": "G1 statistic and C1 described; C2, C3 and C4 as in plan v2"
   },
+  "notebook_05": {
+    "date": "2026-11-16",
+    "status": "development on users 0 to 129 (users 100 to 129 informed the changes below), confirmation on users 130 to 159",
+    "users": [
+      130,
+      159
+    ],
+    "amendment": "docs/plan_v2_amendment_1.md",
+    "units": "(record, category) units and exposure on the served survivor store of each migration",
+    "score": {
+      "model": "gradient-boosted trees (SCORE_HGB), five user-grouped fold models averaged",
+      "features": [
+        "scanner",
+        "w_r1",
+        "dw",
+        "has_email",
+        "has_iban",
+        "has_link",
+        "names_known",
+        "imperative",
+        "standing",
+        "length",
+        "external"
+      ],
+      "training_users": "0 to 129",
+      "target": "probe-active or acting end to end"
+    },
+    "thresholds": {
+      "method": [
+        0.15,
+        0.1,
+        0.07,
+        0.05,
+        0.03
+      ],
+      "ablation_without_provenance": [
+        0.25,
+        0.15,
+        0.1,
+        0.05,
+        0.02
+      ]
+    },
+    "census": {
+      "units": 200,
+      "rlma_order": "w*s among units the least restrictive candidate keeps",
+      "positive": "the whole record is quarantined in every candidate (every census method)"
+    },
+    "light_probe": "dropped (notebook 04: the equal-budget census did as well or better in 9 of 9 cells)",
+    "c4_comparators": [
+      "reuse all",
+      "scanner curve",
+      "scanner score + audit",
+      "random census",
+      "greedy",
+      "blanket external-source quarantine"
+    ],
+    "ablations": [
+      "RLMA without the provenance label",
+      "RLMA without the census"
+    ],
+    "references": [
+      "destination gating",
+      "authority gating"
+    ],
+    "inclusion_for_C2_to_C4": "Wilson lower bound of the survivor-store r_Q above 0.01",
+    "alphas": [
+      0.01,
+      0.02,
+      0.05
+    ],
+    "delta": 0.05,
+    "audit_seeds": 1000
+  },
   "runtime_version": "5"
 }

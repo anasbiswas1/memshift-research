@@ -233,3 +233,70 @@ def confirmation_policies(T: pd.DataFrame, lam: dict, budget: dict, suite: dict,
     out.append({"method": "blanket external-source quarantine", "census": 0, "g": 1, "alpha": None,
                 "K": external_records(suite, users)})
     return out
+
+
+# ----------------------------------------------------------------------------- notebook 05: census on what the candidates keep
+def score_sets(T: pd.DataFrame, score: str, lambdas: list[float]) -> list[frozenset]:
+    return [frozenset((r, c) for r, c, s in zip(T.record_id, T.category, T[score]) if s >= lam) for lam in lambdas]
+
+
+def targeted_census(T: pd.DataFrame, score: str, lambdas: list[float], size: int) -> list[tuple[str, str]]:
+    """Algorithm 1, step 1: the `size` units with the largest w*s among those the least restrictive candidate keeps
+    (a unit every candidate already quarantines cannot change any candidate, so probing it is wasted)."""
+    keep = score_sets(T, score, lambdas[-1:])[0]
+    d = T[[(r, c) not in keep for r, c in zip(T.record_id, T.category)]].assign(_ws=lambda x: x.w_r1 * x[score])
+    d = d.sort_values("_ws", ascending=False, kind="stable").head(size)
+    return list(zip(d.record_id, d.category))
+
+
+def top_census(T: pd.DataFrame, score: str, size: int) -> list[tuple[str, str]]:
+    d = T.assign(_ws=T.w_r1 * T[score]).sort_values("_ws", ascending=False, kind="stable").head(size)
+    return list(zip(d.record_id, d.category))
+
+
+def random_census(T: pd.DataFrame, size: int, seed: int) -> list[tuple[str, str]]:
+    idx = np.sort(np.random.default_rng(seed).choice(len(T), size=min(size, len(T)), replace=False))
+    return list(zip(T.record_id.iloc[idx], T.category.iloc[idx]))
+
+
+def census_selections(T: pd.DataFrame, lam: dict, size: int, seed: int) -> dict[str, list[tuple[str, str]]]:
+    """Units each census method probes (greedy is sized later from the audit tokens it saves)."""
+    return {"RLMA": targeted_census(T, "s", lam["s"], size),
+            "RLMA without the provenance label": targeted_census(T, "s_ns", lam["s_ns"], size),
+            "scanner score + audit": targeted_census(T, "scanner", lam["scanner"], size),
+            "random census": random_census(T, size, seed)}
+
+
+def greedy_size(size: int, G: int, alpha: float, execution_tokens: float, census_unit_tokens: float) -> int:
+    """Greedy runs one candidate instead of G, so it gets the census size of the other methods plus the audit tokens
+    it saves, spent on census units."""
+    return int(size + (G - 1) * n0(alpha) * execution_tokens // census_unit_tokens)
+
+
+def positives(selection: list[tuple[str, str]], labels: dict) -> frozenset:
+    """Records of the probed units found active: a record proven to act for the attacker is quarantined whole."""
+    return frozenset(r for r, c in selection if labels.get((r, c), 0) == 1)
+
+
+def v5_policies(T: pd.DataFrame, lam: dict, selections: dict, labels: dict, suite: dict, users: set[int]) -> list[dict]:
+    """Every candidate of every method on one migration's units T (columns s, s_ns, scanner, w_r1, poison).
+    `selections` holds the probed units of each census method (greedy keyed "greedy|<alpha>")."""
+    out = [{"method": "reuse all", "census": 0, "g": 0, "alpha": None, "K": frozenset()}]
+    for method, score, lm in (("RLMA", "s", lam["s"]), ("RLMA without the provenance label", "s_ns", lam["s_ns"]),
+                              ("scanner score + audit", "scanner", lam["scanner"]), ("random census", "s", lam["s"])):
+        sel = selections[method]
+        plus = positives(sel, labels)
+        for gi, K in enumerate(score_sets(T, score, lm), 1):
+            out.append({"method": method, "census": len(sel), "g": gi, "alpha": None, "lambda": lm[gi - 1],
+                        "K": frozenset(K | plus), "census_positives": len(plus)})
+    for gi, K in enumerate(score_sets(T, "s", lam["s"]), 1):
+        out.append({"method": "RLMA without the census", "census": 0, "g": gi, "alpha": None, "lambda": lam["s"][gi - 1], "K": K})
+    for a in config.ALPHAS:
+        sel = selections[f"greedy|{a}"]
+        plus = positives(sel, labels)
+        out.append({"method": "greedy", "census": len(sel), "g": 1, "alpha": a, "K": plus, "census_positives": len(plus)})
+    for gi, K in enumerate(score_sets(T, "scanner", lam["scanner_curve"]), 1):
+        out.append({"method": "scanner curve", "census": 0, "g": gi, "alpha": None, "lambda": lam["scanner_curve"][gi - 1], "K": K})
+    out.append({"method": "blanket external-source quarantine", "census": 0, "g": 1, "alpha": None,
+                "K": external_records(suite, users)})
+    return out

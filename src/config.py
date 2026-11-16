@@ -159,6 +159,13 @@ INCLUSION_WILSON_LO = 0.01                       # a migration enters C2 to C4 w
 # score = gradient-boosted trees on METHOD_FEATURES trained on users 0 to 129; C4 compares RLMA with the plan's
 # baselines; ablations (without the provenance label, without the census) are reported beside them.
 
+# ----------------------------------------------------------------------------- notebook 06 (retriever migrations, users 130 to 159)
+RETRIEVER_MIGRATIONS = ("M4", "M6")              # plan v2 Section 10: one retriever pair in the first study
+NO_EXPOSURE_CHANGE_FEATURES = [f for f in METHOD_FEATURES if f != "dw"]   # ablation: the score without dw
+# The amended method of notebook 05, unchanged. Its score for M4 and M6 is trained on users 0 to 99, the only users
+# with runs of the bge-large-en-v1.0 pipeline (notebook 02). Claims C2 to C4 are also computed over every included
+# migration of notebooks 05 and 06 together.
+
 MIGRATIONS = {
     "M1": {"L0": "qwen25_7b", "L1": "llama31_8b", "R0": REF_RETRIEVER, "R1": REF_RETRIEVER},
     "M2": {"L0": "llama31_8b", "L1": "qwen25_7b", "R0": REF_RETRIEVER, "R1": REF_RETRIEVER},
@@ -268,5 +275,14 @@ def preregistration() -> dict:
                         "references": ["destination gating", "authority gating"],
                         "inclusion_for_C2_to_C4": f"Wilson lower bound of the survivor-store r_Q above {INCLUSION_WILSON_LO}",
                         "alphas": ALPHAS, "delta": DELTA, "audit_seeds": AUDIT_SEEDS},
+        "notebook_06": {"date": "2026-11-16", "status": "the notebook 05 method, unchanged, on the retriever migrations "
+                        "of plan v2 Section 10 (M4, M6), users 130 to 159", "migrations": list(RETRIEVER_MIGRATIONS),
+                        "score_training_users": "0 to 99 (runs of the bge-large-en-v1.0 pipeline exist only there)",
+                        "units": "served survivor store of the old pipeline (bge-large-en-v1.0, Qwen2.5-7B); dw from the "
+                                 "old and new retriever on that store",
+                        "ablations": ["RLMA without the provenance label", "RLMA without the census",
+                                      "RLMA without the exposure change"],
+                        "claims": "C2 to C4 on the included migrations of notebook 06, and over every included migration "
+                                  "of notebooks 05 and 06 together; inclusion as in notebook 05"},
         "runtime_version": RUNTIME_VERSION,
     }

@@ -259,12 +259,17 @@ def random_census(T: pd.DataFrame, size: int, seed: int) -> list[tuple[str, str]
     return list(zip(T.record_id.iloc[idx], T.category.iloc[idx]))
 
 
-def census_selections(T: pd.DataFrame, lam: dict, size: int, seed: int) -> dict[str, list[tuple[str, str]]]:
-    """Units each census method probes (greedy is sized later from the audit tokens it saves)."""
-    return {"RLMA": targeted_census(T, "s", lam["s"], size),
-            "RLMA without the provenance label": targeted_census(T, "s_ns", lam["s_ns"], size),
-            "scanner score + audit": targeted_census(T, "scanner", lam["scanner"], size),
-            "random census": random_census(T, size, seed)}
+def census_selections(T: pd.DataFrame, lam: dict, size: int, seed: int,
+                      ablations: dict[str, str] | None = None) -> dict[str, list[tuple[str, str]]]:
+    """Units each census method probes (greedy is sized later from the audit tokens it saves). `ablations` maps an
+    extra score-ablation name to its score column, which is also its key in `lam`."""
+    out = {"RLMA": targeted_census(T, "s", lam["s"], size),
+           "RLMA without the provenance label": targeted_census(T, "s_ns", lam["s_ns"], size),
+           "scanner score + audit": targeted_census(T, "scanner", lam["scanner"], size),
+           "random census": random_census(T, size, seed)}
+    for name, col in (ablations or {}).items():
+        out[name] = targeted_census(T, col, lam[col], size)
+    return out
 
 
 def greedy_size(size: int, G: int, alpha: float, execution_tokens: float, census_unit_tokens: float) -> int:
@@ -278,12 +283,16 @@ def positives(selection: list[tuple[str, str]], labels: dict) -> frozenset:
     return frozenset(r for r, c in selection if labels.get((r, c), 0) == 1)
 
 
-def v5_policies(T: pd.DataFrame, lam: dict, selections: dict, labels: dict, suite: dict, users: set[int]) -> list[dict]:
+def v5_policies(T: pd.DataFrame, lam: dict, selections: dict, labels: dict, suite: dict, users: set[int],
+                ablations: dict[str, str] | None = None) -> list[dict]:
     """Every candidate of every method on one migration's units T (columns s, s_ns, scanner, w_r1, poison).
-    `selections` holds the probed units of each census method (greedy keyed "greedy|<alpha>")."""
+    `selections` holds the probed units of each census method (greedy keyed "greedy|<alpha>"); `ablations` adds
+    score ablations (name -> score column and `lam` key) built like RLMA."""
     out = [{"method": "reuse all", "census": 0, "g": 0, "alpha": None, "K": frozenset()}]
-    for method, score, lm in (("RLMA", "s", lam["s"]), ("RLMA without the provenance label", "s_ns", lam["s_ns"]),
-                              ("scanner score + audit", "scanner", lam["scanner"]), ("random census", "s", lam["s"])):
+    scored = [("RLMA", "s", lam["s"]), ("RLMA without the provenance label", "s_ns", lam["s_ns"]),
+              ("scanner score + audit", "scanner", lam["scanner"]), ("random census", "s", lam["s"])]
+    scored += [(name, col, lam[col]) for name, col in (ablations or {}).items()]
+    for method, score, lm in scored:
         sel = selections[method]
         plus = positives(sel, labels)
         for gi, K in enumerate(score_sets(T, score, lm), 1):

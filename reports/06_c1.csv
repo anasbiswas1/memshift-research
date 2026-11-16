@@ -1,0 +1,3 @@
+migration,r_new_survivor,attacker_actions,r_wilson_lo,r_wilson_hi,c1_holds,enters_C2_to_C4,units_with_exposure_change,actions_on_units_with_exposure_change,round1_removed,round2_removed
+M4,0.0125,15,0.0075896368246919825,0.020521588811899853,True,False,0.5402939685757729,0.8666666666666667,56,8
+M6,0.008333333333333333,10,0.0045327402225513605,0.015271743752814763,False,False,0.5402939685757729,0.5,56,8

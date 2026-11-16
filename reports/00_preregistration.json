@@ -449,5 +449,21 @@
     "delta": 0.05,
     "audit_seeds": 1000
   },
+  "notebook_06": {
+    "date": "2026-11-16",
+    "status": "the notebook 05 method, unchanged, on the retriever migrations of plan v2 Section 10 (M4, M6), users 130 to 159",
+    "migrations": [
+      "M4",
+      "M6"
+    ],
+    "score_training_users": "0 to 99 (runs of the bge-large-en-v1.0 pipeline exist only there)",
+    "units": "served survivor store of the old pipeline (bge-large-en-v1.0, Qwen2.5-7B); dw from the old and new retriever on that store",
+    "ablations": [
+      "RLMA without the provenance label",
+      "RLMA without the census",
+      "RLMA without the exposure change"
+    ],
+    "claims": "C2 to C4 on the included migrations of notebook 06, and over every included migration of notebooks 05 and 06 together; inclusion as in notebook 05"
+  },
   "runtime_version": "5"
 }

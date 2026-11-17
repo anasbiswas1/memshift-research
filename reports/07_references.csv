@@ -1,0 +1,5 @@
+pipeline,policy,split,reference,r_Q,success,success_directory_tasks,success_memory_tasks,tasks_refused,success_without_gating,migration
+bge_large_v15|mistral_7b,v7|M7|reuse all|B0|g0,heldout,destination gating,0.0,0.24666666666666667,0.43137254901960786,0.05442176870748299,0.455,0.5383333333333333,M7
+bge_large_v15|mistral_7b,v7|M7|reuse all|B0|g0,heldout,authority gating,0.0,0.3433333333333333,0.43137254901960786,0.25170068027210885,0.29333333333333333,0.5383333333333333,M7
+bge_large_v15|mistral_7b,v7|M7|reuse all|B0|g0,log,destination gating,0.0,0.3,0.4040920716112532,0.10526315789473684,0.30666666666666664,0.5075,M7
+bge_large_v15|mistral_7b,v7|M7|reuse all|B0|g0,log,authority gating,0.0,0.37083333333333335,0.4040920716112532,0.30861244019138756,0.20416666666666666,0.5075,M7

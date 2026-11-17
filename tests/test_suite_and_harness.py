@@ -138,10 +138,11 @@ def test_decomposition_identity_and_gate_on_scripted_migration(tmp_path):
     act = AN.activation_frame(eps)
     expo = AN.exposure_frame({("main", rt): r.exposure_counts(SUITE) for rt, r in rets.items()})
     g = AN.Ground(SUITE, expo, act, "main", users)
-    for m in config.MIGRATIONS:
+    migs = [m for m in config.MIGRATIONS if config.MIGRATIONS[m]["L1"] in modes]   # M7's reader has no scripted probes here
+    for m in migs:
         d = AN.decomposition(g, m)
         assert abs(d["identity_gap"]) < 1e-12
-    fl = pd.concat([AN.flips(g, m) for m in config.MIGRATIONS])
+    fl = pd.concat([AN.flips(g, m) for m in migs])
     gate = AN.gate_g1(fl)
     assert gate["per_migration"]["M2"]["newly_active"] == 0          # factual -> cautious cannot activate
     assert gate["per_migration"]["M3"]["rate"] > 0

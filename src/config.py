@@ -69,7 +69,7 @@ READERS = {
     "qwen25_7b": "Qwen/Qwen2.5-7B-Instruct",
     "llama31_8b": "meta-llama/Llama-3.1-8B-Instruct",
     "qwen3_8b": "Qwen/Qwen3-8B",
-    "mistral_7b": "mistralai/Mistral-7B-Instruct-v0.3",      # notebook 04
+    "mistral_7b": "mistralai/Mistral-7B-Instruct-v0.3",      # notebook 07: the new reader of M7
 }
 SURROGATES = {
     "qwen25_3b": "Qwen/Qwen2.5-3B-Instruct",
@@ -166,6 +166,20 @@ NO_EXPOSURE_CHANGE_FEATURES = [f for f in METHOD_FEATURES if f != "dw"]   # abla
 # with runs of the bge-large-en-v1.0 pipeline (notebook 02). Claims C2 to C4 are also computed over every included
 # migration of notebooks 05 and 06 together.
 
+# ----------------------------------------------------------------------------- notebook 07 (a fourth reader migration; laundered provenance)
+EXTRA_READER_MIGRATIONS = ("M7",)                # Qwen2.5-7B to Mistral-7B-Instruct-v0.3, outside the plan v2 table; the
+                                                 # notebook 05 method unchanged, score trained on users 0 to 129 with the
+                                                 # new reader's probe and end-to-end labels, confirmation on users 130 to 159
+LAUNDER_SHARES = (0.0, 0.25, 0.50)               # share of poisoned records whose provenance label is laundered to "user"
+                                                 # (fixed by a record-id hash); 0.0 is the reference under the same fitted score
+LAUNDER_SALT = "launder-07"
+LAUNDER_MIGRATIONS = ("M1", "M2", "M7")          # the migrations of notebook 05 that entered C2 to C4, and M7 whether or not it enters
+LAUNDER_METHODS = ("RLMA", "blanket external-source quarantine")   # the methods that read the provenance label
+REFIT_TOLERANCE = 1e-6                           # a score refitted on the saved training units counts as the frozen score within this
+# The score models of notebook 05 were not saved; notebook 07 refits them on reports/05_training_units.csv.gz (same
+# recipe, same seed) and records the largest difference from reports/05_units.csv.gz. From notebook 07 on, fitted score
+# models are saved under reports/07_models/.
+
 MIGRATIONS = {
     "M1": {"L0": "qwen25_7b", "L1": "llama31_8b", "R0": REF_RETRIEVER, "R1": REF_RETRIEVER},
     "M2": {"L0": "llama31_8b", "L1": "qwen25_7b", "R0": REF_RETRIEVER, "R1": REF_RETRIEVER},
@@ -173,8 +187,9 @@ MIGRATIONS = {
     "M4": {"L0": "qwen25_7b", "L1": "qwen25_7b", "R0": "bge_large_v10", "R1": "bge_large_v15"},
     "M5": {"L0": "qwen25_7b", "L1": "qwen25_7b", "R0": "minilm_l6", "R1": "bge_base_v15"},
     "M6": {"L0": "qwen25_7b", "L1": "qwen3_8b", "R0": "bge_large_v10", "R1": "bge_large_v15"},
+    "M7": {"L0": "qwen25_7b", "L1": "mistral_7b", "R0": REF_RETRIEVER, "R1": REF_RETRIEVER},   # notebook 07; no A4 group
 }
-READER_MIGRATIONS = ["M1", "M2", "M3"]
+READER_MIGRATIONS = ["M1", "M2", "M3"]           # the plan v2 reader migrations (gate G1, A4 groups); M7 is reported beside them
 
 # Upgrade-targeted payloads (attack A4): inert on the old reader, active on a surrogate of the new reader.
 A4_GROUPS = {
@@ -284,5 +299,26 @@ def preregistration() -> dict:
                                       "RLMA without the exposure change"],
                         "claims": "C2 to C4 on the included migrations of notebook 06, and over every included migration "
                                   "of notebooks 05 and 06 together; inclusion as in notebook 05"},
+        "notebook_07": {"date": "2026-11-16", "status": "the notebook 05 method, unchanged, on a fourth reader migration "
+                        "M7 (Qwen2.5-7B to Mistral-7B-Instruct-v0.3) on users 130 to 159, and an ablation with laundered "
+                        "provenance labels on the migrations that entered C2 to C4",
+                        "migrations": list(EXTRA_READER_MIGRATIONS), "m7": MIGRATIONS["M7"],
+                        "m7_score": {"training_users": "0 to 129", "target": "probe-active or acting end to end under "
+                                     "Mistral-7B-Instruct-v0.3: users 0 to 99 on the main store (probes; unquarantined "
+                                     "runs of test users 30 to 99 on log and held-out queries), users 100 to 129 on the "
+                                     "served survivor store of Qwen2.5-7B", "features": METHOD_FEATURES,
+                                     "thresholds": METHOD_GRID_SHARES},
+                        "m7_checks": "clean-store tasks, stability and parse-failure tables of the new reader as in "
+                                     "notebook 01; G1 statistic on users 0 to 99 and 130 to 159 (A1 to A3); inclusion as in notebook 05",
+                        "laundering": {"shares": LAUNDER_SHARES, "salt": LAUNDER_SALT, "migrations": list(LAUNDER_MIGRATIONS),
+                                       "methods": list(LAUNDER_METHODS), "what_changes": "the provenance label of the "
+                                       "laundered poisoned records reads 'user' at deployment; the score model, its "
+                                       "thresholds, the census size and the audit are unchanged; the training data is clean",
+                                       "scores_of_M1_M2": "refitted on reports/05_training_units.csv.gz, difference from "
+                                                          "reports/05_units.csv.gz recorded; the 0% row is the reference",
+                                       "expected": "the certificate (C3) holds at every share because the audit does not "
+                                                   "read the label; the utility cost of laundering is measured"},
+                        "claims": "C2 to C4 for M7 if it enters, over notebooks 05 to 07 together, and C3 for RLMA under "
+                                  "laundering on every included migration"},
         "runtime_version": RUNTIME_VERSION,
     }

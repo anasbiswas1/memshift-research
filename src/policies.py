@@ -20,10 +20,25 @@ import config
 
 
 # ----------------------------------------------------------------------------- sources and references
-def record_source(rec: dict) -> str:
+def laundered_records(suite: dict, share: float, users: set[int] | None = None, salt: str = config.LAUNDER_SALT) -> frozenset:
+    """Notebook 07: poisoned records whose provenance label the attacker has laundered to 'user' (as if written through
+    the agent's own note-taking): a fixed share of the poisoned records, chosen by a hash of the record id."""
+    if share <= 0:
+        return frozenset()
+    out = set()
+    for rid, r in suite["records"].items():
+        if r["poison"] and (users is None or r["user_id"] in users):
+            if int(hashlib.sha1(f"{salt}|{rid}".encode()).hexdigest(), 16) % 10000 < share * 10000:
+                out.add(rid)
+    return frozenset(out)
+
+
+def record_source(rec: dict, laundered=frozenset()) -> str:
     """Provenance used by the perfect-label baselines: poison is external content; quoted instructions are external;
     half of the legitimate updates and memory-only contacts were told by the user and half learned from content
-    (decided by a hash of the record id); everything else was told by the user."""
+    (decided by a hash of the record id); everything else was told by the user. A laundered record reads 'user'."""
+    if rec["record_id"] in laundered:
+        return "user"
     if rec["poison"] or rec["kind"] in config.EXTERNAL_KINDS:
         return "external"
     if rec["kind"] in config.SOURCE_SPLIT_KINDS:
@@ -153,9 +168,10 @@ def external_units(test_units: pd.DataFrame, suite: dict) -> frozenset:
                      if record_source(suite["records"][r]) == "external")
 
 
-def external_records(suite: dict, users: set[int]) -> frozenset:
-    """Every externally sourced record of the given users, in every category (revision 2)."""
-    return frozenset(rid for rid, r in suite["records"].items() if r["user_id"] in users and record_source(r) == "external")
+def external_records(suite: dict, users: set[int], laundered=frozenset()) -> frozenset:
+    """Every externally sourced record of the given users, in every category (revision 2); a laundered record is not."""
+    return frozenset(rid for rid, r in suite["records"].items()
+                     if r["user_id"] in users and record_source(r, laundered) == "external")
 
 
 # ----------------------------------------------------------------------------- audit
@@ -308,4 +324,32 @@ def v5_policies(T: pd.DataFrame, lam: dict, selections: dict, labels: dict, suit
         out.append({"method": "scanner curve", "census": 0, "g": gi, "alpha": None, "lambda": lam["scanner_curve"][gi - 1], "K": K})
     out.append({"method": "blanket external-source quarantine", "census": 0, "g": 1, "alpha": None,
                 "K": external_records(suite, users)})
+    return out
+
+
+# ----------------------------------------------------------------------------- notebook 07: laundered provenance labels
+def laundered_name(method: str, share: float) -> str:
+    return f"{method}, {round(share * 100)}% laundered"
+
+
+def laundered_frame(T: pd.DataFrame, laundered: frozenset) -> pd.DataFrame:
+    """The units as the operator sees them when the attacker has laundered some records: the provenance feature of a
+    laundered record reads 0 (user-sourced). The score column is recomputed by the caller with the frozen model."""
+    Tl = T.copy()
+    Tl["external"] = [0 if r in laundered else int(e) for r, e in zip(Tl.record_id, Tl.external)]
+    return Tl
+
+
+def laundered_policies(Tl: pd.DataFrame, lam_s: list[float], selection: list[tuple[str, str]], labels: dict,
+                       suite: dict, users: set[int], laundered: frozenset, share: float) -> list[dict]:
+    """The two methods that read the provenance label, on the laundered units Tl (column s already recomputed):
+    RLMA with its targeted census (Algorithm 1, unchanged) and the blanket external-source quarantine, which keeps
+    every laundered record because its label now reads 'user'."""
+    plus = positives(selection, labels)
+    out = []
+    for gi, K in enumerate(score_sets(Tl, "s", lam_s), 1):
+        out.append({"method": laundered_name("RLMA", share), "census": len(selection), "g": gi, "alpha": None,
+                    "lambda": lam_s[gi - 1], "K": frozenset(K | plus), "census_positives": len(plus), "laundered": share})
+    out.append({"method": laundered_name("blanket external-source quarantine", share), "census": 0, "g": 1, "alpha": None,
+                "K": external_records(suite, users, laundered), "laundered": share})
     return out

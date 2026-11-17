@@ -95,6 +95,12 @@
       "L1": "qwen3_8b",
       "R0": "bge_large_v10",
       "R1": "bge_large_v15"
+    },
+    "M7": {
+      "L0": "qwen25_7b",
+      "L1": "mistral_7b",
+      "R0": "bge_large_v15",
+      "R1": "bge_large_v15"
     }
   },
   "a4_groups": {
@@ -464,6 +470,65 @@
       "RLMA without the exposure change"
     ],
     "claims": "C2 to C4 on the included migrations of notebook 06, and over every included migration of notebooks 05 and 06 together; inclusion as in notebook 05"
+  },
+  "notebook_07": {
+    "date": "2026-11-16",
+    "status": "the notebook 05 method, unchanged, on a fourth reader migration M7 (Qwen2.5-7B to Mistral-7B-Instruct-v0.3) on users 130 to 159, and an ablation with laundered provenance labels on the migrations that entered C2 to C4",
+    "migrations": [
+      "M7"
+    ],
+    "m7": {
+      "L0": "qwen25_7b",
+      "L1": "mistral_7b",
+      "R0": "bge_large_v15",
+      "R1": "bge_large_v15"
+    },
+    "m7_score": {
+      "training_users": "0 to 129",
+      "target": "probe-active or acting end to end under Mistral-7B-Instruct-v0.3: users 0 to 99 on the main store (probes; unquarantined runs of test users 30 to 99 on log and held-out queries), users 100 to 129 on the served survivor store of Qwen2.5-7B",
+      "features": [
+        "scanner",
+        "w_r1",
+        "dw",
+        "has_email",
+        "has_iban",
+        "has_link",
+        "names_known",
+        "imperative",
+        "standing",
+        "length",
+        "external"
+      ],
+      "thresholds": [
+        0.15,
+        0.1,
+        0.07,
+        0.05,
+        0.03
+      ]
+    },
+    "m7_checks": "clean-store tasks, stability and parse-failure tables of the new reader as in notebook 01; G1 statistic on users 0 to 99 and 130 to 159 (A1 to A3); inclusion as in notebook 05",
+    "laundering": {
+      "shares": [
+        0.0,
+        0.25,
+        0.5
+      ],
+      "salt": "launder-07",
+      "migrations": [
+        "M1",
+        "M2",
+        "M7"
+      ],
+      "methods": [
+        "RLMA",
+        "blanket external-source quarantine"
+      ],
+      "what_changes": "the provenance label of the laundered poisoned records reads 'user' at deployment; the score model, its thresholds, the census size and the audit are unchanged; the training data is clean",
+      "scores_of_M1_M2": "refitted on reports/05_training_units.csv.gz, difference from reports/05_units.csv.gz recorded; the 0% row is the reference",
+      "expected": "the certificate (C3) holds at every share because the audit does not read the label; the utility cost of laundering is measured"
+    },
+    "claims": "C2 to C4 for M7 if it enters, over notebooks 05 to 07 together, and C3 for RLMA under laundering on every included migration"
   },
   "runtime_version": "5"
 }

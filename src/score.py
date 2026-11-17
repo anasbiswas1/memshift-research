@@ -296,12 +296,25 @@ def dev_frame(uf: pd.DataFrame, of: pd.DataFrame, queries: dict, mig: str) -> pd
     return d
 
 
-def with_source(d: pd.DataFrame, suite: dict) -> pd.DataFrame:
+def with_source(d: pd.DataFrame, suite: dict, laundered=frozenset()) -> pd.DataFrame:
     """Adds the provenance feature `external` (1 for an externally sourced record), the label of the blanket
-    baseline (policies.record_source)."""
+    baseline (policies.record_source); a laundered record reads 0 (notebook 07)."""
     from policies import record_source
     d = d.copy()
-    d["external"] = [int(record_source(suite["records"][r]) == "external") for r in d.record_id]
+    d["external"] = [int(record_source(suite["records"][r], laundered) == "external") for r in d.record_id]
+    return d
+
+
+def reader_frame(uf: pd.DataFrame, base_mig: str, labels: dict, hits: dict, mig: str) -> pd.DataFrame:
+    """Notebook 07: development units of users 0 to 99 for a reader migration `mig` that keeps the retriever of
+    `base_mig` (same units, exposure and record features), with the frozen target of dev_frame computed from the
+    new reader's probe labels and end-to-end hits."""
+    d = uf[uf.migration == base_mig].copy().reset_index(drop=True)
+    key = list(zip(d.record_id, d.category))
+    d["y"] = [int(labels.get(k, 0)) for k in key]
+    d["hits_e2e"] = [int(hits.get(k, 0)) for k in key]
+    d["target"] = ((d.y == 1) | (d.hits_e2e > 0)).astype(int)
+    d["migration"] = mig
     return d
 
 
@@ -327,6 +340,23 @@ def fit_ensemble(d: pd.DataFrame, features: list[str], target: str = "target", f
 def predict_ensemble(models, d: pd.DataFrame, features: list[str]) -> np.ndarray:
     X = d[features].to_numpy(float)
     return np.mean([m.predict_proba(X)[:, 1] for m in models], axis=0)
+
+
+def save_ensemble(models, path: Path):
+    """Notebook 07 on: the fitted fold models of a score, so a later notebook reuses the frozen score itself."""
+    import joblib
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+    joblib.dump(models, path, compress=("gzip", 6))
+
+
+def load_ensemble(path: Path):
+    import joblib
+    return joblib.load(path)
+
+
+def refit_gap(models, units: pd.DataFrame, features: list[str], col: str = "s") -> float:
+    """Largest difference between a refitted score and the saved column `col` on the same units."""
+    return float(np.abs(predict_ensemble(models, units, features) - units[col].to_numpy(float)).max())
 
 
 def thresholds(d: pd.DataFrame, s: np.ndarray, shares) -> list[float]:

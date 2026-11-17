@@ -1,0 +1,2 @@
+reader,activation_episodes,parse_failure_share,max_steps_share,parser_fallback_share,stop_share,trimmed_share,repeat_share
+mistral_7b,2142,0.010737628384687208,0.7161531279178338,0.0,0.6918767507002801,0.9808590102707749,0.8165266106442577

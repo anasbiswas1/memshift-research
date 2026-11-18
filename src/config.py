@@ -228,6 +228,17 @@ TWO_TIER_CLAIMS = {"C5_level": CLAIM_C3["level"],                     # binomial
 # candidate > alpha) <= delta by the union bound over the two tiers. Scores, thresholds, census, serving, baselines
 # and the inclusion rule are those of amendment 1; the saved fold models of notebook 07 are loaded, the two label-free
 # scores that were not saved are refitted and checked against the saved unit scores.
+# ----------------------------------------------------------------------------- notebook 09 (zero-exposure extension; transferred score; users 160 to 189)
+EXTENSION_NAME = "extended"                       # a candidate K with its zero-log-exposure units of every quarantined record added
+TRANSFER_SOURCES = {"M1": ("M2", "M3", "M7"), "M2": ("M1", "M3", "M7"), "M7": ("M1", "M2", "M3")}   # training units of the other new readers
+TRANSFER_NAME = "transferred score"
+EXTENSION_CLAIMS = {"C8_max_heldout_success_loss": 0.01}
+TRANSFER_CLAIMS = {"C9_min_certified": 0.95}
+# Frozen before notebook 09 is run (docs/plan_v2_amendment_3.md): K_ext = K plus every (record, category) unit with zero
+# log exposure of a record K quarantines in some category; logged contexts are unchanged, so r_Q, the audit and the
+# certificate carry over and only held-out behaviour changes. The transferred scores are fitted with the amendment 1
+# recipe on the pooled training units of the migrations whose new reader differs (TRANSFER_SOURCES), thresholds from
+# their out-of-fold scores; the new reader contributes no label.
 def preregistration() -> dict:
     return {
         "plan": "Certified Memory Revalidation for LLM Agents at Model Migration, plan v1 (13 Nov 2026); plan v2 (docs/plan_v2.md) from notebook 02",
@@ -363,5 +374,22 @@ def preregistration() -> dict:
                                    "C4_two_tier": "clean cells: two-tier utility >= the best amendment 1 comparator's in at least "
                                                   "CLAIM_C4['share_of_cells'] of the cells; C2 and C3 reported for every method",
                                    "margins": TWO_TIER_CLAIMS, "inclusion": "as notebook 05, on users 160 to 189"}},
+        "notebook_09": {"date": "2026-11-18", "status": "the zero-exposure extension and the transferred score of docs/plan_v2_amendment_3.md "
+                        "on users 160 to 189 (M1, M2, M7), with the residual-risk breakdown by category and user",
+                        "amendment": "docs/plan_v2_amendment_3.md", "users": [CONFIRM3_USERS[0], CONFIRM3_USERS[-1]],
+                        "migrations": list(TWO_TIER_MIGRATIONS),
+                        "extension": "K_ext = K plus the zero-log-exposure units of every record K quarantines in some category; "
+                                     "logged outcomes unchanged by construction; measured on the held-out tasks of both tiers' candidates",
+                        "transfer": {"sources": {k: list(v) for k, v in TRANSFER_SOURCES.items()}, "recipe": "amendment 1 (SCORE_HGB, "
+                                     "SCORE_FOLDS user-grouped folds, METHOD_FEATURES and NO_SOURCE_FEATURES), thresholds from the pooled "
+                                     "out-of-fold scores at METHOD_GRID_SHARES and NO_SOURCE_GRID_SHARES; the new reader contributes no label",
+                                     "run": "the two-tier method with its own censuses and candidates, clean labels, same audit seeds"},
+                        "claims": {"C8": "extension: (a) deployed policy's mean held-out rate no higher than without it in every cell; "
+                                         "(b) at most alpha in every cell; (c) held-out benign success falls by at most 1.0 point",
+                                   "C9": "transferred scores: (a) two-tier certified >= 0.95 in every cell; (b) utility >= the best "
+                                         "amendment 1 comparator (reports/08_audit_replay.csv) in at least CLAIM_C4['share_of_cells'] "
+                                         "of the cells; the gap to the own-reader score is reported",
+                                   "breakdown": "attacked-task rate by category and by user for every candidate, log and held-out; reported",
+                                   "margins": {**EXTENSION_CLAIMS, **TRANSFER_CLAIMS}}},
         "runtime_version": RUNTIME_VERSION,
     }

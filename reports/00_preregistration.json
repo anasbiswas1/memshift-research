@@ -575,5 +575,50 @@
       "inclusion": "as notebook 05, on users 160 to 189"
     }
   },
+  "notebook_09": {
+    "date": "2026-11-18",
+    "status": "the zero-exposure extension and the transferred score of docs/plan_v2_amendment_3.md on users 160 to 189 (M1, M2, M7), with the residual-risk breakdown by category and user",
+    "amendment": "docs/plan_v2_amendment_3.md",
+    "users": [
+      160,
+      189
+    ],
+    "migrations": [
+      "M1",
+      "M2",
+      "M7"
+    ],
+    "extension": "K_ext = K plus the zero-log-exposure units of every record K quarantines in some category; logged outcomes unchanged by construction; measured on the held-out tasks of both tiers' candidates",
+    "transfer": {
+      "sources": {
+        "M1": [
+          "M2",
+          "M3",
+          "M7"
+        ],
+        "M2": [
+          "M1",
+          "M3",
+          "M7"
+        ],
+        "M7": [
+          "M1",
+          "M2",
+          "M3"
+        ]
+      },
+      "recipe": "amendment 1 (SCORE_HGB, SCORE_FOLDS user-grouped folds, METHOD_FEATURES and NO_SOURCE_FEATURES), thresholds from the pooled out-of-fold scores at METHOD_GRID_SHARES and NO_SOURCE_GRID_SHARES; the new reader contributes no label",
+      "run": "the two-tier method with its own censuses and candidates, clean labels, same audit seeds"
+    },
+    "claims": {
+      "C8": "extension: (a) deployed policy's mean held-out rate no higher than without it in every cell; (b) at most alpha in every cell; (c) held-out benign success falls by at most 1.0 point",
+      "C9": "transferred scores: (a) two-tier certified >= 0.95 in every cell; (b) utility >= the best amendment 1 comparator (reports/08_audit_replay.csv) in at least CLAIM_C4['share_of_cells'] of the cells; the gap to the own-reader score is reported",
+      "breakdown": "attacked-task rate by category and by user for every candidate, log and held-out; reported",
+      "margins": {
+        "C8_max_heldout_success_loss": 0.01,
+        "C9_min_certified": 0.95
+      }
+    }
+  },
   "runtime_version": "5"
 }

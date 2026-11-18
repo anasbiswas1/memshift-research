@@ -1,0 +1,301 @@
+{
+  "users": [
+    160,
+    189
+  ],
+  "amendment": "docs/plan_v2_amendment_3.md",
+  "reconstruction_mismatches": 0,
+  "extension_changed_log_outcomes": 0,
+  "transfer": {
+    "M1": {
+      "sources": [
+        "M2",
+        "M3",
+        "M7"
+      ],
+      "training_units": 25128,
+      "positives": 1479,
+      "spearman_s": 0.8664897992052291,
+      "spearman_s_ns": 0.903289033754283,
+      "jaccard_candidates_s": [
+        0.939,
+        0.91,
+        0.819,
+        0.745,
+        0.566
+      ],
+      "thresholds": {
+        "s": [
+          0.0010983768271400512,
+          0.008895015900105883,
+          0.06308216769326978,
+          0.1293538529841568,
+          0.2201792294281558
+        ],
+        "s_ns": [
+          0.0012076386778531326,
+          0.02839492423912107,
+          0.08383310393600583,
+          0.17005811568551363,
+          0.2422371176862653
+        ]
+      }
+    },
+    "M2": {
+      "sources": [
+        "M1",
+        "M3",
+        "M7"
+      ],
+      "training_units": 25110,
+      "positives": 1799,
+      "spearman_s": 0.7138072059312082,
+      "spearman_s_ns": 0.6894097161523657,
+      "jaccard_candidates_s": [
+        0.927,
+        0.901,
+        0.845,
+        0.702,
+        0.489
+      ],
+      "thresholds": {
+        "s": [
+          0.0005027562846217114,
+          0.009951645733144566,
+          0.0676561293389195,
+          0.13815162594996394,
+          0.26464458484178355
+        ],
+        "s_ns": [
+          0.000821958387493314,
+          0.03118594136736386,
+          0.0936958994466452,
+          0.19290214213624865,
+          0.2839149071805272
+        ]
+      }
+    },
+    "M7": {
+      "sources": [
+        "M1",
+        "M2",
+        "M3"
+      ],
+      "training_units": 25128,
+      "positives": 935,
+      "spearman_s": 0.8668176263082865,
+      "spearman_s_ns": 0.8566305219535507,
+      "jaccard_candidates_s": [
+        0.953,
+        0.928,
+        0.845,
+        0.863,
+        0.663
+      ],
+      "thresholds": {
+        "s": [
+          0.0008520012078120101,
+          0.007139857033754661,
+          0.037332559528727785,
+          0.06689713635106949,
+          0.10541696927562487
+        ],
+        "s_ns": [
+          0.0009857582909502246,
+          0.02279385477445021,
+          0.04789586924026851,
+          0.08551944687089344,
+          0.12979742499307068
+        ]
+      }
+    }
+  },
+  "C8": {
+    "cells": {
+      "M1|0.01": {
+        "heldout_r_base": 0.005,
+        "heldout_r_extended": 0.0016666666666666668,
+        "heldout_success_base": 0.5673233333333334,
+        "heldout_success_extended": 0.5619866666666666,
+        "a": true,
+        "b": true,
+        "c": true
+      },
+      "M1|0.02": {
+        "heldout_r_base": 0.005,
+        "heldout_r_extended": 0.0016666666666666668,
+        "heldout_success_base": 0.5699233333333334,
+        "heldout_success_extended": 0.5654533333333334,
+        "a": true,
+        "b": true,
+        "c": true
+      },
+      "M1|0.05": {
+        "heldout_r_base": 0.005,
+        "heldout_r_extended": 0.0016666666666666668,
+        "heldout_success_base": 0.5717533333333334,
+        "heldout_success_extended": 0.5678933333333335,
+        "a": true,
+        "b": true,
+        "c": true
+      },
+      "M2|0.01": {
+        "heldout_r_base": 0.0016666666666666668,
+        "heldout_r_extended": 0.0016666666666666668,
+        "heldout_success_base": 0.5633333333333334,
+        "heldout_success_extended": 0.5566666666666668,
+        "a": true,
+        "b": true,
+        "c": true
+      },
+      "M2|0.02": {
+        "heldout_r_base": 0.0016666666666666668,
+        "heldout_r_extended": 0.0016666666666666668,
+        "heldout_success_base": 0.5633333333333334,
+        "heldout_success_extended": 0.5566666666666668,
+        "a": true,
+        "b": true,
+        "c": true
+      },
+      "M2|0.05": {
+        "heldout_r_base": 0.0016666666666666668,
+        "heldout_r_extended": 0.0016666666666666668,
+        "heldout_success_base": 0.5633333333333334,
+        "heldout_success_extended": 0.5566666666666668,
+        "a": true,
+        "b": true,
+        "c": true
+      },
+      "M7|0.01": {
+        "heldout_r_base": 0.01814,
+        "heldout_r_extended": 0.0014733333333333334,
+        "heldout_success_base": 0.4594266666666665,
+        "heldout_success_extended": 0.4368566666666667,
+        "a": true,
+        "b": true,
+        "c": false
+      },
+      "M7|0.02": {
+        "heldout_r_base": 0.020950000000000003,
+        "heldout_r_extended": 0.0042833333333333334,
+        "heldout_success_base": 0.48387999999999987,
+        "heldout_success_extended": 0.46542166666666673,
+        "a": true,
+        "b": true,
+        "c": false
+      },
+      "M7|0.05": {
+        "heldout_r_base": 0.02561,
+        "heldout_r_extended": 0.008943333333333333,
+        "heldout_success_base": 0.5081233333333333,
+        "heldout_success_extended": 0.49627666666666675,
+        "a": true,
+        "b": true,
+        "c": false
+      }
+    },
+    "a_holds": true,
+    "b_holds": true,
+    "c_holds": false,
+    "holds": false
+  },
+  "C9": {
+    "cells": {
+      "M1|0.01": {
+        "certified_rate": 1.0,
+        "utility": 0.6575,
+        "own_utility": 0.6571633333333335,
+        "gap_to_own": -0.00033666666666642975,
+        "best_baseline": 0.6521316666666667,
+        "best_baseline_method": "random census",
+        "a": true,
+        "b": true
+      },
+      "M1|0.02": {
+        "certified_rate": 1.0,
+        "utility": 0.6575,
+        "own_utility": 0.6580300000000002,
+        "gap_to_own": 0.0005300000000002525,
+        "best_baseline": 0.6535350000000001,
+        "best_baseline_method": "random census",
+        "a": true,
+        "b": true
+      },
+      "M1|0.05": {
+        "certified_rate": 1.0,
+        "utility": 0.6575,
+        "own_utility": 0.6586400000000001,
+        "gap_to_own": 0.001140000000000141,
+        "best_baseline": 0.6548983333333336,
+        "best_baseline_method": "random census",
+        "a": true,
+        "b": true
+      },
+      "M2|0.01": {
+        "certified_rate": 1.0,
+        "utility": 0.6516858333333333,
+        "own_utility": 0.6466666666666666,
+        "gap_to_own": -0.005019166666666686,
+        "best_baseline": 0.6459266666666668,
+        "best_baseline_method": "random census",
+        "a": true,
+        "b": true
+      },
+      "M2|0.02": {
+        "certified_rate": 1.0,
+        "utility": 0.6524983333333333,
+        "own_utility": 0.6466666666666666,
+        "gap_to_own": -0.005831666666666679,
+        "best_baseline": 0.6453466666666668,
+        "best_baseline_method": "random census",
+        "a": true,
+        "b": true
+      },
+      "M2|0.05": {
+        "certified_rate": 1.0,
+        "utility": 0.6536683333333333,
+        "own_utility": 0.6466666666666666,
+        "gap_to_own": -0.007001666666666684,
+        "best_baseline": 0.6446816666666667,
+        "best_baseline_method": "random census",
+        "a": true,
+        "b": true
+      },
+      "M7|0.01": {
+        "certified_rate": 1.0,
+        "utility": 0.42255833333333337,
+        "own_utility": 0.41074,
+        "gap_to_own": -0.011818333333333375,
+        "best_baseline": 0.3907783333333332,
+        "best_baseline_method": "random census",
+        "a": true,
+        "b": true
+      },
+      "M7|0.02": {
+        "certified_rate": 1.0,
+        "utility": 0.4434316666666667,
+        "own_utility": 0.43126,
+        "gap_to_own": -0.012171666666666747,
+        "best_baseline": 0.4007849999999999,
+        "best_baseline_method": "random census",
+        "a": true,
+        "b": true
+      },
+      "M7|0.05": {
+        "certified_rate": 1.0,
+        "utility": 0.46177166666666664,
+        "own_utility": 0.45460999999999996,
+        "gap_to_own": -0.007161666666666677,
+        "best_baseline": 0.4182033333333332,
+        "best_baseline_method": "random census",
+        "a": true,
+        "b": true
+      }
+    },
+    "a_holds": true,
+    "share_b": 1.0,
+    "b_holds": true,
+    "holds": true
+  },
+  "runtime_version": "5"
+}

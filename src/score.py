@@ -417,3 +417,11 @@ def training_frame(parts: list[pd.DataFrame], features: list[str]) -> pd.DataFra
     """Development units of several user groups in one frame for fit_ensemble (columns the fit and thresholds use)."""
     cols = ["record_id", "category", "user_id", "poison", "w_r1", "target"] + [f for f in features if f != "w_r1"]
     return pd.concat([d[cols] for d in parts], ignore_index=True)
+
+
+def transfer_training(train: dict[str, pd.DataFrame], target: str, sources: dict = None) -> pd.DataFrame:
+    """Amendment 3: the pooled training units of the migrations whose new reader is not the target's (TRANSFER_SOURCES),
+    for a score fitted without any label of the target's new reader."""
+    sources = sources or config.TRANSFER_SOURCES
+    parts = [train[m] for m in sources[target]]
+    return pd.concat(parts, ignore_index=True)

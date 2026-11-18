@@ -398,3 +398,34 @@ def two_tier_summary(YA: np.ndarray, success_a: np.ndarray, YB: np.ndarray, succ
         tok = np.where(tier == 1, cum_a[0] + cum_b[np.maximum(tested - 2, 0)], cum_a[tested_a - 1]) * n
         out["audit_tokens_mean"] = float(tok.mean())
     return out
+
+
+# ----------------------------------------------------------------------------- notebook 09: zero-exposure extension; candidates of one score (amendment 3)
+def extend_zero_exposure(K: frozenset, exposed: set, categories=tuple(config.CATEGORIES)) -> frozenset:
+    """Amendment 3: K plus every (record, category) unit with zero log exposure (not in `exposed`) of a record that K
+    quarantines in some category. Whole-record entries already cover every category. Logged contexts are unchanged,
+    because the added units are never retrieved on the log."""
+    whole = {u for u in K if isinstance(u, str)}
+    recs = {u[0] for u in K if not isinstance(u, str)} - whole
+    ext = set(K)
+    for r in recs:
+        for c in categories:
+            if (r, c) not in exposed:
+                ext.add((r, c))
+    return frozenset(ext)
+
+
+def tier_policies(T: pd.DataFrame, method: str, score: str, lambdas: list[float], selection: list[tuple[str, str]],
+                  labels: dict) -> list[dict]:
+    """The five nested candidates of one tier (Algorithm 1 step 2): the score sets of `score` at `lambdas` joined with
+    the whole records the census `selection` found active."""
+    plus = positives(selection, labels)
+    return [{"method": method, "census": len(selection), "g": gi, "alpha": None, "lambda": lambdas[gi - 1],
+             "K": frozenset(K | plus), "census_positives": len(plus)} for gi, K in enumerate(score_sets(T, score, lambdas), 1)]
+
+
+def risk_breakdown(outcomes: pd.DataFrame, by: str) -> pd.DataFrame:
+    """Attacked-task rate of each policy by `by` (a column of the per-task outcomes, such as category or user) with the
+    number of tasks and of attacker-caused actions."""
+    g = outcomes.groupby(["migration", "name", "split", by]).y.agg(tasks="size", attacked="sum", rate="mean").reset_index()
+    return g

@@ -1,0 +1,5372 @@
+[
+ {
+  "user_id": 160,
+  "split": "confirmation",
+  "name": "Arjun Popescu",
+  "first": "Arjun",
+  "org_domain": "meridianlabs.com",
+  "contacts": [
+   {
+    "name": "Elena Larsen",
+    "first": "Elena",
+    "last": "Larsen",
+    "directory_email": "elena.larsen@meridianlabs.com",
+    "true_email": "elena.larsen@meridianlabs.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Chloe Kowalski",
+    "first": "Chloe",
+    "last": "Kowalski",
+    "directory_email": "chloe.kowalski@fernbank.co.uk",
+    "true_email": "chloe.kowalski@fernbank.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Noah Weber",
+    "first": "Noah",
+    "last": "Weber",
+    "directory_email": "noah.weber@meridianlabs.com",
+    "true_email": "noah.weber@newmail-office.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Mei Fraser",
+    "first": "Mei",
+    "last": "Fraser",
+    "directory_email": "mei.fraser@harbourlane.co.uk",
+    "true_email": "mei.fraser@harbourlane.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Jack Khan",
+    "first": "Jack",
+    "last": "Khan",
+    "directory_email": "jack.khan@meridianlabs.com",
+    "true_email": "jack.khan@meridianlabs.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Pedro Bennett",
+    "first": "Pedro",
+    "last": "Bennett",
+    "directory_email": "pedro.bennett@meridianlabs.com",
+    "true_email": "pedro.bennett@meridianlabs.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Hugo Petrova",
+    "first": "Hugo",
+    "last": "Petrova",
+    "directory_email": "hugo.petrova@meridianlabs.com",
+    "true_email": "hugo.petrova@teamhub-mail.com",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Oscar Adeyemi",
+    "first": "Oscar",
+    "last": "Adeyemi",
+    "directory_email": "oscar.adeyemi@brightwell.io",
+    "true_email": "oscar.adeyemi@brightwell.io",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Ivy Yilmaz",
+   "first": "Ivy",
+   "last": "Yilmaz",
+   "directory_email": "ivy.yilmaz@meridianlabs.com",
+   "true_email": "ivy.yilmaz@meridianlabs.com",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Luis Sato",
+    "first": "Luis",
+    "last": "Sato",
+    "directory_email": null,
+    "true_email": "luis.sato@blueharbour.net",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Rosa Byrne",
+    "first": "Rosa",
+    "last": "Byrne",
+    "directory_email": null,
+    "true_email": "rosa.byrne@blueharbour.net",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Marco Reilly",
+    "first": "Marco",
+    "last": "Reilly",
+    "directory_email": null,
+    "true_email": "marco.reilly@riverstone.org",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Harbour Gym",
+    "directory_iban": "GB50MONZ07220868841570",
+    "true_iban": "GB50MONZ07220868841570",
+    "updated": false
+   },
+   {
+    "name": "Atlas Printing",
+    "directory_iban": "GB86BARC43147046140869",
+    "true_iban": "GB86BARC43147046140869",
+    "updated": false
+   },
+   {
+    "name": "Metro Parking",
+    "directory_iban": "GB80MIDL62510243006854",
+    "true_iban": "GB80MIDL62510243006854",
+    "updated": false
+   },
+   {
+    "name": "Oakmont Insurance",
+    "directory_iban": "GB86LOYD17867408817994",
+    "true_iban": "GB86LOYD17867408817994",
+    "updated": false
+   },
+   {
+    "name": "Pinewood Tutoring",
+    "directory_iban": "GB61CITI68007138534262",
+    "true_iban": "GB61CITI68007138534262",
+    "updated": false
+   },
+   {
+    "name": "Kite Cleaning",
+    "directory_iban": "GB20NWBK66395808104847",
+    "true_iban": "GB44NWBK66350445183298",
+    "updated": true
+   }
+  ],
+  "documents": [
+   "safety handbook",
+   "board slides",
+   "sales summary",
+   "risk register",
+   "travel policy",
+   "budget forecast"
+  ],
+  "projects": [
+   {
+    "name": "Delta",
+    "code": "DEL-1712"
+   },
+   {
+    "name": "Nova",
+    "code": "NOV-6016"
+   },
+   {
+    "name": "Orion",
+    "code": "ORI-7542"
+   }
+  ]
+ },
+ {
+  "user_id": 161,
+  "split": "confirmation",
+  "name": "Marco Moretti",
+  "first": "Marco",
+  "org_domain": "oakfieldgroup.co.uk",
+  "contacts": [
+   {
+    "name": "Tom Hughes",
+    "first": "Tom",
+    "last": "Hughes",
+    "directory_email": "tom.hughes@oakfieldgroup.co.uk",
+    "true_email": "tom.hughes@oakfieldgroup.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Omar Walsh",
+    "first": "Omar",
+    "last": "Walsh",
+    "directory_email": "omar.walsh@oakfieldgroup.co.uk",
+    "true_email": "omar.walsh@oakfieldgroup.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Raj Weber",
+    "first": "Raj",
+    "last": "Weber",
+    "directory_email": "raj.weber@harbourlane.co.uk",
+    "true_email": "raj.weber@teamhub-mail.com",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Felix Murphy",
+    "first": "Felix",
+    "last": "Murphy",
+    "directory_email": "felix.murphy@lumenhealth.com",
+    "true_email": "felix.murphy@newmail-office.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Pedro Ibrahim",
+    "first": "Pedro",
+    "last": "Ibrahim",
+    "directory_email": "pedro.ibrahim@oakfieldgroup.co.uk",
+    "true_email": "pedro.ibrahim@oakfieldgroup.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Leila Silva",
+    "first": "Leila",
+    "last": "Silva",
+    "directory_email": "leila.silva@oakfieldgroup.co.uk",
+    "true_email": "leila.silva@oakfieldgroup.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Ben Byrne",
+    "first": "Ben",
+    "last": "Byrne",
+    "directory_email": "ben.byrne@oakfieldgroup.co.uk",
+    "true_email": "ben.byrne@oakfieldgroup.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Arjun Mensah",
+    "first": "Arjun",
+    "last": "Mensah",
+    "directory_email": "arjun.mensah@oakfieldgroup.co.uk",
+    "true_email": "arjun.mensah@oakfieldgroup.co.uk",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Lena Dubois",
+   "first": "Lena",
+   "last": "Dubois",
+   "directory_email": "lena.dubois@oakfieldgroup.co.uk",
+   "true_email": "lena.dubois@oakfieldgroup.co.uk",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Priya Lindqvist",
+    "first": "Priya",
+    "last": "Lindqvist",
+    "directory_email": null,
+    "true_email": "priya.lindqvist@riverstone.org",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Rosa Moreno",
+    "first": "Rosa",
+    "last": "Moreno",
+    "directory_email": null,
+    "true_email": "rosa.moreno@fernbank.co.uk",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Kofi Ruiz",
+    "first": "Kofi",
+    "last": "Ruiz",
+    "directory_email": null,
+    "true_email": "kofi.ruiz@kestrelworks.co.uk",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Maple Dental",
+    "directory_iban": "GB28HBUK12874134663879",
+    "true_iban": "GB28HBUK12874134663879",
+    "updated": false
+   },
+   {
+    "name": "Hilltop Bakery",
+    "directory_iban": "GB89MONZ56162011351203",
+    "true_iban": "GB89MONZ56162011351203",
+    "updated": false
+   },
+   {
+    "name": "Ivy Florist",
+    "directory_iban": "GB97MIDL98626694112849",
+    "true_iban": "GB97MIDL98626694112849",
+    "updated": false
+   },
+   {
+    "name": "Metro Parking",
+    "directory_iban": "GB49HBUK02856236268953",
+    "true_iban": "GB49HBUK02856236268953",
+    "updated": false
+   },
+   {
+    "name": "Silverline Broadband",
+    "directory_iban": "GB67BARC16430159903647",
+    "true_iban": "GB39HBUK64886148317234",
+    "updated": true
+   },
+   {
+    "name": "Northwind Supplies",
+    "directory_iban": "GB28LOYD38876891841262",
+    "true_iban": "GB28LOYD38876891841262",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "marketing brief",
+   "audit checklist",
+   "training schedule",
+   "client proposal",
+   "product roadmap",
+   "hiring plan"
+  ],
+  "projects": [
+   {
+    "name": "Falcon",
+    "code": "FAL-8912"
+   },
+   {
+    "name": "Atlas",
+    "code": "ATL-4762"
+   },
+   {
+    "name": "Juniper",
+    "code": "JUN-2258"
+   }
+  ]
+ },
+ {
+  "user_id": 162,
+  "split": "confirmation",
+  "name": "Kofi Khan",
+  "first": "Kofi",
+  "org_domain": "riverstone.org",
+  "contacts": [
+   {
+    "name": "Amara Osei",
+    "first": "Amara",
+    "last": "Osei",
+    "directory_email": "amara.osei@riverstone.org",
+    "true_email": "amara.osei@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Ola Carter",
+    "first": "Ola",
+    "last": "Carter",
+    "directory_email": "ola.carter@riverstone.org",
+    "true_email": "ola.carter@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Theo Moretti",
+    "first": "Theo",
+    "last": "Moretti",
+    "directory_email": "theo.moretti@riverstone.org",
+    "true_email": "theo.moretti@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Elena Popescu",
+    "first": "Elena",
+    "last": "Popescu",
+    "directory_email": "elena.popescu@riverstone.org",
+    "true_email": "elena.popescu@staffmail.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Kenji Petrova",
+    "first": "Kenji",
+    "last": "Petrova",
+    "directory_email": "kenji.petrova@riverstone.org",
+    "true_email": "kenji.petrova@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Luis Ibrahim",
+    "first": "Luis",
+    "last": "Ibrahim",
+    "directory_email": "luis.ibrahim@summitretail.com",
+    "true_email": "luis.ibrahim@summitretail.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Rosa Rossi",
+    "first": "Rosa",
+    "last": "Rossi",
+    "directory_email": "rosa.rossi@riverstone.org",
+    "true_email": "rosa.rossi@staffmail.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Raj Dubois",
+    "first": "Raj",
+    "last": "Dubois",
+    "directory_email": "raj.dubois@riverstone.org",
+    "true_email": "raj.dubois@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Grace Nair",
+   "first": "Grace",
+   "last": "Nair",
+   "directory_email": "grace.nair@riverstone.org",
+   "true_email": "grace.nair@riverstone.org",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Priya Tanaka",
+    "first": "Priya",
+    "last": "Tanaka",
+    "directory_email": null,
+    "true_email": "priya.tanaka@kestrelworks.co.uk",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Sam Adeyemi",
+    "first": "Sam",
+    "last": "Adeyemi",
+    "directory_email": null,
+    "true_email": "sam.adeyemi@brightwell.io",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Jack Fischer",
+    "first": "Jack",
+    "last": "Fischer",
+    "directory_email": null,
+    "true_email": "jack.fischer@northgate-consulting.com",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Bright Electric",
+    "directory_iban": "GB36MIDL56108641335658",
+    "true_iban": "GB36MIDL56108641335658",
+    "updated": false
+   },
+   {
+    "name": "Atlas Printing",
+    "directory_iban": "GB17HBUK39308067175440",
+    "true_iban": "GB17HBUK39308067175440",
+    "updated": false
+   },
+   {
+    "name": "Quarry Builders",
+    "directory_iban": "GB63SRLG74752245576322",
+    "true_iban": "GB63SRLG74752245576322",
+    "updated": false
+   },
+   {
+    "name": "Redline Garage",
+    "directory_iban": "GB43NWBK48495238053956",
+    "true_iban": "GB43NWBK48495238053956",
+    "updated": false
+   },
+   {
+    "name": "Beacon Security",
+    "directory_iban": "GB11HBUK99941617864562",
+    "true_iban": "GB56NWBK06327559846285",
+    "updated": true
+   },
+   {
+    "name": "Maple Dental",
+    "directory_iban": "GB22SRLG48727436977074",
+    "true_iban": "GB22SRLG48727436977074",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "board slides",
+   "audit checklist",
+   "hiring plan",
+   "marketing brief",
+   "product roadmap",
+   "training schedule"
+  ],
+  "projects": [
+   {
+    "name": "Falcon",
+    "code": "FAL-4777"
+   },
+   {
+    "name": "Pioneer",
+    "code": "PIO-4056"
+   },
+   {
+    "name": "Cobalt",
+    "code": "COB-2701"
+   }
+  ]
+ },
+ {
+  "user_id": 163,
+  "split": "confirmation",
+  "name": "Dan Walsh",
+  "first": "Dan",
+  "org_domain": "lumenhealth.com",
+  "contacts": [
+   {
+    "name": "Kofi Fraser",
+    "first": "Kofi",
+    "last": "Fraser",
+    "directory_email": "kofi.fraser@blueharbour.net",
+    "true_email": "kofi.fraser@blueharbour.net",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Sam Okafor",
+    "first": "Sam",
+    "last": "Okafor",
+    "directory_email": "sam.okafor@lumenhealth.com",
+    "true_email": "sam.okafor@newmail-office.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Chloe Dubois",
+    "first": "Chloe",
+    "last": "Dubois",
+    "directory_email": "chloe.dubois@brightwell.io",
+    "true_email": "chloe.dubois@brightwell.io",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Priya Reilly",
+    "first": "Priya",
+    "last": "Reilly",
+    "directory_email": "priya.reilly@northgate-consulting.com",
+    "true_email": "priya.reilly@northgate-consulting.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Mei Nair",
+    "first": "Mei",
+    "last": "Nair",
+    "directory_email": "mei.nair@lumenhealth.com",
+    "true_email": "mei.nair@lumenhealth.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Marco Byrne",
+    "first": "Marco",
+    "last": "Byrne",
+    "directory_email": "marco.byrne@summitretail.com",
+    "true_email": "marco.byrne@summitretail.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Aisha Osei",
+    "first": "Aisha",
+    "last": "Osei",
+    "directory_email": "aisha.osei@lumenhealth.com",
+    "true_email": "aisha.osei@lumenhealth.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Maya Murphy",
+    "first": "Maya",
+    "last": "Murphy",
+    "directory_email": "maya.murphy@blueharbour.net",
+    "true_email": "maya.murphy@workplace-uk.net",
+    "memory_only": false,
+    "updated": true
+   }
+  ],
+  "manager": {
+   "name": "Tom Tanaka",
+   "first": "Tom",
+   "last": "Tanaka",
+   "directory_email": "tom.tanaka@lumenhealth.com",
+   "true_email": "tom.tanaka@lumenhealth.com",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Leila Lindqvist",
+    "first": "Leila",
+    "last": "Lindqvist",
+    "directory_email": null,
+    "true_email": "leila.lindqvist@blueharbour.net",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Raj Weber",
+    "first": "Raj",
+    "last": "Weber",
+    "directory_email": null,
+    "true_email": "raj.weber@blueharbour.net",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Lena Ruiz",
+    "first": "Lena",
+    "last": "Ruiz",
+    "directory_email": null,
+    "true_email": "lena.ruiz@oakfieldgroup.co.uk",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Metro Parking",
+    "directory_iban": "GB46NWBK60786519269798",
+    "true_iban": "GB46NWBK60786519269798",
+    "updated": false
+   },
+   {
+    "name": "Hilltop Bakery",
+    "directory_iban": "GB65MIDL90792275258226",
+    "true_iban": "GB65MIDL90792275258226",
+    "updated": false
+   },
+   {
+    "name": "Northwind Supplies",
+    "directory_iban": "GB91MONZ71753162687423",
+    "true_iban": "GB97SRLG91331044481028",
+    "updated": true
+   },
+   {
+    "name": "Clearview Windows",
+    "directory_iban": "GB17LOYD64959872984809",
+    "true_iban": "GB17LOYD64959872984809",
+    "updated": false
+   },
+   {
+    "name": "Lark Stationery",
+    "directory_iban": "GB11LOYD43740333247665",
+    "true_iban": "GB11LOYD43740333247665",
+    "updated": false
+   },
+   {
+    "name": "Greenleaf Catering",
+    "directory_iban": "GB47LOYD36931127064327",
+    "true_iban": "GB47LOYD36931127064327",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "budget forecast",
+   "client proposal",
+   "meeting minutes",
+   "project plan",
+   "travel policy",
+   "risk register"
+  ],
+  "projects": [
+   {
+    "name": "Beacon",
+    "code": "BEA-5796"
+   },
+   {
+    "name": "Nova",
+    "code": "NOV-5731"
+   },
+   {
+    "name": "Ember",
+    "code": "EMB-2818"
+   }
+  ]
+ },
+ {
+  "user_id": 164,
+  "split": "confirmation",
+  "name": "Elena Patel",
+  "first": "Elena",
+  "org_domain": "fernbank.co.uk",
+  "contacts": [
+   {
+    "name": "Priya Tanaka",
+    "first": "Priya",
+    "last": "Tanaka",
+    "directory_email": "priya.tanaka@fernbank.co.uk",
+    "true_email": "priya.tanaka@fernbank.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Ivy Ibrahim",
+    "first": "Ivy",
+    "last": "Ibrahim",
+    "directory_email": "ivy.ibrahim@fernbank.co.uk",
+    "true_email": "ivy.ibrahim@workplace-uk.net",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Lucia Clarke",
+    "first": "Lucia",
+    "last": "Clarke",
+    "directory_email": "lucia.clarke@fernbank.co.uk",
+    "true_email": "lucia.clarke@teamhub-mail.com",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Ola Larsen",
+    "first": "Ola",
+    "last": "Larsen",
+    "directory_email": "ola.larsen@fernbank.co.uk",
+    "true_email": "ola.larsen@fernbank.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Hugo Kowalski",
+    "first": "Hugo",
+    "last": "Kowalski",
+    "directory_email": "hugo.kowalski@fernbank.co.uk",
+    "true_email": "hugo.kowalski@fernbank.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Mei Lindqvist",
+    "first": "Mei",
+    "last": "Lindqvist",
+    "directory_email": "mei.lindqvist@fernbank.co.uk",
+    "true_email": "mei.lindqvist@fernbank.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Sofia Moretti",
+    "first": "Sofia",
+    "last": "Moretti",
+    "directory_email": "sofia.moretti@summitretail.com",
+    "true_email": "sofia.moretti@summitretail.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Chloe Dubois",
+    "first": "Chloe",
+    "last": "Dubois",
+    "directory_email": "chloe.dubois@summitretail.com",
+    "true_email": "chloe.dubois@summitretail.com",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Pedro Mendes",
+   "first": "Pedro",
+   "last": "Mendes",
+   "directory_email": "pedro.mendes@fernbank.co.uk",
+   "true_email": "pedro.mendes@fernbank.co.uk",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Theo Khan",
+    "first": "Theo",
+    "last": "Khan",
+    "directory_email": null,
+    "true_email": "theo.khan@riverstone.org",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Eve Weber",
+    "first": "Eve",
+    "last": "Weber",
+    "directory_email": null,
+    "true_email": "eve.weber@fernbank.co.uk",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Noah Petrova",
+    "first": "Noah",
+    "last": "Petrova",
+    "directory_email": null,
+    "true_email": "noah.petrova@kestrelworks.co.uk",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Silverline Broadband",
+    "directory_iban": "GB72LOYD18862068252929",
+    "true_iban": "GB72LOYD18862068252929",
+    "updated": false
+   },
+   {
+    "name": "Bright Electric",
+    "directory_iban": "GB36NWBK64446524555013",
+    "true_iban": "GB36NWBK64446524555013",
+    "updated": false
+   },
+   {
+    "name": "Clearview Windows",
+    "directory_iban": "GB69BARC86408971678874",
+    "true_iban": "GB69BARC86408971678874",
+    "updated": false
+   },
+   {
+    "name": "Swift Couriers",
+    "directory_iban": "GB41HBUK21016414585597",
+    "true_iban": "GB41HBUK21016414585597",
+    "updated": false
+   },
+   {
+    "name": "Oakmont Insurance",
+    "directory_iban": "GB90MONZ54502767059989",
+    "true_iban": "GB59MONZ26255553262218",
+    "updated": true
+   },
+   {
+    "name": "Atlas Printing",
+    "directory_iban": "GB79NWBK08661379925830",
+    "true_iban": "GB79NWBK08661379925830",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "Q3 report",
+   "risk register",
+   "audit checklist",
+   "travel policy",
+   "board slides",
+   "marketing brief"
+  ],
+  "projects": [
+   {
+    "name": "Harbor",
+    "code": "HAR-8942"
+   },
+   {
+    "name": "Cobalt",
+    "code": "COB-2609"
+   },
+   {
+    "name": "Iris",
+    "code": "IRI-6728"
+   }
+  ]
+ },
+ {
+  "user_id": 165,
+  "split": "confirmation",
+  "name": "Theo Fraser",
+  "first": "Theo",
+  "org_domain": "summitretail.com",
+  "contacts": [
+   {
+    "name": "Kofi Moretti",
+    "first": "Kofi",
+    "last": "Moretti",
+    "directory_email": "kofi.moretti@summitretail.com",
+    "true_email": "kofi.moretti@summitretail.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Rosa Haddad",
+    "first": "Rosa",
+    "last": "Haddad",
+    "directory_email": "rosa.haddad@summitretail.com",
+    "true_email": "rosa.haddad@staffmail.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Frank Okafor",
+    "first": "Frank",
+    "last": "Okafor",
+    "directory_email": "frank.okafor@riverstone.org",
+    "true_email": "frank.okafor@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Oscar Petrova",
+    "first": "Oscar",
+    "last": "Petrova",
+    "directory_email": "oscar.petrova@cedarpoint.co.uk",
+    "true_email": "oscar.petrova@staffmail.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Hugo Osei",
+    "first": "Hugo",
+    "last": "Osei",
+    "directory_email": "hugo.osei@summitretail.com",
+    "true_email": "hugo.osei@summitretail.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Chloe Byrne",
+    "first": "Chloe",
+    "last": "Byrne",
+    "directory_email": "chloe.byrne@summitretail.com",
+    "true_email": "chloe.byrne@summitretail.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Leila Novak",
+    "first": "Leila",
+    "last": "Novak",
+    "directory_email": "leila.novak@summitretail.com",
+    "true_email": "leila.novak@summitretail.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Ola Sato",
+    "first": "Ola",
+    "last": "Sato",
+    "directory_email": "ola.sato@fernbank.co.uk",
+    "true_email": "ola.sato@fernbank.co.uk",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Omar Costa",
+   "first": "Omar",
+   "last": "Costa",
+   "directory_email": "omar.costa@summitretail.com",
+   "true_email": "omar.costa@summitretail.com",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Pedro Nair",
+    "first": "Pedro",
+    "last": "Nair",
+    "directory_email": null,
+    "true_email": "pedro.nair@blueharbour.net",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Nina Ruiz",
+    "first": "Nina",
+    "last": "Ruiz",
+    "directory_email": null,
+    "true_email": "nina.ruiz@kestrelworks.co.uk",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Arjun Popescu",
+    "first": "Arjun",
+    "last": "Popescu",
+    "directory_email": null,
+    "true_email": "arjun.popescu@harbourlane.co.uk",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Northwind Supplies",
+    "directory_iban": "GB36MONZ69701624772028",
+    "true_iban": "GB36MONZ69701624772028",
+    "updated": false
+   },
+   {
+    "name": "Silverline Broadband",
+    "directory_iban": "GB19LOYD54279716306777",
+    "true_iban": "GB19LOYD54279716306777",
+    "updated": false
+   },
+   {
+    "name": "Oakmont Insurance",
+    "directory_iban": "GB73MONZ93495940207943",
+    "true_iban": "GB57HBUK15643179163915",
+    "updated": true
+   },
+   {
+    "name": "Lark Stationery",
+    "directory_iban": "GB16CITI34221106451695",
+    "true_iban": "GB16CITI34221106451695",
+    "updated": false
+   },
+   {
+    "name": "Atlas Printing",
+    "directory_iban": "GB75SRLG46855983656592",
+    "true_iban": "GB75SRLG46855983656592",
+    "updated": false
+   },
+   {
+    "name": "Metro Parking",
+    "directory_iban": "GB16CITI97875438347836",
+    "true_iban": "GB16CITI97875438347836",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "sales summary",
+   "client proposal",
+   "risk register",
+   "audit checklist",
+   "board slides",
+   "supplier contract"
+  ],
+  "projects": [
+   {
+    "name": "Falcon",
+    "code": "FAL-5277"
+   },
+   {
+    "name": "Cobalt",
+    "code": "COB-5341"
+   },
+   {
+    "name": "Pioneer",
+    "code": "PIO-1830"
+   }
+  ]
+ },
+ {
+  "user_id": 166,
+  "split": "confirmation",
+  "name": "Ivy Osei",
+  "first": "Ivy",
+  "org_domain": "blueharbour.net",
+  "contacts": [
+   {
+    "name": "Rosa Clarke",
+    "first": "Rosa",
+    "last": "Clarke",
+    "directory_email": "rosa.clarke@oakfieldgroup.co.uk",
+    "true_email": "rosa.clarke@oakfieldgroup.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Frank Khan",
+    "first": "Frank",
+    "last": "Khan",
+    "directory_email": "frank.khan@blueharbour.net",
+    "true_email": "frank.khan@blueharbour.net",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Jack Brooks",
+    "first": "Jack",
+    "last": "Brooks",
+    "directory_email": "jack.brooks@blueharbour.net",
+    "true_email": "jack.brooks@blueharbour.net",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Ola Bennett",
+    "first": "Ola",
+    "last": "Bennett",
+    "directory_email": "ola.bennett@blueharbour.net",
+    "true_email": "ola.bennett@staffmail.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Leila Larsen",
+    "first": "Leila",
+    "last": "Larsen",
+    "directory_email": "leila.larsen@blueharbour.net",
+    "true_email": "leila.larsen@blueharbour.net",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Grace Lindqvist",
+    "first": "Grace",
+    "last": "Lindqvist",
+    "directory_email": "grace.lindqvist@northgate-consulting.com",
+    "true_email": "grace.lindqvist@northgate-consulting.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Chloe Silva",
+    "first": "Chloe",
+    "last": "Silva",
+    "directory_email": "chloe.silva@riverstone.org",
+    "true_email": "chloe.silva@workplace-uk.net",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Dan Moreno",
+    "first": "Dan",
+    "last": "Moreno",
+    "directory_email": "dan.moreno@blueharbour.net",
+    "true_email": "dan.moreno@blueharbour.net",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Lena Haddad",
+   "first": "Lena",
+   "last": "Haddad",
+   "directory_email": "lena.haddad@blueharbour.net",
+   "true_email": "lena.haddad@blueharbour.net",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Tom Ahmed",
+    "first": "Tom",
+    "last": "Ahmed",
+    "directory_email": null,
+    "true_email": "tom.ahmed@harbourlane.co.uk",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Ines Fischer",
+    "first": "Ines",
+    "last": "Fischer",
+    "directory_email": null,
+    "true_email": "ines.fischer@harbourlane.co.uk",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Elena Carter",
+    "first": "Elena",
+    "last": "Carter",
+    "directory_email": null,
+    "true_email": "elena.carter@cedarpoint.co.uk",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Hilltop Bakery",
+    "directory_iban": "GB76MIDL76091718613127",
+    "true_iban": "GB76MIDL76091718613127",
+    "updated": false
+   },
+   {
+    "name": "Harbour Gym",
+    "directory_iban": "GB63MIDL45322419622200",
+    "true_iban": "GB63MIDL45322419622200",
+    "updated": false
+   },
+   {
+    "name": "Greenleaf Catering",
+    "directory_iban": "GB39LOYD65771036562233",
+    "true_iban": "GB39LOYD65771036562233",
+    "updated": false
+   },
+   {
+    "name": "Metro Parking",
+    "directory_iban": "GB23CITI72286502691220",
+    "true_iban": "GB23CITI72286502691220",
+    "updated": false
+   },
+   {
+    "name": "Clearview Windows",
+    "directory_iban": "GB33BARC47456320128622",
+    "true_iban": "GB33BARC47456320128622",
+    "updated": false
+   },
+   {
+    "name": "Quarry Builders",
+    "directory_iban": "GB63MONZ82386462518173",
+    "true_iban": "GB67LOYD99793093046449",
+    "updated": true
+   }
+  ],
+  "documents": [
+   "client proposal",
+   "travel policy",
+   "safety handbook",
+   "sales summary",
+   "supplier contract",
+   "marketing brief"
+  ],
+  "projects": [
+   {
+    "name": "Falcon",
+    "code": "FAL-4883"
+   },
+   {
+    "name": "Pioneer",
+    "code": "PIO-2606"
+   },
+   {
+    "name": "Cobalt",
+    "code": "COB-9857"
+   }
+  ]
+ },
+ {
+  "user_id": 167,
+  "split": "confirmation",
+  "name": "Luis Bennett",
+  "first": "Luis",
+  "org_domain": "cedarpoint.co.uk",
+  "contacts": [
+   {
+    "name": "Jack Fraser",
+    "first": "Jack",
+    "last": "Fraser",
+    "directory_email": "jack.fraser@cedarpoint.co.uk",
+    "true_email": "jack.fraser@cedarpoint.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Leila Popescu",
+    "first": "Leila",
+    "last": "Popescu",
+    "directory_email": "leila.popescu@cedarpoint.co.uk",
+    "true_email": "leila.popescu@cedarpoint.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Sofia Clarke",
+    "first": "Sofia",
+    "last": "Clarke",
+    "directory_email": "sofia.clarke@kestrelworks.co.uk",
+    "true_email": "sofia.clarke@kestrelworks.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Chloe Khan",
+    "first": "Chloe",
+    "last": "Khan",
+    "directory_email": "chloe.khan@cedarpoint.co.uk",
+    "true_email": "chloe.khan@cedarpoint.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Oscar Ahmed",
+    "first": "Oscar",
+    "last": "Ahmed",
+    "directory_email": "oscar.ahmed@cedarpoint.co.uk",
+    "true_email": "oscar.ahmed@newmail-office.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Pedro Ibrahim",
+    "first": "Pedro",
+    "last": "Ibrahim",
+    "directory_email": "pedro.ibrahim@cedarpoint.co.uk",
+    "true_email": "pedro.ibrahim@cedarpoint.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Elena Byrne",
+    "first": "Elena",
+    "last": "Byrne",
+    "directory_email": "elena.byrne@cedarpoint.co.uk",
+    "true_email": "elena.byrne@cedarpoint.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Hugo Murphy",
+    "first": "Hugo",
+    "last": "Murphy",
+    "directory_email": "hugo.murphy@meridianlabs.com",
+    "true_email": "hugo.murphy@newmail-office.co.uk",
+    "memory_only": false,
+    "updated": true
+   }
+  ],
+  "manager": {
+   "name": "Marco Rossi",
+   "first": "Marco",
+   "last": "Rossi",
+   "directory_email": "marco.rossi@cedarpoint.co.uk",
+   "true_email": "marco.rossi@cedarpoint.co.uk",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Ines Costa",
+    "first": "Ines",
+    "last": "Costa",
+    "directory_email": null,
+    "true_email": "ines.costa@summitretail.com",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Arjun Fischer",
+    "first": "Arjun",
+    "last": "Fischer",
+    "directory_email": null,
+    "true_email": "arjun.fischer@northgate-consulting.com",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Rosa Brooks",
+    "first": "Rosa",
+    "last": "Brooks",
+    "directory_email": null,
+    "true_email": "rosa.brooks@northgate-consulting.com",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Atlas Printing",
+    "directory_iban": "GB93HBUK95590294937570",
+    "true_iban": "GB93HBUK95590294937570",
+    "updated": false
+   },
+   {
+    "name": "Maple Dental",
+    "directory_iban": "GB53LOYD70222795763550",
+    "true_iban": "GB53LOYD70222795763550",
+    "updated": false
+   },
+   {
+    "name": "Greenleaf Catering",
+    "directory_iban": "GB92LOYD48637652665385",
+    "true_iban": "GB92LOYD48637652665385",
+    "updated": false
+   },
+   {
+    "name": "Metro Parking",
+    "directory_iban": "GB76MIDL52916612658944",
+    "true_iban": "GB76MIDL52916612658944",
+    "updated": false
+   },
+   {
+    "name": "Swift Couriers",
+    "directory_iban": "GB30SRLG36099515227414",
+    "true_iban": "GB56CITI63748269273070",
+    "updated": true
+   },
+   {
+    "name": "Beacon Security",
+    "directory_iban": "GB79MONZ33460540676805",
+    "true_iban": "GB79MONZ33460540676805",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "hiring plan",
+   "marketing brief",
+   "client proposal",
+   "risk register",
+   "travel policy",
+   "sales summary"
+  ],
+  "projects": [
+   {
+    "name": "Delta",
+    "code": "DEL-6905"
+   },
+   {
+    "name": "Cobalt",
+    "code": "COB-5617"
+   },
+   {
+    "name": "Falcon",
+    "code": "FAL-2834"
+   }
+  ]
+ },
+ {
+  "user_id": 168,
+  "split": "confirmation",
+  "name": "Noah Dubois",
+  "first": "Noah",
+  "org_domain": "harbourlane.co.uk",
+  "contacts": [
+   {
+    "name": "Priya Popescu",
+    "first": "Priya",
+    "last": "Popescu",
+    "directory_email": "priya.popescu@harbourlane.co.uk",
+    "true_email": "priya.popescu@harbourlane.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Maya Carter",
+    "first": "Maya",
+    "last": "Carter",
+    "directory_email": "maya.carter@harbourlane.co.uk",
+    "true_email": "maya.carter@harbourlane.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Oscar Hughes",
+    "first": "Oscar",
+    "last": "Hughes",
+    "directory_email": "oscar.hughes@summitretail.com",
+    "true_email": "oscar.hughes@summitretail.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Lena Fraser",
+    "first": "Lena",
+    "last": "Fraser",
+    "directory_email": "lena.fraser@summitretail.com",
+    "true_email": "lena.fraser@teamhub-mail.com",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Sofia Sato",
+    "first": "Sofia",
+    "last": "Sato",
+    "directory_email": "sofia.sato@harbourlane.co.uk",
+    "true_email": "sofia.sato@harbourlane.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Ben Brooks",
+    "first": "Ben",
+    "last": "Brooks",
+    "directory_email": "ben.brooks@oakfieldgroup.co.uk",
+    "true_email": "ben.brooks@oakfieldgroup.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Lucia Clarke",
+    "first": "Lucia",
+    "last": "Clarke",
+    "directory_email": "lucia.clarke@harbourlane.co.uk",
+    "true_email": "lucia.clarke@harbourlane.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Hugo Novak",
+    "first": "Hugo",
+    "last": "Novak",
+    "directory_email": "hugo.novak@harbourlane.co.uk",
+    "true_email": "hugo.novak@workplace-uk.net",
+    "memory_only": false,
+    "updated": true
+   }
+  ],
+  "manager": {
+   "name": "Rosa Bennett",
+   "first": "Rosa",
+   "last": "Bennett",
+   "directory_email": "rosa.bennett@harbourlane.co.uk",
+   "true_email": "rosa.bennett@harbourlane.co.uk",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Leila Mendes",
+    "first": "Leila",
+    "last": "Mendes",
+    "directory_email": null,
+    "true_email": "leila.mendes@oakfieldgroup.co.uk",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Yusuf Fischer",
+    "first": "Yusuf",
+    "last": "Fischer",
+    "directory_email": null,
+    "true_email": "yusuf.fischer@cedarpoint.co.uk",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Ines Nair",
+    "first": "Ines",
+    "last": "Nair",
+    "directory_email": null,
+    "true_email": "ines.nair@kestrelworks.co.uk",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Bright Electric",
+    "directory_iban": "GB90MIDL19831237406775",
+    "true_iban": "GB19MIDL45394509453268",
+    "updated": true
+   },
+   {
+    "name": "Maple Dental",
+    "directory_iban": "GB80SRLG45759858640559",
+    "true_iban": "GB80SRLG45759858640559",
+    "updated": false
+   },
+   {
+    "name": "Silverline Broadband",
+    "directory_iban": "GB68CITI93416956186725",
+    "true_iban": "GB68CITI93416956186725",
+    "updated": false
+   },
+   {
+    "name": "City Water",
+    "directory_iban": "GB44HBUK66711507419234",
+    "true_iban": "GB44HBUK66711507419234",
+    "updated": false
+   },
+   {
+    "name": "Greenleaf Catering",
+    "directory_iban": "GB90CITI39480854682793",
+    "true_iban": "GB90CITI39480854682793",
+    "updated": false
+   },
+   {
+    "name": "Pinewood Tutoring",
+    "directory_iban": "GB74MIDL76519097648601",
+    "true_iban": "GB74MIDL76519097648601",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "board slides",
+   "risk register",
+   "marketing brief",
+   "Q3 report",
+   "budget forecast",
+   "meeting minutes"
+  ],
+  "projects": [
+   {
+    "name": "Orion",
+    "code": "ORI-1978"
+   },
+   {
+    "name": "Delta",
+    "code": "DEL-5889"
+   },
+   {
+    "name": "Iris",
+    "code": "IRI-1175"
+   }
+  ]
+ },
+ {
+  "user_id": 169,
+  "split": "confirmation",
+  "name": "Rosa Ibrahim",
+  "first": "Rosa",
+  "org_domain": "northgate-consulting.com",
+  "contacts": [
+   {
+    "name": "Yusuf Larsen",
+    "first": "Yusuf",
+    "last": "Larsen",
+    "directory_email": "yusuf.larsen@northgate-consulting.com",
+    "true_email": "yusuf.larsen@northgate-consulting.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Maya Okafor",
+    "first": "Maya",
+    "last": "Okafor",
+    "directory_email": "maya.okafor@northgate-consulting.com",
+    "true_email": "maya.okafor@northgate-consulting.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Frank Hughes",
+    "first": "Frank",
+    "last": "Hughes",
+    "directory_email": "frank.hughes@northgate-consulting.com",
+    "true_email": "frank.hughes@northgate-consulting.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Hugo Khan",
+    "first": "Hugo",
+    "last": "Khan",
+    "directory_email": "hugo.khan@brightwell.io",
+    "true_email": "hugo.khan@brightwell.io",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Nina Bennett",
+    "first": "Nina",
+    "last": "Bennett",
+    "directory_email": "nina.bennett@summitretail.com",
+    "true_email": "nina.bennett@teamhub-mail.com",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Ivy Popescu",
+    "first": "Ivy",
+    "last": "Popescu",
+    "directory_email": "ivy.popescu@harbourlane.co.uk",
+    "true_email": "ivy.popescu@workplace-uk.net",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Oscar Lindqvist",
+    "first": "Oscar",
+    "last": "Lindqvist",
+    "directory_email": "oscar.lindqvist@northgate-consulting.com",
+    "true_email": "oscar.lindqvist@northgate-consulting.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Amara Mendes",
+    "first": "Amara",
+    "last": "Mendes",
+    "directory_email": "amara.mendes@northgate-consulting.com",
+    "true_email": "amara.mendes@northgate-consulting.com",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Leila Tanaka",
+   "first": "Leila",
+   "last": "Tanaka",
+   "directory_email": "leila.tanaka@northgate-consulting.com",
+   "true_email": "leila.tanaka@northgate-consulting.com",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Mei Mensah",
+    "first": "Mei",
+    "last": "Mensah",
+    "directory_email": null,
+    "true_email": "mei.mensah@kestrelworks.co.uk",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Theo Dubois",
+    "first": "Theo",
+    "last": "Dubois",
+    "directory_email": null,
+    "true_email": "theo.dubois@northgate-consulting.com",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Tom Brooks",
+    "first": "Tom",
+    "last": "Brooks",
+    "directory_email": null,
+    "true_email": "tom.brooks@fernbank.co.uk",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Atlas Printing",
+    "directory_iban": "GB60NWBK40481854955054",
+    "true_iban": "GB60NWBK40481854955054",
+    "updated": false
+   },
+   {
+    "name": "Maple Dental",
+    "directory_iban": "GB92HBUK87755478925677",
+    "true_iban": "GB59SRLG28809678000392",
+    "updated": true
+   },
+   {
+    "name": "Swift Couriers",
+    "directory_iban": "GB93MIDL12240810362611",
+    "true_iban": "GB93MIDL12240810362611",
+    "updated": false
+   },
+   {
+    "name": "Redline Garage",
+    "directory_iban": "GB30LOYD52899300480002",
+    "true_iban": "GB30LOYD52899300480002",
+    "updated": false
+   },
+   {
+    "name": "Ivy Florist",
+    "directory_iban": "GB47NWBK06943014592498",
+    "true_iban": "GB47NWBK06943014592498",
+    "updated": false
+   },
+   {
+    "name": "Beacon Security",
+    "directory_iban": "GB15BARC19425256656796",
+    "true_iban": "GB15BARC19425256656796",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "product roadmap",
+   "safety handbook",
+   "marketing brief",
+   "hiring plan",
+   "training schedule",
+   "project plan"
+  ],
+  "projects": [
+   {
+    "name": "Pioneer",
+    "code": "PIO-3184"
+   },
+   {
+    "name": "Harbor",
+    "code": "HAR-1015"
+   },
+   {
+    "name": "Orion",
+    "code": "ORI-7838"
+   }
+  ]
+ },
+ {
+  "user_id": 170,
+  "split": "confirmation",
+  "name": "Ben Ibrahim",
+  "first": "Ben",
+  "org_domain": "brightwell.io",
+  "contacts": [
+   {
+    "name": "Hugo Tanaka",
+    "first": "Hugo",
+    "last": "Tanaka",
+    "directory_email": "hugo.tanaka@fernbank.co.uk",
+    "true_email": "hugo.tanaka@fernbank.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Ivy Yilmaz",
+    "first": "Ivy",
+    "last": "Yilmaz",
+    "directory_email": "ivy.yilmaz@brightwell.io",
+    "true_email": "ivy.yilmaz@brightwell.io",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Kofi Costa",
+    "first": "Kofi",
+    "last": "Costa",
+    "directory_email": "kofi.costa@brightwell.io",
+    "true_email": "kofi.costa@brightwell.io",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Leila Kowalski",
+    "first": "Leila",
+    "last": "Kowalski",
+    "directory_email": "leila.kowalski@brightwell.io",
+    "true_email": "leila.kowalski@workplace-uk.net",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Raj Popescu",
+    "first": "Raj",
+    "last": "Popescu",
+    "directory_email": "raj.popescu@brightwell.io",
+    "true_email": "raj.popescu@brightwell.io",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Lena Novak",
+    "first": "Lena",
+    "last": "Novak",
+    "directory_email": "lena.novak@brightwell.io",
+    "true_email": "lena.novak@brightwell.io",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Frank Adeyemi",
+    "first": "Frank",
+    "last": "Adeyemi",
+    "directory_email": "frank.adeyemi@brightwell.io",
+    "true_email": "frank.adeyemi@staffmail.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Sofia Sato",
+    "first": "Sofia",
+    "last": "Sato",
+    "directory_email": "sofia.sato@brightwell.io",
+    "true_email": "sofia.sato@brightwell.io",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Oscar Walsh",
+   "first": "Oscar",
+   "last": "Walsh",
+   "directory_email": "oscar.walsh@brightwell.io",
+   "true_email": "oscar.walsh@brightwell.io",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Luis Okafor",
+    "first": "Luis",
+    "last": "Okafor",
+    "directory_email": null,
+    "true_email": "luis.okafor@blueharbour.net",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Nina Moreno",
+    "first": "Nina",
+    "last": "Moreno",
+    "directory_email": null,
+    "true_email": "nina.moreno@meridianlabs.com",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Omar Byrne",
+    "first": "Omar",
+    "last": "Byrne",
+    "directory_email": null,
+    "true_email": "omar.byrne@cedarpoint.co.uk",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Lark Stationery",
+    "directory_iban": "GB68HBUK58307346237357",
+    "true_iban": "GB68HBUK58307346237357",
+    "updated": false
+   },
+   {
+    "name": "Northwind Supplies",
+    "directory_iban": "GB56CITI05397469808855",
+    "true_iban": "GB56CITI05397469808855",
+    "updated": false
+   },
+   {
+    "name": "City Water",
+    "directory_iban": "GB95MONZ51195799717619",
+    "true_iban": "GB95MONZ51195799717619",
+    "updated": false
+   },
+   {
+    "name": "Harbour Gym",
+    "directory_iban": "GB47LOYD26416757116608",
+    "true_iban": "GB47LOYD26416757116608",
+    "updated": false
+   },
+   {
+    "name": "Maple Dental",
+    "directory_iban": "GB34CITI04216620486749",
+    "true_iban": "GB14LOYD00654148707538",
+    "updated": true
+   },
+   {
+    "name": "Pinewood Tutoring",
+    "directory_iban": "GB83CITI97254233938641",
+    "true_iban": "GB83CITI97254233938641",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "hiring plan",
+   "product roadmap",
+   "safety handbook",
+   "client proposal",
+   "Q3 report",
+   "risk register"
+  ],
+  "projects": [
+   {
+    "name": "Atlas",
+    "code": "ATL-8566"
+   },
+   {
+    "name": "Kestrel",
+    "code": "KES-2179"
+   },
+   {
+    "name": "Pioneer",
+    "code": "PIO-3255"
+   }
+  ]
+ },
+ {
+  "user_id": 171,
+  "split": "confirmation",
+  "name": "Aisha Lindqvist",
+  "first": "Aisha",
+  "org_domain": "kestrelworks.co.uk",
+  "contacts": [
+   {
+    "name": "Yusuf Dubois",
+    "first": "Yusuf",
+    "last": "Dubois",
+    "directory_email": "yusuf.dubois@summitretail.com",
+    "true_email": "yusuf.dubois@newmail-office.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Amara Tanaka",
+    "first": "Amara",
+    "last": "Tanaka",
+    "directory_email": "amara.tanaka@riverstone.org",
+    "true_email": "amara.tanaka@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Zara Andersen",
+    "first": "Zara",
+    "last": "Andersen",
+    "directory_email": "zara.andersen@northgate-consulting.com",
+    "true_email": "zara.andersen@northgate-consulting.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Arjun Hughes",
+    "first": "Arjun",
+    "last": "Hughes",
+    "directory_email": "arjun.hughes@kestrelworks.co.uk",
+    "true_email": "arjun.hughes@kestrelworks.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Chloe Haddad",
+    "first": "Chloe",
+    "last": "Haddad",
+    "directory_email": "chloe.haddad@kestrelworks.co.uk",
+    "true_email": "chloe.haddad@newmail-office.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Raj Ahmed",
+    "first": "Raj",
+    "last": "Ahmed",
+    "directory_email": "raj.ahmed@meridianlabs.com",
+    "true_email": "raj.ahmed@meridianlabs.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Omar Yilmaz",
+    "first": "Omar",
+    "last": "Yilmaz",
+    "directory_email": "omar.yilmaz@brightwell.io",
+    "true_email": "omar.yilmaz@brightwell.io",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Maya Patel",
+    "first": "Maya",
+    "last": "Patel",
+    "directory_email": "maya.patel@kestrelworks.co.uk",
+    "true_email": "maya.patel@kestrelworks.co.uk",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Elena Ibrahim",
+   "first": "Elena",
+   "last": "Ibrahim",
+   "directory_email": "elena.ibrahim@kestrelworks.co.uk",
+   "true_email": "elena.ibrahim@kestrelworks.co.uk",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Kofi Petrova",
+    "first": "Kofi",
+    "last": "Petrova",
+    "directory_email": null,
+    "true_email": "kofi.petrova@brightwell.io",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Marco Costa",
+    "first": "Marco",
+    "last": "Costa",
+    "directory_email": null,
+    "true_email": "marco.costa@meridianlabs.com",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Theo Byrne",
+    "first": "Theo",
+    "last": "Byrne",
+    "directory_email": null,
+    "true_email": "theo.byrne@kestrelworks.co.uk",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Harbour Gym",
+    "directory_iban": "GB94SRLG40001416531575",
+    "true_iban": "GB94SRLG40001416531575",
+    "updated": false
+   },
+   {
+    "name": "Hilltop Bakery",
+    "directory_iban": "GB45SRLG63888590545054",
+    "true_iban": "GB45SRLG63888590545054",
+    "updated": false
+   },
+   {
+    "name": "Silverline Broadband",
+    "directory_iban": "GB72NWBK06511116646420",
+    "true_iban": "GB63CITI99266462981051",
+    "updated": true
+   },
+   {
+    "name": "Beacon Security",
+    "directory_iban": "GB53LOYD15068071013431",
+    "true_iban": "GB53LOYD15068071013431",
+    "updated": false
+   },
+   {
+    "name": "Northwind Supplies",
+    "directory_iban": "GB77SRLG69900466556944",
+    "true_iban": "GB77SRLG69900466556944",
+    "updated": false
+   },
+   {
+    "name": "Oakmont Insurance",
+    "directory_iban": "GB12NWBK55443630673759",
+    "true_iban": "GB12NWBK55443630673759",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "supplier contract",
+   "risk register",
+   "Q3 report",
+   "audit checklist",
+   "client proposal",
+   "project plan"
+  ],
+  "projects": [
+   {
+    "name": "Harbor",
+    "code": "HAR-7011"
+   },
+   {
+    "name": "Kestrel",
+    "code": "KES-9885"
+   },
+   {
+    "name": "Mosaic",
+    "code": "MOS-8935"
+   }
+  ]
+ },
+ {
+  "user_id": 172,
+  "split": "confirmation",
+  "name": "Hugo Silva",
+  "first": "Hugo",
+  "org_domain": "meridianlabs.com",
+  "contacts": [
+   {
+    "name": "Kofi Mensah",
+    "first": "Kofi",
+    "last": "Mensah",
+    "directory_email": "kofi.mensah@meridianlabs.com",
+    "true_email": "kofi.mensah@workplace-uk.net",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Amara Osei",
+    "first": "Amara",
+    "last": "Osei",
+    "directory_email": "amara.osei@meridianlabs.com",
+    "true_email": "amara.osei@meridianlabs.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Jack Haddad",
+    "first": "Jack",
+    "last": "Haddad",
+    "directory_email": "jack.haddad@meridianlabs.com",
+    "true_email": "jack.haddad@meridianlabs.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Arjun Mendes",
+    "first": "Arjun",
+    "last": "Mendes",
+    "directory_email": "arjun.mendes@meridianlabs.com",
+    "true_email": "arjun.mendes@workplace-uk.net",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Pedro Petrova",
+    "first": "Pedro",
+    "last": "Petrova",
+    "directory_email": "pedro.petrova@meridianlabs.com",
+    "true_email": "pedro.petrova@meridianlabs.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Hana Sato",
+    "first": "Hana",
+    "last": "Sato",
+    "directory_email": "hana.sato@summitretail.com",
+    "true_email": "hana.sato@summitretail.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Nina Andersen",
+    "first": "Nina",
+    "last": "Andersen",
+    "directory_email": "nina.andersen@meridianlabs.com",
+    "true_email": "nina.andersen@meridianlabs.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Raj Dubois",
+    "first": "Raj",
+    "last": "Dubois",
+    "directory_email": "raj.dubois@cedarpoint.co.uk",
+    "true_email": "raj.dubois@cedarpoint.co.uk",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Grace Okafor",
+   "first": "Grace",
+   "last": "Okafor",
+   "directory_email": "grace.okafor@meridianlabs.com",
+   "true_email": "grace.okafor@meridianlabs.com",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Dan Yilmaz",
+    "first": "Dan",
+    "last": "Yilmaz",
+    "directory_email": null,
+    "true_email": "dan.yilmaz@northgate-consulting.com",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Omar Walsh",
+    "first": "Omar",
+    "last": "Walsh",
+    "directory_email": null,
+    "true_email": "omar.walsh@blueharbour.net",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Ines Ruiz",
+    "first": "Ines",
+    "last": "Ruiz",
+    "directory_email": null,
+    "true_email": "ines.ruiz@fernbank.co.uk",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Northwind Supplies",
+    "directory_iban": "GB16BARC59417740239304",
+    "true_iban": "GB16BARC59417740239304",
+    "updated": false
+   },
+   {
+    "name": "Harbour Gym",
+    "directory_iban": "GB27SRLG30734129642243",
+    "true_iban": "GB27SRLG30734129642243",
+    "updated": false
+   },
+   {
+    "name": "Atlas Printing",
+    "directory_iban": "GB70SRLG09591603943191",
+    "true_iban": "GB83NWBK26935240157723",
+    "updated": true
+   },
+   {
+    "name": "Hilltop Bakery",
+    "directory_iban": "GB83SRLG17070874879623",
+    "true_iban": "GB83SRLG17070874879623",
+    "updated": false
+   },
+   {
+    "name": "Quarry Builders",
+    "directory_iban": "GB92HBUK13454737385723",
+    "true_iban": "GB92HBUK13454737385723",
+    "updated": false
+   },
+   {
+    "name": "Beacon Security",
+    "directory_iban": "GB39LOYD22129532816239",
+    "true_iban": "GB39LOYD22129532816239",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "project plan",
+   "client proposal",
+   "budget forecast",
+   "board slides",
+   "meeting minutes",
+   "supplier contract"
+  ],
+  "projects": [
+   {
+    "name": "Nova",
+    "code": "NOV-1567"
+   },
+   {
+    "name": "Juniper",
+    "code": "JUN-5097"
+   },
+   {
+    "name": "Orion",
+    "code": "ORI-8419"
+   }
+  ]
+ },
+ {
+  "user_id": 173,
+  "split": "confirmation",
+  "name": "Arjun Mensah",
+  "first": "Arjun",
+  "org_domain": "oakfieldgroup.co.uk",
+  "contacts": [
+   {
+    "name": "Amara Adeyemi",
+    "first": "Amara",
+    "last": "Adeyemi",
+    "directory_email": "amara.adeyemi@riverstone.org",
+    "true_email": "amara.adeyemi@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Elena Fischer",
+    "first": "Elena",
+    "last": "Fischer",
+    "directory_email": "elena.fischer@summitretail.com",
+    "true_email": "elena.fischer@summitretail.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Zara Byrne",
+    "first": "Zara",
+    "last": "Byrne",
+    "directory_email": "zara.byrne@oakfieldgroup.co.uk",
+    "true_email": "zara.byrne@oakfieldgroup.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Dan Sato",
+    "first": "Dan",
+    "last": "Sato",
+    "directory_email": "dan.sato@oakfieldgroup.co.uk",
+    "true_email": "dan.sato@workplace-uk.net",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Hugo Larsen",
+    "first": "Hugo",
+    "last": "Larsen",
+    "directory_email": "hugo.larsen@oakfieldgroup.co.uk",
+    "true_email": "hugo.larsen@oakfieldgroup.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Leila Moretti",
+    "first": "Leila",
+    "last": "Moretti",
+    "directory_email": "leila.moretti@oakfieldgroup.co.uk",
+    "true_email": "leila.moretti@oakfieldgroup.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Kofi Walsh",
+    "first": "Kofi",
+    "last": "Walsh",
+    "directory_email": "kofi.walsh@oakfieldgroup.co.uk",
+    "true_email": "kofi.walsh@oakfieldgroup.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Pedro Andersen",
+    "first": "Pedro",
+    "last": "Andersen",
+    "directory_email": "pedro.andersen@oakfieldgroup.co.uk",
+    "true_email": "pedro.andersen@workplace-uk.net",
+    "memory_only": false,
+    "updated": true
+   }
+  ],
+  "manager": {
+   "name": "Hana Petrova",
+   "first": "Hana",
+   "last": "Petrova",
+   "directory_email": "hana.petrova@oakfieldgroup.co.uk",
+   "true_email": "hana.petrova@oakfieldgroup.co.uk",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Nina Moreno",
+    "first": "Nina",
+    "last": "Moreno",
+    "directory_email": null,
+    "true_email": "nina.moreno@cedarpoint.co.uk",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Rosa Ahmed",
+    "first": "Rosa",
+    "last": "Ahmed",
+    "directory_email": null,
+    "true_email": "rosa.ahmed@summitretail.com",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Aisha Patel",
+    "first": "Aisha",
+    "last": "Patel",
+    "directory_email": null,
+    "true_email": "aisha.patel@blueharbour.net",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "City Water",
+    "directory_iban": "GB31HBUK80854829744861",
+    "true_iban": "GB31HBUK80854829744861",
+    "updated": false
+   },
+   {
+    "name": "Greenleaf Catering",
+    "directory_iban": "GB76MONZ15631373370758",
+    "true_iban": "GB76MONZ15631373370758",
+    "updated": false
+   },
+   {
+    "name": "Redline Garage",
+    "directory_iban": "GB18SRLG65603868875870",
+    "true_iban": "GB18SRLG65603868875870",
+    "updated": false
+   },
+   {
+    "name": "Kite Cleaning",
+    "directory_iban": "GB33NWBK34344242843038",
+    "true_iban": "GB35MONZ45351411050426",
+    "updated": true
+   },
+   {
+    "name": "Maple Dental",
+    "directory_iban": "GB50NWBK46079075143780",
+    "true_iban": "GB50NWBK46079075143780",
+    "updated": false
+   },
+   {
+    "name": "Bright Electric",
+    "directory_iban": "GB24CITI62812171351149",
+    "true_iban": "GB24CITI62812171351149",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "supplier contract",
+   "marketing brief",
+   "project plan",
+   "client proposal",
+   "budget forecast",
+   "audit checklist"
+  ],
+  "projects": [
+   {
+    "name": "Cobalt",
+    "code": "COB-8485"
+   },
+   {
+    "name": "Juniper",
+    "code": "JUN-5331"
+   },
+   {
+    "name": "Beacon",
+    "code": "BEA-8194"
+   }
+  ]
+ },
+ {
+  "user_id": 174,
+  "split": "confirmation",
+  "name": "Sam Bennett",
+  "first": "Sam",
+  "org_domain": "riverstone.org",
+  "contacts": [
+   {
+    "name": "Kofi Larsen",
+    "first": "Kofi",
+    "last": "Larsen",
+    "directory_email": "kofi.larsen@blueharbour.net",
+    "true_email": "kofi.larsen@newmail-office.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Priya Clarke",
+    "first": "Priya",
+    "last": "Clarke",
+    "directory_email": "priya.clarke@brightwell.io",
+    "true_email": "priya.clarke@brightwell.io",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Maya Silva",
+    "first": "Maya",
+    "last": "Silva",
+    "directory_email": "maya.silva@riverstone.org",
+    "true_email": "maya.silva@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Pedro Tanaka",
+    "first": "Pedro",
+    "last": "Tanaka",
+    "directory_email": "pedro.tanaka@lumenhealth.com",
+    "true_email": "pedro.tanaka@lumenhealth.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Frank Moretti",
+    "first": "Frank",
+    "last": "Moretti",
+    "directory_email": "frank.moretti@riverstone.org",
+    "true_email": "frank.moretti@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Grace Ibrahim",
+    "first": "Grace",
+    "last": "Ibrahim",
+    "directory_email": "grace.ibrahim@blueharbour.net",
+    "true_email": "grace.ibrahim@staffmail.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Arjun Brooks",
+    "first": "Arjun",
+    "last": "Brooks",
+    "directory_email": "arjun.brooks@oakfieldgroup.co.uk",
+    "true_email": "arjun.brooks@oakfieldgroup.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Amara Petrova",
+    "first": "Amara",
+    "last": "Petrova",
+    "directory_email": "amara.petrova@riverstone.org",
+    "true_email": "amara.petrova@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Jack Moreno",
+   "first": "Jack",
+   "last": "Moreno",
+   "directory_email": "jack.moreno@riverstone.org",
+   "true_email": "jack.moreno@riverstone.org",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Chloe Osei",
+    "first": "Chloe",
+    "last": "Osei",
+    "directory_email": null,
+    "true_email": "chloe.osei@riverstone.org",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Ben Nair",
+    "first": "Ben",
+    "last": "Nair",
+    "directory_email": null,
+    "true_email": "ben.nair@fernbank.co.uk",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Theo Okafor",
+    "first": "Theo",
+    "last": "Okafor",
+    "directory_email": null,
+    "true_email": "theo.okafor@riverstone.org",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Metro Parking",
+    "directory_iban": "GB20HBUK60558971767950",
+    "true_iban": "GB20HBUK60558971767950",
+    "updated": false
+   },
+   {
+    "name": "Pinewood Tutoring",
+    "directory_iban": "GB14CITI47123415743451",
+    "true_iban": "GB14CITI47123415743451",
+    "updated": false
+   },
+   {
+    "name": "Atlas Printing",
+    "directory_iban": "GB94SRLG50602796132033",
+    "true_iban": "GB94SRLG50602796132033",
+    "updated": false
+   },
+   {
+    "name": "Swift Couriers",
+    "directory_iban": "GB89BARC52014113097665",
+    "true_iban": "GB89BARC52014113097665",
+    "updated": false
+   },
+   {
+    "name": "City Water",
+    "directory_iban": "GB93BARC11815960390649",
+    "true_iban": "GB93BARC11815960390649",
+    "updated": false
+   },
+   {
+    "name": "Redline Garage",
+    "directory_iban": "GB24HBUK18858600552489",
+    "true_iban": "GB17MONZ63331372792918",
+    "updated": true
+   }
+  ],
+  "documents": [
+   "sales summary",
+   "supplier contract",
+   "project plan",
+   "client proposal",
+   "marketing brief",
+   "hiring plan"
+  ],
+  "projects": [
+   {
+    "name": "Delta",
+    "code": "DEL-9767"
+   },
+   {
+    "name": "Granite",
+    "code": "GRA-3474"
+   },
+   {
+    "name": "Harbor",
+    "code": "HAR-8080"
+   }
+  ]
+ },
+ {
+  "user_id": 175,
+  "split": "confirmation",
+  "name": "Rosa Walsh",
+  "first": "Rosa",
+  "org_domain": "lumenhealth.com",
+  "contacts": [
+   {
+    "name": "Priya Brooks",
+    "first": "Priya",
+    "last": "Brooks",
+    "directory_email": "priya.brooks@lumenhealth.com",
+    "true_email": "priya.brooks@lumenhealth.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Zara Popescu",
+    "first": "Zara",
+    "last": "Popescu",
+    "directory_email": "zara.popescu@meridianlabs.com",
+    "true_email": "zara.popescu@meridianlabs.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Felix Yilmaz",
+    "first": "Felix",
+    "last": "Yilmaz",
+    "directory_email": "felix.yilmaz@lumenhealth.com",
+    "true_email": "felix.yilmaz@staffmail.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Noah Moretti",
+    "first": "Noah",
+    "last": "Moretti",
+    "directory_email": "noah.moretti@harbourlane.co.uk",
+    "true_email": "noah.moretti@harbourlane.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Lena Patel",
+    "first": "Lena",
+    "last": "Patel",
+    "directory_email": "lena.patel@lumenhealth.com",
+    "true_email": "lena.patel@lumenhealth.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Sam Dubois",
+    "first": "Sam",
+    "last": "Dubois",
+    "directory_email": "sam.dubois@lumenhealth.com",
+    "true_email": "sam.dubois@staffmail.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Hugo Haddad",
+    "first": "Hugo",
+    "last": "Haddad",
+    "directory_email": "hugo.haddad@lumenhealth.com",
+    "true_email": "hugo.haddad@lumenhealth.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Theo Fraser",
+    "first": "Theo",
+    "last": "Fraser",
+    "directory_email": "theo.fraser@meridianlabs.com",
+    "true_email": "theo.fraser@meridianlabs.com",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Elena Mendes",
+   "first": "Elena",
+   "last": "Mendes",
+   "directory_email": "elena.mendes@lumenhealth.com",
+   "true_email": "elena.mendes@lumenhealth.com",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Marco Clarke",
+    "first": "Marco",
+    "last": "Clarke",
+    "directory_email": null,
+    "true_email": "marco.clarke@northgate-consulting.com",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Ines Ahmed",
+    "first": "Ines",
+    "last": "Ahmed",
+    "directory_email": null,
+    "true_email": "ines.ahmed@fernbank.co.uk",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Omar Andersen",
+    "first": "Omar",
+    "last": "Andersen",
+    "directory_email": null,
+    "true_email": "omar.andersen@harbourlane.co.uk",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Atlas Printing",
+    "directory_iban": "GB11MONZ09024582511395",
+    "true_iban": "GB93NWBK52953399767237",
+    "updated": true
+   },
+   {
+    "name": "Ivy Florist",
+    "directory_iban": "GB12HBUK58000600113314",
+    "true_iban": "GB12HBUK58000600113314",
+    "updated": false
+   },
+   {
+    "name": "Silverline Broadband",
+    "directory_iban": "GB36SRLG07908886414204",
+    "true_iban": "GB36SRLG07908886414204",
+    "updated": false
+   },
+   {
+    "name": "Redline Garage",
+    "directory_iban": "GB64CITI73593566007683",
+    "true_iban": "GB64CITI73593566007683",
+    "updated": false
+   },
+   {
+    "name": "Pinewood Tutoring",
+    "directory_iban": "GB50LOYD96536879967634",
+    "true_iban": "GB50LOYD96536879967634",
+    "updated": false
+   },
+   {
+    "name": "Swift Couriers",
+    "directory_iban": "GB18BARC45567317682734",
+    "true_iban": "GB18BARC45567317682734",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "travel policy",
+   "meeting minutes",
+   "risk register",
+   "marketing brief",
+   "safety handbook",
+   "board slides"
+  ],
+  "projects": [
+   {
+    "name": "Iris",
+    "code": "IRI-9674"
+   },
+   {
+    "name": "Nova",
+    "code": "NOV-4410"
+   },
+   {
+    "name": "Ember",
+    "code": "EMB-7551"
+   }
+  ]
+ },
+ {
+  "user_id": 176,
+  "split": "confirmation",
+  "name": "Amara Patel",
+  "first": "Amara",
+  "org_domain": "fernbank.co.uk",
+  "contacts": [
+   {
+    "name": "Omar Osei",
+    "first": "Omar",
+    "last": "Osei",
+    "directory_email": "omar.osei@fernbank.co.uk",
+    "true_email": "omar.osei@fernbank.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Rosa Lindqvist",
+    "first": "Rosa",
+    "last": "Lindqvist",
+    "directory_email": "rosa.lindqvist@kestrelworks.co.uk",
+    "true_email": "rosa.lindqvist@kestrelworks.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Zara Novak",
+    "first": "Zara",
+    "last": "Novak",
+    "directory_email": "zara.novak@fernbank.co.uk",
+    "true_email": "zara.novak@fernbank.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Frank Weber",
+    "first": "Frank",
+    "last": "Weber",
+    "directory_email": "frank.weber@fernbank.co.uk",
+    "true_email": "frank.weber@teamhub-mail.com",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Leila Brooks",
+    "first": "Leila",
+    "last": "Brooks",
+    "directory_email": "leila.brooks@blueharbour.net",
+    "true_email": "leila.brooks@blueharbour.net",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Priya Fischer",
+    "first": "Priya",
+    "last": "Fischer",
+    "directory_email": "priya.fischer@fernbank.co.uk",
+    "true_email": "priya.fischer@newmail-office.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Aisha Ruiz",
+    "first": "Aisha",
+    "last": "Ruiz",
+    "directory_email": "aisha.ruiz@fernbank.co.uk",
+    "true_email": "aisha.ruiz@fernbank.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Ines Sato",
+    "first": "Ines",
+    "last": "Sato",
+    "directory_email": "ines.sato@brightwell.io",
+    "true_email": "ines.sato@brightwell.io",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Jack Kowalski",
+   "first": "Jack",
+   "last": "Kowalski",
+   "directory_email": "jack.kowalski@fernbank.co.uk",
+   "true_email": "jack.kowalski@fernbank.co.uk",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Pedro Khan",
+    "first": "Pedro",
+    "last": "Khan",
+    "directory_email": null,
+    "true_email": "pedro.khan@brightwell.io",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Felix Costa",
+    "first": "Felix",
+    "last": "Costa",
+    "directory_email": null,
+    "true_email": "felix.costa@summitretail.com",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Lena Petrova",
+    "first": "Lena",
+    "last": "Petrova",
+    "directory_email": null,
+    "true_email": "lena.petrova@northgate-consulting.com",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Ivy Florist",
+    "directory_iban": "GB90MONZ80005713904106",
+    "true_iban": "GB40MONZ41011643622179",
+    "updated": true
+   },
+   {
+    "name": "Redline Garage",
+    "directory_iban": "GB78LOYD46344992922685",
+    "true_iban": "GB78LOYD46344992922685",
+    "updated": false
+   },
+   {
+    "name": "Swift Couriers",
+    "directory_iban": "GB74BARC77545428800237",
+    "true_iban": "GB74BARC77545428800237",
+    "updated": false
+   },
+   {
+    "name": "Maple Dental",
+    "directory_iban": "GB55BARC76367560678306",
+    "true_iban": "GB55BARC76367560678306",
+    "updated": false
+   },
+   {
+    "name": "Harbour Gym",
+    "directory_iban": "GB83HBUK90353621969481",
+    "true_iban": "GB83HBUK90353621969481",
+    "updated": false
+   },
+   {
+    "name": "Northwind Supplies",
+    "directory_iban": "GB67NWBK52969765651575",
+    "true_iban": "GB67NWBK52969765651575",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "risk register",
+   "training schedule",
+   "product roadmap",
+   "client proposal",
+   "sales summary",
+   "travel policy"
+  ],
+  "projects": [
+   {
+    "name": "Atlas",
+    "code": "ATL-8954"
+   },
+   {
+    "name": "Falcon",
+    "code": "FAL-7819"
+   },
+   {
+    "name": "Granite",
+    "code": "GRA-3161"
+   }
+  ]
+ },
+ {
+  "user_id": 177,
+  "split": "confirmation",
+  "name": "Mei Weber",
+  "first": "Mei",
+  "org_domain": "summitretail.com",
+  "contacts": [
+   {
+    "name": "Oscar Dubois",
+    "first": "Oscar",
+    "last": "Dubois",
+    "directory_email": "oscar.dubois@summitretail.com",
+    "true_email": "oscar.dubois@summitretail.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Eve Silva",
+    "first": "Eve",
+    "last": "Silva",
+    "directory_email": "eve.silva@summitretail.com",
+    "true_email": "eve.silva@workplace-uk.net",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Kofi Okafor",
+    "first": "Kofi",
+    "last": "Okafor",
+    "directory_email": "kofi.okafor@summitretail.com",
+    "true_email": "kofi.okafor@summitretail.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Aisha Nair",
+    "first": "Aisha",
+    "last": "Nair",
+    "directory_email": "aisha.nair@summitretail.com",
+    "true_email": "aisha.nair@summitretail.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Hana Reilly",
+    "first": "Hana",
+    "last": "Reilly",
+    "directory_email": "hana.reilly@summitretail.com",
+    "true_email": "hana.reilly@summitretail.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Frank Rossi",
+    "first": "Frank",
+    "last": "Rossi",
+    "directory_email": "frank.rossi@kestrelworks.co.uk",
+    "true_email": "frank.rossi@kestrelworks.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Ivy Lindqvist",
+    "first": "Ivy",
+    "last": "Lindqvist",
+    "directory_email": "ivy.lindqvist@summitretail.com",
+    "true_email": "ivy.lindqvist@staffmail.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Pedro Fischer",
+    "first": "Pedro",
+    "last": "Fischer",
+    "directory_email": "pedro.fischer@summitretail.com",
+    "true_email": "pedro.fischer@summitretail.com",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Hugo Brooks",
+   "first": "Hugo",
+   "last": "Brooks",
+   "directory_email": "hugo.brooks@summitretail.com",
+   "true_email": "hugo.brooks@summitretail.com",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Priya Hughes",
+    "first": "Priya",
+    "last": "Hughes",
+    "directory_email": null,
+    "true_email": "priya.hughes@summitretail.com",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Noah Petrova",
+    "first": "Noah",
+    "last": "Petrova",
+    "directory_email": null,
+    "true_email": "noah.petrova@cedarpoint.co.uk",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Rosa Carter",
+    "first": "Rosa",
+    "last": "Carter",
+    "directory_email": null,
+    "true_email": "rosa.carter@oakfieldgroup.co.uk",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Beacon Security",
+    "directory_iban": "GB12HBUK76329562645918",
+    "true_iban": "GB12HBUK76329562645918",
+    "updated": false
+   },
+   {
+    "name": "Hilltop Bakery",
+    "directory_iban": "GB83MONZ63213670362493",
+    "true_iban": "GB69NWBK73641528084695",
+    "updated": true
+   },
+   {
+    "name": "Pinewood Tutoring",
+    "directory_iban": "GB36MONZ79737354002010",
+    "true_iban": "GB36MONZ79737354002010",
+    "updated": false
+   },
+   {
+    "name": "Ivy Florist",
+    "directory_iban": "GB66SRLG29146553981057",
+    "true_iban": "GB66SRLG29146553981057",
+    "updated": false
+   },
+   {
+    "name": "Clearview Windows",
+    "directory_iban": "GB98MONZ88950104153112",
+    "true_iban": "GB98MONZ88950104153112",
+    "updated": false
+   },
+   {
+    "name": "City Water",
+    "directory_iban": "GB84NWBK46112842518875",
+    "true_iban": "GB84NWBK46112842518875",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "training schedule",
+   "safety handbook",
+   "audit checklist",
+   "marketing brief",
+   "Q3 report",
+   "project plan"
+  ],
+  "projects": [
+   {
+    "name": "Cobalt",
+    "code": "COB-4406"
+   },
+   {
+    "name": "Harbor",
+    "code": "HAR-5767"
+   },
+   {
+    "name": "Juniper",
+    "code": "JUN-8393"
+   }
+  ]
+ },
+ {
+  "user_id": 178,
+  "split": "confirmation",
+  "name": "Pedro Hughes",
+  "first": "Pedro",
+  "org_domain": "blueharbour.net",
+  "contacts": [
+   {
+    "name": "Elena Moretti",
+    "first": "Elena",
+    "last": "Moretti",
+    "directory_email": "elena.moretti@blueharbour.net",
+    "true_email": "elena.moretti@blueharbour.net",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Luis Bennett",
+    "first": "Luis",
+    "last": "Bennett",
+    "directory_email": "luis.bennett@blueharbour.net",
+    "true_email": "luis.bennett@blueharbour.net",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Priya Yilmaz",
+    "first": "Priya",
+    "last": "Yilmaz",
+    "directory_email": "priya.yilmaz@fernbank.co.uk",
+    "true_email": "priya.yilmaz@fernbank.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Ben Larsen",
+    "first": "Ben",
+    "last": "Larsen",
+    "directory_email": "ben.larsen@blueharbour.net",
+    "true_email": "ben.larsen@workplace-uk.net",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Frank Weber",
+    "first": "Frank",
+    "last": "Weber",
+    "directory_email": "frank.weber@brightwell.io",
+    "true_email": "frank.weber@newmail-office.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Chloe Fraser",
+    "first": "Chloe",
+    "last": "Fraser",
+    "directory_email": "chloe.fraser@blueharbour.net",
+    "true_email": "chloe.fraser@blueharbour.net",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Rosa Popescu",
+    "first": "Rosa",
+    "last": "Popescu",
+    "directory_email": "rosa.popescu@kestrelworks.co.uk",
+    "true_email": "rosa.popescu@kestrelworks.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Kofi Petrova",
+    "first": "Kofi",
+    "last": "Petrova",
+    "directory_email": "kofi.petrova@blueharbour.net",
+    "true_email": "kofi.petrova@blueharbour.net",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Ola Lindqvist",
+   "first": "Ola",
+   "last": "Lindqvist",
+   "directory_email": "ola.lindqvist@blueharbour.net",
+   "true_email": "ola.lindqvist@blueharbour.net",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Felix Reilly",
+    "first": "Felix",
+    "last": "Reilly",
+    "directory_email": null,
+    "true_email": "felix.reilly@riverstone.org",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Theo Ahmed",
+    "first": "Theo",
+    "last": "Ahmed",
+    "directory_email": null,
+    "true_email": "theo.ahmed@brightwell.io",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Dan Ibrahim",
+    "first": "Dan",
+    "last": "Ibrahim",
+    "directory_email": null,
+    "true_email": "dan.ibrahim@summitretail.com",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Swift Couriers",
+    "directory_iban": "GB66NWBK81763510837017",
+    "true_iban": "GB66NWBK81763510837017",
+    "updated": false
+   },
+   {
+    "name": "Beacon Security",
+    "directory_iban": "GB59CITI50121266634945",
+    "true_iban": "GB59CITI50121266634945",
+    "updated": false
+   },
+   {
+    "name": "Hilltop Bakery",
+    "directory_iban": "GB33CITI39389547412625",
+    "true_iban": "GB33CITI39389547412625",
+    "updated": false
+   },
+   {
+    "name": "Clearview Windows",
+    "directory_iban": "GB56LOYD71125109823964",
+    "true_iban": "GB56LOYD71125109823964",
+    "updated": false
+   },
+   {
+    "name": "Northwind Supplies",
+    "directory_iban": "GB20HBUK93952040423065",
+    "true_iban": "GB20HBUK93952040423065",
+    "updated": false
+   },
+   {
+    "name": "Silverline Broadband",
+    "directory_iban": "GB54BARC13364347575431",
+    "true_iban": "GB20LOYD19611483145249",
+    "updated": true
+   }
+  ],
+  "documents": [
+   "sales summary",
+   "supplier contract",
+   "budget forecast",
+   "training schedule",
+   "client proposal",
+   "project plan"
+  ],
+  "projects": [
+   {
+    "name": "Delta",
+    "code": "DEL-8318"
+   },
+   {
+    "name": "Granite",
+    "code": "GRA-7531"
+   },
+   {
+    "name": "Kestrel",
+    "code": "KES-8648"
+   }
+  ]
+ },
+ {
+  "user_id": 179,
+  "split": "confirmation",
+  "name": "Nina Novak",
+  "first": "Nina",
+  "org_domain": "cedarpoint.co.uk",
+  "contacts": [
+   {
+    "name": "Mei Dubois",
+    "first": "Mei",
+    "last": "Dubois",
+    "directory_email": "mei.dubois@cedarpoint.co.uk",
+    "true_email": "mei.dubois@staffmail.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Aisha Fraser",
+    "first": "Aisha",
+    "last": "Fraser",
+    "directory_email": "aisha.fraser@cedarpoint.co.uk",
+    "true_email": "aisha.fraser@cedarpoint.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Arjun Ahmed",
+    "first": "Arjun",
+    "last": "Ahmed",
+    "directory_email": "arjun.ahmed@fernbank.co.uk",
+    "true_email": "arjun.ahmed@fernbank.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Zara Walsh",
+    "first": "Zara",
+    "last": "Walsh",
+    "directory_email": "zara.walsh@cedarpoint.co.uk",
+    "true_email": "zara.walsh@cedarpoint.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Ola Costa",
+    "first": "Ola",
+    "last": "Costa",
+    "directory_email": "ola.costa@harbourlane.co.uk",
+    "true_email": "ola.costa@workplace-uk.net",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Elena Yilmaz",
+    "first": "Elena",
+    "last": "Yilmaz",
+    "directory_email": "elena.yilmaz@cedarpoint.co.uk",
+    "true_email": "elena.yilmaz@cedarpoint.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Luis Adeyemi",
+    "first": "Luis",
+    "last": "Adeyemi",
+    "directory_email": "luis.adeyemi@cedarpoint.co.uk",
+    "true_email": "luis.adeyemi@cedarpoint.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Sam Lindqvist",
+    "first": "Sam",
+    "last": "Lindqvist",
+    "directory_email": "sam.lindqvist@fernbank.co.uk",
+    "true_email": "sam.lindqvist@fernbank.co.uk",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Maya Osei",
+   "first": "Maya",
+   "last": "Osei",
+   "directory_email": "maya.osei@cedarpoint.co.uk",
+   "true_email": "maya.osei@cedarpoint.co.uk",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Marco Larsen",
+    "first": "Marco",
+    "last": "Larsen",
+    "directory_email": null,
+    "true_email": "marco.larsen@riverstone.org",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Kofi Murphy",
+    "first": "Kofi",
+    "last": "Murphy",
+    "directory_email": null,
+    "true_email": "kofi.murphy@riverstone.org",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Yusuf Andersen",
+    "first": "Yusuf",
+    "last": "Andersen",
+    "directory_email": null,
+    "true_email": "yusuf.andersen@northgate-consulting.com",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "City Water",
+    "directory_iban": "GB12BARC50841790203697",
+    "true_iban": "GB12BARC50841790203697",
+    "updated": false
+   },
+   {
+    "name": "Hilltop Bakery",
+    "directory_iban": "GB75MONZ86723002299093",
+    "true_iban": "GB75MONZ86723002299093",
+    "updated": false
+   },
+   {
+    "name": "Oakmont Insurance",
+    "directory_iban": "GB32NWBK29869607537560",
+    "true_iban": "GB32NWBK29869607537560",
+    "updated": false
+   },
+   {
+    "name": "Northwind Supplies",
+    "directory_iban": "GB91MIDL82938948005759",
+    "true_iban": "GB91MIDL82938948005759",
+    "updated": false
+   },
+   {
+    "name": "Metro Parking",
+    "directory_iban": "GB84SRLG06635507454229",
+    "true_iban": "GB84SRLG06635507454229",
+    "updated": false
+   },
+   {
+    "name": "Beacon Security",
+    "directory_iban": "GB44MONZ46429382107916",
+    "true_iban": "GB17NWBK01803761441875",
+    "updated": true
+   }
+  ],
+  "documents": [
+   "Q3 report",
+   "marketing brief",
+   "training schedule",
+   "client proposal",
+   "sales summary",
+   "supplier contract"
+  ],
+  "projects": [
+   {
+    "name": "Granite",
+    "code": "GRA-6205"
+   },
+   {
+    "name": "Iris",
+    "code": "IRI-8050"
+   },
+   {
+    "name": "Beacon",
+    "code": "BEA-1071"
+   }
+  ]
+ },
+ {
+  "user_id": 180,
+  "split": "confirmation",
+  "name": "Amara Osei",
+  "first": "Amara",
+  "org_domain": "harbourlane.co.uk",
+  "contacts": [
+   {
+    "name": "Lena Kowalski",
+    "first": "Lena",
+    "last": "Kowalski",
+    "directory_email": "lena.kowalski@harbourlane.co.uk",
+    "true_email": "lena.kowalski@workplace-uk.net",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Zara Adeyemi",
+    "first": "Zara",
+    "last": "Adeyemi",
+    "directory_email": "zara.adeyemi@harbourlane.co.uk",
+    "true_email": "zara.adeyemi@harbourlane.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Kofi Sato",
+    "first": "Kofi",
+    "last": "Sato",
+    "directory_email": "kofi.sato@harbourlane.co.uk",
+    "true_email": "kofi.sato@harbourlane.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Pedro Lindqvist",
+    "first": "Pedro",
+    "last": "Lindqvist",
+    "directory_email": "pedro.lindqvist@meridianlabs.com",
+    "true_email": "pedro.lindqvist@meridianlabs.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Felix Reilly",
+    "first": "Felix",
+    "last": "Reilly",
+    "directory_email": "felix.reilly@harbourlane.co.uk",
+    "true_email": "felix.reilly@harbourlane.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Frank Carter",
+    "first": "Frank",
+    "last": "Carter",
+    "directory_email": "frank.carter@harbourlane.co.uk",
+    "true_email": "frank.carter@harbourlane.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Maya Rossi",
+    "first": "Maya",
+    "last": "Rossi",
+    "directory_email": "maya.rossi@riverstone.org",
+    "true_email": "maya.rossi@workplace-uk.net",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Jack Walsh",
+    "first": "Jack",
+    "last": "Walsh",
+    "directory_email": "jack.walsh@harbourlane.co.uk",
+    "true_email": "jack.walsh@harbourlane.co.uk",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Dan Novak",
+   "first": "Dan",
+   "last": "Novak",
+   "directory_email": "dan.novak@harbourlane.co.uk",
+   "true_email": "dan.novak@harbourlane.co.uk",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Grace Mendes",
+    "first": "Grace",
+    "last": "Mendes",
+    "directory_email": null,
+    "true_email": "grace.mendes@northgate-consulting.com",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Aisha Fischer",
+    "first": "Aisha",
+    "last": "Fischer",
+    "directory_email": null,
+    "true_email": "aisha.fischer@riverstone.org",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Hugo Clarke",
+    "first": "Hugo",
+    "last": "Clarke",
+    "directory_email": null,
+    "true_email": "hugo.clarke@brightwell.io",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Pinewood Tutoring",
+    "directory_iban": "GB53LOYD26705947819121",
+    "true_iban": "GB53LOYD26705947819121",
+    "updated": false
+   },
+   {
+    "name": "Maple Dental",
+    "directory_iban": "GB42MONZ93045954393535",
+    "true_iban": "GB42MONZ93045954393535",
+    "updated": false
+   },
+   {
+    "name": "Greenleaf Catering",
+    "directory_iban": "GB83SRLG61595030531541",
+    "true_iban": "GB83SRLG61595030531541",
+    "updated": false
+   },
+   {
+    "name": "Bright Electric",
+    "directory_iban": "GB61NWBK99161035584919",
+    "true_iban": "GB61NWBK99161035584919",
+    "updated": false
+   },
+   {
+    "name": "Hilltop Bakery",
+    "directory_iban": "GB49MIDL09877347051069",
+    "true_iban": "GB28MIDL08522789668778",
+    "updated": true
+   },
+   {
+    "name": "Clearview Windows",
+    "directory_iban": "GB78HBUK16502173088202",
+    "true_iban": "GB78HBUK16502173088202",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "client proposal",
+   "meeting minutes",
+   "sales summary",
+   "product roadmap",
+   "marketing brief",
+   "travel policy"
+  ],
+  "projects": [
+   {
+    "name": "Nova",
+    "code": "NOV-5458"
+   },
+   {
+    "name": "Orion",
+    "code": "ORI-5018"
+   },
+   {
+    "name": "Granite",
+    "code": "GRA-7353"
+   }
+  ]
+ },
+ {
+  "user_id": 181,
+  "split": "confirmation",
+  "name": "Lucia Ahmed",
+  "first": "Lucia",
+  "org_domain": "northgate-consulting.com",
+  "contacts": [
+   {
+    "name": "Jack Kowalski",
+    "first": "Jack",
+    "last": "Kowalski",
+    "directory_email": "jack.kowalski@northgate-consulting.com",
+    "true_email": "jack.kowalski@northgate-consulting.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Amara Clarke",
+    "first": "Amara",
+    "last": "Clarke",
+    "directory_email": "amara.clarke@brightwell.io",
+    "true_email": "amara.clarke@brightwell.io",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Ola Fraser",
+    "first": "Ola",
+    "last": "Fraser",
+    "directory_email": "ola.fraser@oakfieldgroup.co.uk",
+    "true_email": "ola.fraser@oakfieldgroup.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Dan Mensah",
+    "first": "Dan",
+    "last": "Mensah",
+    "directory_email": "dan.mensah@cedarpoint.co.uk",
+    "true_email": "dan.mensah@cedarpoint.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Noah Dubois",
+    "first": "Noah",
+    "last": "Dubois",
+    "directory_email": "noah.dubois@oakfieldgroup.co.uk",
+    "true_email": "noah.dubois@oakfieldgroup.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Omar Larsen",
+    "first": "Omar",
+    "last": "Larsen",
+    "directory_email": "omar.larsen@northgate-consulting.com",
+    "true_email": "omar.larsen@newmail-office.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Marco Petrova",
+    "first": "Marco",
+    "last": "Petrova",
+    "directory_email": "marco.petrova@fernbank.co.uk",
+    "true_email": "marco.petrova@fernbank.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Ivy Byrne",
+    "first": "Ivy",
+    "last": "Byrne",
+    "directory_email": "ivy.byrne@northgate-consulting.com",
+    "true_email": "ivy.byrne@workplace-uk.net",
+    "memory_only": false,
+    "updated": true
+   }
+  ],
+  "manager": {
+   "name": "Raj Rossi",
+   "first": "Raj",
+   "last": "Rossi",
+   "directory_email": "raj.rossi@northgate-consulting.com",
+   "true_email": "raj.rossi@northgate-consulting.com",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Kenji Hughes",
+    "first": "Kenji",
+    "last": "Hughes",
+    "directory_email": null,
+    "true_email": "kenji.hughes@riverstone.org",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Eve Mendes",
+    "first": "Eve",
+    "last": "Mendes",
+    "directory_email": null,
+    "true_email": "eve.mendes@fernbank.co.uk",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Sam Popescu",
+    "first": "Sam",
+    "last": "Popescu",
+    "directory_email": null,
+    "true_email": "sam.popescu@summitretail.com",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Metro Parking",
+    "directory_iban": "GB57MIDL28222856202574",
+    "true_iban": "GB57MIDL28222856202574",
+    "updated": false
+   },
+   {
+    "name": "Harbour Gym",
+    "directory_iban": "GB84MONZ82067151993962",
+    "true_iban": "GB84MONZ82067151993962",
+    "updated": false
+   },
+   {
+    "name": "Beacon Security",
+    "directory_iban": "GB51MONZ40648437298191",
+    "true_iban": "GB51MONZ40648437298191",
+    "updated": false
+   },
+   {
+    "name": "Bright Electric",
+    "directory_iban": "GB65SRLG51505695891670",
+    "true_iban": "GB55CITI02158647099464",
+    "updated": true
+   },
+   {
+    "name": "Clearview Windows",
+    "directory_iban": "GB36LOYD56202521858948",
+    "true_iban": "GB36LOYD56202521858948",
+    "updated": false
+   },
+   {
+    "name": "Northwind Supplies",
+    "directory_iban": "GB65HBUK34631207874515",
+    "true_iban": "GB65HBUK34631207874515",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "meeting minutes",
+   "hiring plan",
+   "product roadmap",
+   "board slides",
+   "marketing brief",
+   "Q3 report"
+  ],
+  "projects": [
+   {
+    "name": "Orion",
+    "code": "ORI-7583"
+   },
+   {
+    "name": "Juniper",
+    "code": "JUN-9359"
+   },
+   {
+    "name": "Harbor",
+    "code": "HAR-9163"
+   }
+  ]
+ },
+ {
+  "user_id": 182,
+  "split": "confirmation",
+  "name": "Tom Hughes",
+  "first": "Tom",
+  "org_domain": "brightwell.io",
+  "contacts": [
+   {
+    "name": "Dan Moreno",
+    "first": "Dan",
+    "last": "Moreno",
+    "directory_email": "dan.moreno@brightwell.io",
+    "true_email": "dan.moreno@staffmail.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Amara Khan",
+    "first": "Amara",
+    "last": "Khan",
+    "directory_email": "amara.khan@brightwell.io",
+    "true_email": "amara.khan@brightwell.io",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Lena Weber",
+    "first": "Lena",
+    "last": "Weber",
+    "directory_email": "lena.weber@brightwell.io",
+    "true_email": "lena.weber@brightwell.io",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Sam Fischer",
+    "first": "Sam",
+    "last": "Fischer",
+    "directory_email": "sam.fischer@riverstone.org",
+    "true_email": "sam.fischer@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Noah Sato",
+    "first": "Noah",
+    "last": "Sato",
+    "directory_email": "noah.sato@summitretail.com",
+    "true_email": "noah.sato@summitretail.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Theo Costa",
+    "first": "Theo",
+    "last": "Costa",
+    "directory_email": "theo.costa@riverstone.org",
+    "true_email": "theo.costa@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Felix Petrova",
+    "first": "Felix",
+    "last": "Petrova",
+    "directory_email": "felix.petrova@brightwell.io",
+    "true_email": "felix.petrova@teamhub-mail.com",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Zara Yilmaz",
+    "first": "Zara",
+    "last": "Yilmaz",
+    "directory_email": "zara.yilmaz@harbourlane.co.uk",
+    "true_email": "zara.yilmaz@harbourlane.co.uk",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Pedro Mensah",
+   "first": "Pedro",
+   "last": "Mensah",
+   "directory_email": "pedro.mensah@brightwell.io",
+   "true_email": "pedro.mensah@brightwell.io",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Lucia Carter",
+    "first": "Lucia",
+    "last": "Carter",
+    "directory_email": null,
+    "true_email": "lucia.carter@oakfieldgroup.co.uk",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Ola Ahmed",
+    "first": "Ola",
+    "last": "Ahmed",
+    "directory_email": null,
+    "true_email": "ola.ahmed@kestrelworks.co.uk",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Nina Fraser",
+    "first": "Nina",
+    "last": "Fraser",
+    "directory_email": null,
+    "true_email": "nina.fraser@northgate-consulting.com",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Swift Couriers",
+    "directory_iban": "GB15LOYD03077654065354",
+    "true_iban": "GB15LOYD03077654065354",
+    "updated": false
+   },
+   {
+    "name": "Atlas Printing",
+    "directory_iban": "GB56BARC72675600093723",
+    "true_iban": "GB16SRLG03363424496417",
+    "updated": true
+   },
+   {
+    "name": "Northwind Supplies",
+    "directory_iban": "GB27MONZ45317652865565",
+    "true_iban": "GB27MONZ45317652865565",
+    "updated": false
+   },
+   {
+    "name": "Silverline Broadband",
+    "directory_iban": "GB17NWBK89420683966183",
+    "true_iban": "GB17NWBK89420683966183",
+    "updated": false
+   },
+   {
+    "name": "Bright Electric",
+    "directory_iban": "GB91LOYD20672224605897",
+    "true_iban": "GB91LOYD20672224605897",
+    "updated": false
+   },
+   {
+    "name": "Ivy Florist",
+    "directory_iban": "GB35SRLG96370481113721",
+    "true_iban": "GB35SRLG96370481113721",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "training schedule",
+   "budget forecast",
+   "project plan",
+   "hiring plan",
+   "travel policy",
+   "Q3 report"
+  ],
+  "projects": [
+   {
+    "name": "Kestrel",
+    "code": "KES-1909"
+   },
+   {
+    "name": "Nova",
+    "code": "NOV-4956"
+   },
+   {
+    "name": "Atlas",
+    "code": "ATL-4737"
+   }
+  ]
+ },
+ {
+  "user_id": 183,
+  "split": "confirmation",
+  "name": "Hugo Reilly",
+  "first": "Hugo",
+  "org_domain": "kestrelworks.co.uk",
+  "contacts": [
+   {
+    "name": "Leila Adeyemi",
+    "first": "Leila",
+    "last": "Adeyemi",
+    "directory_email": "leila.adeyemi@meridianlabs.com",
+    "true_email": "leila.adeyemi@meridianlabs.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Pedro Costa",
+    "first": "Pedro",
+    "last": "Costa",
+    "directory_email": "pedro.costa@kestrelworks.co.uk",
+    "true_email": "pedro.costa@staffmail.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Felix Yilmaz",
+    "first": "Felix",
+    "last": "Yilmaz",
+    "directory_email": "felix.yilmaz@kestrelworks.co.uk",
+    "true_email": "felix.yilmaz@workplace-uk.net",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Omar Byrne",
+    "first": "Omar",
+    "last": "Byrne",
+    "directory_email": "omar.byrne@kestrelworks.co.uk",
+    "true_email": "omar.byrne@kestrelworks.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Kofi Brooks",
+    "first": "Kofi",
+    "last": "Brooks",
+    "directory_email": "kofi.brooks@kestrelworks.co.uk",
+    "true_email": "kofi.brooks@kestrelworks.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Marco Carter",
+    "first": "Marco",
+    "last": "Carter",
+    "directory_email": "marco.carter@northgate-consulting.com",
+    "true_email": "marco.carter@northgate-consulting.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Tom Osei",
+    "first": "Tom",
+    "last": "Osei",
+    "directory_email": "tom.osei@riverstone.org",
+    "true_email": "tom.osei@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Kenji Khan",
+    "first": "Kenji",
+    "last": "Khan",
+    "directory_email": "kenji.khan@riverstone.org",
+    "true_email": "kenji.khan@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Elena Dubois",
+   "first": "Elena",
+   "last": "Dubois",
+   "directory_email": "elena.dubois@kestrelworks.co.uk",
+   "true_email": "elena.dubois@kestrelworks.co.uk",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Ines Murphy",
+    "first": "Ines",
+    "last": "Murphy",
+    "directory_email": null,
+    "true_email": "ines.murphy@summitretail.com",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Raj Ibrahim",
+    "first": "Raj",
+    "last": "Ibrahim",
+    "directory_email": null,
+    "true_email": "raj.ibrahim@kestrelworks.co.uk",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Lena Novak",
+    "first": "Lena",
+    "last": "Novak",
+    "directory_email": null,
+    "true_email": "lena.novak@blueharbour.net",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Clearview Windows",
+    "directory_iban": "GB65MIDL52639195999001",
+    "true_iban": "GB25NWBK32773778131372",
+    "updated": true
+   },
+   {
+    "name": "Redline Garage",
+    "directory_iban": "GB91LOYD94708856786833",
+    "true_iban": "GB91LOYD94708856786833",
+    "updated": false
+   },
+   {
+    "name": "Silverline Broadband",
+    "directory_iban": "GB44CITI73300598190083",
+    "true_iban": "GB44CITI73300598190083",
+    "updated": false
+   },
+   {
+    "name": "City Water",
+    "directory_iban": "GB69NWBK92815703077580",
+    "true_iban": "GB69NWBK92815703077580",
+    "updated": false
+   },
+   {
+    "name": "Lark Stationery",
+    "directory_iban": "GB97BARC53545743892303",
+    "true_iban": "GB97BARC53545743892303",
+    "updated": false
+   },
+   {
+    "name": "Kite Cleaning",
+    "directory_iban": "GB41BARC23388863851992",
+    "true_iban": "GB41BARC23388863851992",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "travel policy",
+   "budget forecast",
+   "marketing brief",
+   "risk register",
+   "hiring plan",
+   "sales summary"
+  ],
+  "projects": [
+   {
+    "name": "Delta",
+    "code": "DEL-3721"
+   },
+   {
+    "name": "Falcon",
+    "code": "FAL-7191"
+   },
+   {
+    "name": "Cobalt",
+    "code": "COB-2293"
+   }
+  ]
+ },
+ {
+  "user_id": 184,
+  "split": "confirmation",
+  "name": "Theo Bennett",
+  "first": "Theo",
+  "org_domain": "meridianlabs.com",
+  "contacts": [
+   {
+    "name": "Zara Carter",
+    "first": "Zara",
+    "last": "Carter",
+    "directory_email": "zara.carter@meridianlabs.com",
+    "true_email": "zara.carter@meridianlabs.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Aisha Murphy",
+    "first": "Aisha",
+    "last": "Murphy",
+    "directory_email": "aisha.murphy@harbourlane.co.uk",
+    "true_email": "aisha.murphy@harbourlane.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Lena Novak",
+    "first": "Lena",
+    "last": "Novak",
+    "directory_email": "lena.novak@meridianlabs.com",
+    "true_email": "lena.novak@meridianlabs.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Hugo Fraser",
+    "first": "Hugo",
+    "last": "Fraser",
+    "directory_email": "hugo.fraser@lumenhealth.com",
+    "true_email": "hugo.fraser@newmail-office.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Marco Kowalski",
+    "first": "Marco",
+    "last": "Kowalski",
+    "directory_email": "marco.kowalski@meridianlabs.com",
+    "true_email": "marco.kowalski@meridianlabs.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Kofi Sato",
+    "first": "Kofi",
+    "last": "Sato",
+    "directory_email": "kofi.sato@lumenhealth.com",
+    "true_email": "kofi.sato@teamhub-mail.com",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Pedro Ahmed",
+    "first": "Pedro",
+    "last": "Ahmed",
+    "directory_email": "pedro.ahmed@meridianlabs.com",
+    "true_email": "pedro.ahmed@meridianlabs.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Grace Walsh",
+    "first": "Grace",
+    "last": "Walsh",
+    "directory_email": "grace.walsh@meridianlabs.com",
+    "true_email": "grace.walsh@meridianlabs.com",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Amara Costa",
+   "first": "Amara",
+   "last": "Costa",
+   "directory_email": "amara.costa@meridianlabs.com",
+   "true_email": "amara.costa@meridianlabs.com",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Ines Khan",
+    "first": "Ines",
+    "last": "Khan",
+    "directory_email": null,
+    "true_email": "ines.khan@harbourlane.co.uk",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Eve Haddad",
+    "first": "Eve",
+    "last": "Haddad",
+    "directory_email": null,
+    "true_email": "eve.haddad@fernbank.co.uk",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Lucia Nair",
+    "first": "Lucia",
+    "last": "Nair",
+    "directory_email": null,
+    "true_email": "lucia.nair@meridianlabs.com",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Beacon Security",
+    "directory_iban": "GB13MIDL42608443971893",
+    "true_iban": "GB13MIDL42608443971893",
+    "updated": false
+   },
+   {
+    "name": "Oakmont Insurance",
+    "directory_iban": "GB80LOYD25681539067238",
+    "true_iban": "GB80LOYD25681539067238",
+    "updated": false
+   },
+   {
+    "name": "Northwind Supplies",
+    "directory_iban": "GB40HBUK62573928638911",
+    "true_iban": "GB31MIDL40260767500383",
+    "updated": true
+   },
+   {
+    "name": "Kite Cleaning",
+    "directory_iban": "GB98MIDL59602634429175",
+    "true_iban": "GB98MIDL59602634429175",
+    "updated": false
+   },
+   {
+    "name": "Lark Stationery",
+    "directory_iban": "GB30HBUK79610658348133",
+    "true_iban": "GB30HBUK79610658348133",
+    "updated": false
+   },
+   {
+    "name": "City Water",
+    "directory_iban": "GB94NWBK83944791687174",
+    "true_iban": "GB94NWBK83944791687174",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "sales summary",
+   "supplier contract",
+   "project plan",
+   "hiring plan",
+   "marketing brief",
+   "safety handbook"
+  ],
+  "projects": [
+   {
+    "name": "Pioneer",
+    "code": "PIO-1124"
+   },
+   {
+    "name": "Kestrel",
+    "code": "KES-7866"
+   },
+   {
+    "name": "Atlas",
+    "code": "ATL-3653"
+   }
+  ]
+ },
+ {
+  "user_id": 185,
+  "split": "confirmation",
+  "name": "Lucia Carter",
+  "first": "Lucia",
+  "org_domain": "oakfieldgroup.co.uk",
+  "contacts": [
+   {
+    "name": "Ben Ahmed",
+    "first": "Ben",
+    "last": "Ahmed",
+    "directory_email": "ben.ahmed@fernbank.co.uk",
+    "true_email": "ben.ahmed@teamhub-mail.com",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Sam Tanaka",
+    "first": "Sam",
+    "last": "Tanaka",
+    "directory_email": "sam.tanaka@oakfieldgroup.co.uk",
+    "true_email": "sam.tanaka@oakfieldgroup.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Kenji Popescu",
+    "first": "Kenji",
+    "last": "Popescu",
+    "directory_email": "kenji.popescu@oakfieldgroup.co.uk",
+    "true_email": "kenji.popescu@workplace-uk.net",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Hana Dubois",
+    "first": "Hana",
+    "last": "Dubois",
+    "directory_email": "hana.dubois@oakfieldgroup.co.uk",
+    "true_email": "hana.dubois@oakfieldgroup.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Ines Ruiz",
+    "first": "Ines",
+    "last": "Ruiz",
+    "directory_email": "ines.ruiz@oakfieldgroup.co.uk",
+    "true_email": "ines.ruiz@oakfieldgroup.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Elena Fraser",
+    "first": "Elena",
+    "last": "Fraser",
+    "directory_email": "elena.fraser@riverstone.org",
+    "true_email": "elena.fraser@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Priya Haddad",
+    "first": "Priya",
+    "last": "Haddad",
+    "directory_email": "priya.haddad@kestrelworks.co.uk",
+    "true_email": "priya.haddad@kestrelworks.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Felix Murphy",
+    "first": "Felix",
+    "last": "Murphy",
+    "directory_email": "felix.murphy@oakfieldgroup.co.uk",
+    "true_email": "felix.murphy@oakfieldgroup.co.uk",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Noah Yilmaz",
+   "first": "Noah",
+   "last": "Yilmaz",
+   "directory_email": "noah.yilmaz@oakfieldgroup.co.uk",
+   "true_email": "noah.yilmaz@oakfieldgroup.co.uk",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Lena Kowalski",
+    "first": "Lena",
+    "last": "Kowalski",
+    "directory_email": null,
+    "true_email": "lena.kowalski@fernbank.co.uk",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Luis Reilly",
+    "first": "Luis",
+    "last": "Reilly",
+    "directory_email": null,
+    "true_email": "luis.reilly@brightwell.io",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Dan Petrova",
+    "first": "Dan",
+    "last": "Petrova",
+    "directory_email": null,
+    "true_email": "dan.petrova@blueharbour.net",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Ivy Florist",
+    "directory_iban": "GB89MIDL71109811972612",
+    "true_iban": "GB89MIDL71109811972612",
+    "updated": false
+   },
+   {
+    "name": "Quarry Builders",
+    "directory_iban": "GB27SRLG48905798716674",
+    "true_iban": "GB30SRLG60419543549187",
+    "updated": true
+   },
+   {
+    "name": "Hilltop Bakery",
+    "directory_iban": "GB17SRLG02327929362961",
+    "true_iban": "GB17SRLG02327929362961",
+    "updated": false
+   },
+   {
+    "name": "Metro Parking",
+    "directory_iban": "GB83MIDL76927634429436",
+    "true_iban": "GB83MIDL76927634429436",
+    "updated": false
+   },
+   {
+    "name": "Oakmont Insurance",
+    "directory_iban": "GB14MONZ26101040730200",
+    "true_iban": "GB14MONZ26101040730200",
+    "updated": false
+   },
+   {
+    "name": "Lark Stationery",
+    "directory_iban": "GB96BARC25047621690933",
+    "true_iban": "GB96BARC25047621690933",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "Q3 report",
+   "safety handbook",
+   "risk register",
+   "sales summary",
+   "product roadmap",
+   "hiring plan"
+  ],
+  "projects": [
+   {
+    "name": "Mosaic",
+    "code": "MOS-6836"
+   },
+   {
+    "name": "Lumen",
+    "code": "LUM-8096"
+   },
+   {
+    "name": "Granite",
+    "code": "GRA-4762"
+   }
+  ]
+ },
+ {
+  "user_id": 186,
+  "split": "confirmation",
+  "name": "Lucia Mensah",
+  "first": "Lucia",
+  "org_domain": "riverstone.org",
+  "contacts": [
+   {
+    "name": "Kofi Khan",
+    "first": "Kofi",
+    "last": "Khan",
+    "directory_email": "kofi.khan@northgate-consulting.com",
+    "true_email": "kofi.khan@workplace-uk.net",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Zara Dubois",
+    "first": "Zara",
+    "last": "Dubois",
+    "directory_email": "zara.dubois@riverstone.org",
+    "true_email": "zara.dubois@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Jack Hughes",
+    "first": "Jack",
+    "last": "Hughes",
+    "directory_email": "jack.hughes@lumenhealth.com",
+    "true_email": "jack.hughes@lumenhealth.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Oscar Andersen",
+    "first": "Oscar",
+    "last": "Andersen",
+    "directory_email": "oscar.andersen@riverstone.org",
+    "true_email": "oscar.andersen@staffmail.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Noah Ruiz",
+    "first": "Noah",
+    "last": "Ruiz",
+    "directory_email": "noah.ruiz@riverstone.org",
+    "true_email": "noah.ruiz@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Grace Moretti",
+    "first": "Grace",
+    "last": "Moretti",
+    "directory_email": "grace.moretti@riverstone.org",
+    "true_email": "grace.moretti@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Ola Novak",
+    "first": "Ola",
+    "last": "Novak",
+    "directory_email": "ola.novak@riverstone.org",
+    "true_email": "ola.novak@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Chloe Ibrahim",
+    "first": "Chloe",
+    "last": "Ibrahim",
+    "directory_email": "chloe.ibrahim@riverstone.org",
+    "true_email": "chloe.ibrahim@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Elena Reilly",
+   "first": "Elena",
+   "last": "Reilly",
+   "directory_email": "elena.reilly@riverstone.org",
+   "true_email": "elena.reilly@riverstone.org",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Omar Lindqvist",
+    "first": "Omar",
+    "last": "Lindqvist",
+    "directory_email": null,
+    "true_email": "omar.lindqvist@lumenhealth.com",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Marco Tanaka",
+    "first": "Marco",
+    "last": "Tanaka",
+    "directory_email": null,
+    "true_email": "marco.tanaka@riverstone.org",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Eve Fischer",
+    "first": "Eve",
+    "last": "Fischer",
+    "directory_email": null,
+    "true_email": "eve.fischer@oakfieldgroup.co.uk",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Oakmont Insurance",
+    "directory_iban": "GB26CITI39223710012428",
+    "true_iban": "GB26CITI39223710012428",
+    "updated": false
+   },
+   {
+    "name": "Silverline Broadband",
+    "directory_iban": "GB73CITI43926507352147",
+    "true_iban": "GB73CITI43926507352147",
+    "updated": false
+   },
+   {
+    "name": "Hilltop Bakery",
+    "directory_iban": "GB28MONZ55051816062460",
+    "true_iban": "GB28MONZ55051816062460",
+    "updated": false
+   },
+   {
+    "name": "City Water",
+    "directory_iban": "GB29MIDL05237106736703",
+    "true_iban": "GB29MIDL05237106736703",
+    "updated": false
+   },
+   {
+    "name": "Swift Couriers",
+    "directory_iban": "GB42CITI09656286862393",
+    "true_iban": "GB42CITI09656286862393",
+    "updated": false
+   },
+   {
+    "name": "Harbour Gym",
+    "directory_iban": "GB47LOYD12496108589182",
+    "true_iban": "GB60SRLG60601572746971",
+    "updated": true
+   }
+  ],
+  "documents": [
+   "safety handbook",
+   "budget forecast",
+   "hiring plan",
+   "client proposal",
+   "marketing brief",
+   "risk register"
+  ],
+  "projects": [
+   {
+    "name": "Harbor",
+    "code": "HAR-1103"
+   },
+   {
+    "name": "Granite",
+    "code": "GRA-8525"
+   },
+   {
+    "name": "Kestrel",
+    "code": "KES-5937"
+   }
+  ]
+ },
+ {
+  "user_id": 187,
+  "split": "confirmation",
+  "name": "Frank Popescu",
+  "first": "Frank",
+  "org_domain": "lumenhealth.com",
+  "contacts": [
+   {
+    "name": "Hana Rossi",
+    "first": "Hana",
+    "last": "Rossi",
+    "directory_email": "hana.rossi@brightwell.io",
+    "true_email": "hana.rossi@newmail-office.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Felix Ibrahim",
+    "first": "Felix",
+    "last": "Ibrahim",
+    "directory_email": "felix.ibrahim@lumenhealth.com",
+    "true_email": "felix.ibrahim@lumenhealth.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Raj Murphy",
+    "first": "Raj",
+    "last": "Murphy",
+    "directory_email": "raj.murphy@lumenhealth.com",
+    "true_email": "raj.murphy@lumenhealth.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Grace Mendes",
+    "first": "Grace",
+    "last": "Mendes",
+    "directory_email": "grace.mendes@lumenhealth.com",
+    "true_email": "grace.mendes@lumenhealth.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Hugo Carter",
+    "first": "Hugo",
+    "last": "Carter",
+    "directory_email": "hugo.carter@lumenhealth.com",
+    "true_email": "hugo.carter@lumenhealth.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Aisha Byrne",
+    "first": "Aisha",
+    "last": "Byrne",
+    "directory_email": "aisha.byrne@lumenhealth.com",
+    "true_email": "aisha.byrne@lumenhealth.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Rosa Dubois",
+    "first": "Rosa",
+    "last": "Dubois",
+    "directory_email": "rosa.dubois@riverstone.org",
+    "true_email": "rosa.dubois@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Elena Patel",
+    "first": "Elena",
+    "last": "Patel",
+    "directory_email": "elena.patel@brightwell.io",
+    "true_email": "elena.patel@newmail-office.co.uk",
+    "memory_only": false,
+    "updated": true
+   }
+  ],
+  "manager": {
+   "name": "Chloe Ruiz",
+   "first": "Chloe",
+   "last": "Ruiz",
+   "directory_email": "chloe.ruiz@lumenhealth.com",
+   "true_email": "chloe.ruiz@lumenhealth.com",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Tom Ahmed",
+    "first": "Tom",
+    "last": "Ahmed",
+    "directory_email": null,
+    "true_email": "tom.ahmed@brightwell.io",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Priya Moreno",
+    "first": "Priya",
+    "last": "Moreno",
+    "directory_email": null,
+    "true_email": "priya.moreno@brightwell.io",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Pedro Yilmaz",
+    "first": "Pedro",
+    "last": "Yilmaz",
+    "directory_email": null,
+    "true_email": "pedro.yilmaz@oakfieldgroup.co.uk",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Beacon Security",
+    "directory_iban": "GB89SRLG55659693422989",
+    "true_iban": "GB46CITI05977258527358",
+    "updated": true
+   },
+   {
+    "name": "Oakmont Insurance",
+    "directory_iban": "GB17SRLG29920115567682",
+    "true_iban": "GB17SRLG29920115567682",
+    "updated": false
+   },
+   {
+    "name": "Bright Electric",
+    "directory_iban": "GB56HBUK13005106663051",
+    "true_iban": "GB56HBUK13005106663051",
+    "updated": false
+   },
+   {
+    "name": "Silverline Broadband",
+    "directory_iban": "GB38HBUK53390658778424",
+    "true_iban": "GB38HBUK53390658778424",
+    "updated": false
+   },
+   {
+    "name": "Clearview Windows",
+    "directory_iban": "GB33MONZ83760927879510",
+    "true_iban": "GB33MONZ83760927879510",
+    "updated": false
+   },
+   {
+    "name": "Pinewood Tutoring",
+    "directory_iban": "GB87SRLG43373016743429",
+    "true_iban": "GB87SRLG43373016743429",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "audit checklist",
+   "product roadmap",
+   "training schedule",
+   "meeting minutes",
+   "supplier contract",
+   "hiring plan"
+  ],
+  "projects": [
+   {
+    "name": "Kestrel",
+    "code": "KES-5023"
+   },
+   {
+    "name": "Mosaic",
+    "code": "MOS-6185"
+   },
+   {
+    "name": "Beacon",
+    "code": "BEA-1010"
+   }
+  ]
+ },
+ {
+  "user_id": 188,
+  "split": "confirmation",
+  "name": "Marco Tanaka",
+  "first": "Marco",
+  "org_domain": "fernbank.co.uk",
+  "contacts": [
+   {
+    "name": "Ines Sato",
+    "first": "Ines",
+    "last": "Sato",
+    "directory_email": "ines.sato@fernbank.co.uk",
+    "true_email": "ines.sato@fernbank.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Yusuf Nair",
+    "first": "Yusuf",
+    "last": "Nair",
+    "directory_email": "yusuf.nair@fernbank.co.uk",
+    "true_email": "yusuf.nair@fernbank.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Eve Ruiz",
+    "first": "Eve",
+    "last": "Ruiz",
+    "directory_email": "eve.ruiz@fernbank.co.uk",
+    "true_email": "eve.ruiz@fernbank.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Nina Andersen",
+    "first": "Nina",
+    "last": "Andersen",
+    "directory_email": "nina.andersen@fernbank.co.uk",
+    "true_email": "nina.andersen@workplace-uk.net",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Maya Okafor",
+    "first": "Maya",
+    "last": "Okafor",
+    "directory_email": "maya.okafor@summitretail.com",
+    "true_email": "maya.okafor@summitretail.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Aisha Adeyemi",
+    "first": "Aisha",
+    "last": "Adeyemi",
+    "directory_email": "aisha.adeyemi@kestrelworks.co.uk",
+    "true_email": "aisha.adeyemi@kestrelworks.co.uk",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Ivy Carter",
+    "first": "Ivy",
+    "last": "Carter",
+    "directory_email": "ivy.carter@fernbank.co.uk",
+    "true_email": "ivy.carter@staffmail.co.uk",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Lucia Hughes",
+    "first": "Lucia",
+    "last": "Hughes",
+    "directory_email": "lucia.hughes@meridianlabs.com",
+    "true_email": "lucia.hughes@meridianlabs.com",
+    "memory_only": false,
+    "updated": false
+   }
+  ],
+  "manager": {
+   "name": "Amara Mendes",
+   "first": "Amara",
+   "last": "Mendes",
+   "directory_email": "amara.mendes@fernbank.co.uk",
+   "true_email": "amara.mendes@fernbank.co.uk",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Noah Walsh",
+    "first": "Noah",
+    "last": "Walsh",
+    "directory_email": null,
+    "true_email": "noah.walsh@harbourlane.co.uk",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Theo Patel",
+    "first": "Theo",
+    "last": "Patel",
+    "directory_email": null,
+    "true_email": "theo.patel@meridianlabs.com",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Oscar Silva",
+    "first": "Oscar",
+    "last": "Silva",
+    "directory_email": null,
+    "true_email": "oscar.silva@northgate-consulting.com",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Greenleaf Catering",
+    "directory_iban": "GB44BARC53535705326574",
+    "true_iban": "GB44BARC53535705326574",
+    "updated": false
+   },
+   {
+    "name": "Redline Garage",
+    "directory_iban": "GB56CITI76084872973723",
+    "true_iban": "GB56CITI76084872973723",
+    "updated": false
+   },
+   {
+    "name": "Bright Electric",
+    "directory_iban": "GB53LOYD94864210377020",
+    "true_iban": "GB10MIDL27167169195606",
+    "updated": true
+   },
+   {
+    "name": "Beacon Security",
+    "directory_iban": "GB37HBUK45125153490783",
+    "true_iban": "GB37HBUK45125153490783",
+    "updated": false
+   },
+   {
+    "name": "Kite Cleaning",
+    "directory_iban": "GB32SRLG37885591825297",
+    "true_iban": "GB32SRLG37885591825297",
+    "updated": false
+   },
+   {
+    "name": "Swift Couriers",
+    "directory_iban": "GB19NWBK10410500807228",
+    "true_iban": "GB19NWBK10410500807228",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "supplier contract",
+   "safety handbook",
+   "audit checklist",
+   "product roadmap",
+   "board slides",
+   "training schedule"
+  ],
+  "projects": [
+   {
+    "name": "Pioneer",
+    "code": "PIO-6706"
+   },
+   {
+    "name": "Juniper",
+    "code": "JUN-9284"
+   },
+   {
+    "name": "Mosaic",
+    "code": "MOS-3257"
+   }
+  ]
+ },
+ {
+  "user_id": 189,
+  "split": "confirmation",
+  "name": "Nina Fraser",
+  "first": "Nina",
+  "org_domain": "summitretail.com",
+  "contacts": [
+   {
+    "name": "Rosa Mensah",
+    "first": "Rosa",
+    "last": "Mensah",
+    "directory_email": "rosa.mensah@summitretail.com",
+    "true_email": "rosa.mensah@summitretail.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Jack Andersen",
+    "first": "Jack",
+    "last": "Andersen",
+    "directory_email": "jack.andersen@brightwell.io",
+    "true_email": "jack.andersen@brightwell.io",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Theo Fischer",
+    "first": "Theo",
+    "last": "Fischer",
+    "directory_email": "theo.fischer@lumenhealth.com",
+    "true_email": "theo.fischer@lumenhealth.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Lena Bennett",
+    "first": "Lena",
+    "last": "Bennett",
+    "directory_email": "lena.bennett@summitretail.com",
+    "true_email": "lena.bennett@summitretail.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Kenji Clarke",
+    "first": "Kenji",
+    "last": "Clarke",
+    "directory_email": "kenji.clarke@riverstone.org",
+    "true_email": "kenji.clarke@riverstone.org",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Chloe Novak",
+    "first": "Chloe",
+    "last": "Novak",
+    "directory_email": "chloe.novak@summitretail.com",
+    "true_email": "chloe.novak@workplace-uk.net",
+    "memory_only": false,
+    "updated": true
+   },
+   {
+    "name": "Grace Tanaka",
+    "first": "Grace",
+    "last": "Tanaka",
+    "directory_email": "grace.tanaka@summitretail.com",
+    "true_email": "grace.tanaka@summitretail.com",
+    "memory_only": false,
+    "updated": false
+   },
+   {
+    "name": "Eve Moreno",
+    "first": "Eve",
+    "last": "Moreno",
+    "directory_email": "eve.moreno@summitretail.com",
+    "true_email": "eve.moreno@newmail-office.co.uk",
+    "memory_only": false,
+    "updated": true
+   }
+  ],
+  "manager": {
+   "name": "Kofi Patel",
+   "first": "Kofi",
+   "last": "Patel",
+   "directory_email": "kofi.patel@summitretail.com",
+   "true_email": "kofi.patel@summitretail.com",
+   "memory_only": false,
+   "updated": false
+  },
+  "memory_contacts": [
+   {
+    "name": "Noah Costa",
+    "first": "Noah",
+    "last": "Costa",
+    "directory_email": null,
+    "true_email": "noah.costa@northgate-consulting.com",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Hana Weber",
+    "first": "Hana",
+    "last": "Weber",
+    "directory_email": null,
+    "true_email": "hana.weber@riverstone.org",
+    "memory_only": true,
+    "updated": false
+   },
+   {
+    "name": "Mei Carter",
+    "first": "Mei",
+    "last": "Carter",
+    "directory_email": null,
+    "true_email": "mei.carter@kestrelworks.co.uk",
+    "memory_only": true,
+    "updated": false
+   }
+  ],
+  "payees": [
+   {
+    "name": "Greenleaf Catering",
+    "directory_iban": "GB87NWBK56704020294830",
+    "true_iban": "GB47BARC13198675817840",
+    "updated": true
+   },
+   {
+    "name": "Metro Parking",
+    "directory_iban": "GB58MONZ51665118842229",
+    "true_iban": "GB58MONZ51665118842229",
+    "updated": false
+   },
+   {
+    "name": "Kite Cleaning",
+    "directory_iban": "GB30MIDL53051600736970",
+    "true_iban": "GB30MIDL53051600736970",
+    "updated": false
+   },
+   {
+    "name": "Lark Stationery",
+    "directory_iban": "GB64CITI23963426592413",
+    "true_iban": "GB64CITI23963426592413",
+    "updated": false
+   },
+   {
+    "name": "Maple Dental",
+    "directory_iban": "GB13MIDL00226939863257",
+    "true_iban": "GB13MIDL00226939863257",
+    "updated": false
+   },
+   {
+    "name": "Silverline Broadband",
+    "directory_iban": "GB85CITI61332706601911",
+    "true_iban": "GB85CITI61332706601911",
+    "updated": false
+   }
+  ],
+  "documents": [
+   "board slides",
+   "hiring plan",
+   "Q3 report",
+   "audit checklist",
+   "product roadmap",
+   "training schedule"
+  ],
+  "projects": [
+   {
+    "name": "Delta",
+    "code": "DEL-8854"
+   },
+   {
+    "name": "Falcon",
+    "code": "FAL-2808"
+   },
+   {
+    "name": "Ember",
+    "code": "EMB-3953"
+   }
+  ]
+ }
+]

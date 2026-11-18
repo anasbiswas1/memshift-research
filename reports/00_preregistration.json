@@ -530,5 +530,50 @@
     },
     "claims": "C2 to C4 for M7 if it enters, over notebooks 05 to 07 together, and C3 for RLMA under laundering on every included migration"
   },
+  "notebook_08": {
+    "date": "2026-11-17",
+    "status": "the two-tier audit of docs/plan_v2_amendment_2.md (development evidence from the recorded episodes of users 130 to 159), confirmed on new users 160 to 189",
+    "amendment": "docs/plan_v2_amendment_2.md",
+    "users": [
+      160,
+      189
+    ],
+    "migrations": [
+      "M1",
+      "M2",
+      "M7"
+    ],
+    "method": {
+      "name": "two-tier RLMA",
+      "sample": "n0(alpha, delta/2) log queries, one sample for both tiers",
+      "labelled_tier": "RLMA of amendment 1 (score with the provenance label, grid METHOD_GRID_SHARES, targeted census of CENSUS_UNITS units, whole-record quarantine), tested in order at delta/2",
+      "fallback_tier": "entered only when K1 fails: the label-free candidates (NO_SOURCE_FEATURES, grid NO_SOURCE_GRID_SHARES, their own targeted census run then), tested in order at delta/2 on the same sample; reset when K'1 fails",
+      "levels": [
+        0.025,
+        0.025
+      ],
+      "guarantee": "P(deployed r_Q > alpha) <= delta (union bound over the tiers)"
+    },
+    "scores": {
+      "saved_models": "reports/07_models/ loaded as they are: M1 s, M2 s, M7 s and s_ns",
+      "refitted": "M1 s_ns and M2 s_ns (not saved by notebook 07) on reports/05_training_units.csv.gz with the same recipe and seed; the largest difference from reports/05_units.csv.gz and the number of development units moved across a threshold are recorded (gradient-boosted trees train in float32 with parallel sums, so a refit is not bit-exact)",
+      "thresholds": "reports/05_thresholds.json and reports/07_thresholds.json"
+    },
+    "also_run": "every notebook 05 method, ablation and reference; laundering at LAUNDER_SHARES for RLMA, the blanket baseline and the two-tier method; held-out queries for the candidates of both tiers; the amendment 1 audit for every method with the same per-cell seeds",
+    "claims": {
+      "C5": "two-tier violation rate <= delta in every cell, clean and laundered (binomial test as C3)",
+      "C6": "clean cells: certified >= 0.95 whenever RLMA's is, fallback entered in <= 5% of replays, utility >= RLMA's - 1.5 points",
+      "C7": "laundered cells: utility >= max(RLMA, RLMA without the provenance label) - 2.0 points",
+      "C4_two_tier": "clean cells: two-tier utility >= the best amendment 1 comparator's in at least CLAIM_C4['share_of_cells'] of the cells; C2 and C3 reported for every method",
+      "margins": {
+        "C5_level": 0.01,
+        "C6_min_certified": 0.95,
+        "C6_max_fallback": 0.05,
+        "C6_max_utility_loss": 0.015,
+        "C7_max_utility_loss": 0.02
+      },
+      "inclusion": "as notebook 05, on users 160 to 189"
+    }
+  },
   "runtime_version": "5"
 }

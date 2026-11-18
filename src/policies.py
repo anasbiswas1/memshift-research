@@ -353,3 +353,48 @@ def laundered_policies(Tl: pd.DataFrame, lam_s: list[float], selection: list[tup
     out.append({"method": laundered_name("blanket external-source quarantine", share), "census": 0, "g": 1, "alpha": None,
                 "K": external_records(suite, users, laundered), "laundered": share})
     return out
+
+
+# ----------------------------------------------------------------------------- notebook 08: the two-tier audit (amendment 2)
+def two_tier_replay(YA: np.ndarray, YB: np.ndarray, draws: np.ndarray, alpha: float,
+                    levels: tuple[float, float] = config.TWO_TIER_LEVELS) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Amendment 2 for each row of `draws` (one audit sample, shared by both tiers): the labelled candidates YA
+    (G_A x n_queries, 0/1 outcomes, most restrictive first) are tested in order at level levels[0]; where the first
+    of them fails, the label-free candidates YB are tested in order at level levels[1] on the same sample. Returns
+    the deployed candidate's index within the tier used (-1 = reset), the tier used (0 labelled, 1 label-free) and
+    the number of candidates run on the sample over both tiers."""
+    dep_a, tested_a = replay(YA, draws, alpha, levels[0])
+    dep_b, tested_b = replay(YB, draws, alpha, levels[1])
+    fallback = dep_a < 0
+    dep = np.where(fallback, dep_b, dep_a)
+    tested = np.where(fallback, tested_a + tested_b, tested_a)
+    return dep, fallback.astype(int), tested
+
+
+def two_tier_summary(YA: np.ndarray, success_a: np.ndarray, YB: np.ndarray, success_b: np.ndarray, draws: np.ndarray,
+                     alpha: float, reset_success: float, exec_tokens_a: np.ndarray | None = None,
+                     exec_tokens_b: np.ndarray | None = None, census_tokens: float = 0.0,
+                     levels: tuple[float, float] = config.TWO_TIER_LEVELS) -> dict:
+    """replay_summary for the two-tier audit: certification and fallback rates, the deployed candidate's true r_Q
+    and benign success, violations, executions and tokens on the sample; `census_tokens` is the cost of the
+    label-free census, paid only when the fallback tier is entered."""
+    from scipy.stats import binom
+    dep, tier, tested = two_tier_replay(YA, YB, draws, alpha, levels)
+    idx = np.maximum(dep, 0)
+    r = np.where(dep >= 0, np.where(tier == 1, YB.mean(axis=1)[idx], YA.mean(axis=1)[idx]), 0.0)
+    u = np.where(dep >= 0, np.where(tier == 1, success_b[idx], success_a[idx]), reset_success)
+    v = int((r > alpha).sum())
+    seeds, n = len(dep), draws.shape[1]
+    out = {"seeds": seeds, "sample_size": n, "certified_rate": float((dep >= 0).mean()), "fallback_rate": float(tier.mean()),
+           "certified_from_fallback_rate": float(((dep >= 0) & (tier == 1)).mean()),
+           "mean_deployed_index": float(dep[dep >= 0].mean()) if (dep >= 0).any() else float("nan"),
+           "true_r_mean": float(r.mean()), "true_r_max": float(r.max()), "violations": v, "violation_rate": v / seeds,
+           "c3_p_value": float(binom.sf(v - 1, seeds, config.DELTA)) if v else 1.0,
+           "utility_mean": float(u.mean()), "audit_executions_mean": float(tested.mean() * n),
+           "census_tokens_mean": float(census_tokens * tier.mean())}
+    if exec_tokens_a is not None and exec_tokens_b is not None:
+        cum_a, cum_b = np.cumsum(exec_tokens_a), np.cumsum(exec_tokens_b)
+        tested_a = np.where(tier == 1, 1, tested)                # on fallback the labelled tier ran its first candidate only
+        tok = np.where(tier == 1, cum_a[0] + cum_b[np.maximum(tested - 2, 0)], cum_a[tested_a - 1]) * n
+        out["audit_tokens_mean"] = float(tok.mean())
+    return out

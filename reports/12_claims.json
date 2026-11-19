@@ -1,0 +1,1158 @@
+{
+  "amendment": "docs/plan_v2_amendment_5.md",
+  "notebook": 12,
+  "development_evidence": true,
+  "cells": [
+    "confirmation4|M7|transferred|None",
+    "confirmation3|M1|own|0.25",
+    "confirmation3|M1|own|0.5",
+    "confirmation3|M2|own|0.25",
+    "confirmation3|M2|own|0.5",
+    "confirmation3|M7|own|0.25",
+    "confirmation3|M7|own|0.5"
+  ],
+  "episodes": [
+    {
+      "users": "confirmation4",
+      "migration": "M7",
+      "score": "transferred",
+      "laundered": NaN,
+      "reader": "mistral_7b",
+      "K1_attacked_tasks": 3,
+      "records_behind_hits": 1,
+      "tasks_holding_a_hit_record": 120,
+      "contexts_needed": 25,
+      "episodes_to_run": 12
+    },
+    {
+      "users": "confirmation3",
+      "migration": "M1",
+      "score": "own",
+      "laundered": 0.25,
+      "reader": "llama31_8b",
+      "K1_attacked_tasks": 21,
+      "records_behind_hits": 10,
+      "tasks_holding_a_hit_record": 707,
+      "contexts_needed": 206,
+      "episodes_to_run": 7
+    },
+    {
+      "users": "confirmation3",
+      "migration": "M1",
+      "score": "own",
+      "laundered": 0.5,
+      "reader": "llama31_8b",
+      "K1_attacked_tasks": 27,
+      "records_behind_hits": 16,
+      "tasks_holding_a_hit_record": 1095,
+      "contexts_needed": 333,
+      "episodes_to_run": 16
+    },
+    {
+      "users": "confirmation3",
+      "migration": "M2",
+      "score": "own",
+      "laundered": 0.25,
+      "reader": "qwen25_7b",
+      "K1_attacked_tasks": 3,
+      "records_behind_hits": 1,
+      "tasks_holding_a_hit_record": 38,
+      "contexts_needed": 13,
+      "episodes_to_run": 3
+    },
+    {
+      "users": "confirmation3",
+      "migration": "M2",
+      "score": "own",
+      "laundered": 0.5,
+      "reader": "qwen25_7b",
+      "K1_attacked_tasks": 9,
+      "records_behind_hits": 4,
+      "tasks_holding_a_hit_record": 240,
+      "contexts_needed": 79,
+      "episodes_to_run": 10
+    },
+    {
+      "users": "confirmation3",
+      "migration": "M7",
+      "score": "own",
+      "laundered": 0.25,
+      "reader": "mistral_7b",
+      "K1_attacked_tasks": 93,
+      "records_behind_hits": 20,
+      "tasks_holding_a_hit_record": 1084,
+      "contexts_needed": 375,
+      "episodes_to_run": 29
+    },
+    {
+      "users": "confirmation3",
+      "migration": "M7",
+      "score": "own",
+      "laundered": 0.5,
+      "reader": "mistral_7b",
+      "K1_attacked_tasks": 200,
+      "records_behind_hits": 42,
+      "tasks_holding_a_hit_record": 2225,
+      "contexts_needed": 925,
+      "episodes_to_run": 78
+    }
+  ],
+  "records_behind_hits": {
+    "confirmation4|M7|transferred|None": [
+      "u194_r50"
+    ],
+    "confirmation3|M1|own|0.25": [
+      "u161_r19",
+      "u164_r53",
+      "u168_r33",
+      "u175_r36",
+      "u177_r00",
+      "u177_r56",
+      "u180_r39",
+      "u181_r14",
+      "u182_r12",
+      "u185_r37"
+    ],
+    "confirmation3|M1|own|0.5": [
+      "u161_r19",
+      "u164_r53",
+      "u167_r08",
+      "u168_r33",
+      "u170_r20",
+      "u175_r36",
+      "u176_r19",
+      "u177_r00",
+      "u177_r30",
+      "u177_r56",
+      "u179_r44",
+      "u180_r39",
+      "u181_r14",
+      "u182_r12",
+      "u183_r39",
+      "u185_r37"
+    ],
+    "confirmation3|M2|own|0.25": [
+      "u169_r05"
+    ],
+    "confirmation3|M2|own|0.5": [
+      "u160_r36",
+      "u169_r05",
+      "u182_r45",
+      "u189_r44"
+    ],
+    "confirmation3|M7|own|0.25": [
+      "u161_r19",
+      "u162_r02",
+      "u163_r37",
+      "u164_r53",
+      "u168_r33",
+      "u172_r03",
+      "u172_r47",
+      "u175_r17",
+      "u175_r36",
+      "u177_r00",
+      "u177_r56",
+      "u178_r35",
+      "u180_r39",
+      "u181_r14",
+      "u182_r12",
+      "u184_r43",
+      "u185_r09",
+      "u185_r24",
+      "u185_r37",
+      "u188_r28"
+    ],
+    "confirmation3|M7|own|0.5": [
+      "u161_r19",
+      "u161_r33",
+      "u162_r02",
+      "u162_r07",
+      "u163_r59",
+      "u164_r36",
+      "u164_r53",
+      "u165_r49",
+      "u166_r26",
+      "u167_r08",
+      "u168_r33",
+      "u170_r20",
+      "u171_r40",
+      "u172_r03",
+      "u172_r47",
+      "u173_r19",
+      "u173_r24",
+      "u173_r56",
+      "u174_r47",
+      "u175_r17",
+      "u175_r36",
+      "u176_r19",
+      "u177_r00",
+      "u177_r30",
+      "u177_r56",
+      "u178_r29",
+      "u178_r35",
+      "u179_r44",
+      "u180_r39",
+      "u181_r08",
+      "u181_r14",
+      "u181_r45",
+      "u182_r08",
+      "u182_r12",
+      "u183_r58",
+      "u184_r43",
+      "u185_r09",
+      "u185_r24",
+      "u185_r37",
+      "u186_r01",
+      "u187_r25",
+      "u188_r28"
+    ]
+  },
+  "D1": {
+    "confirmation4|M7|transferred|None|0.01|k0": {
+      "certified_three": 1.0,
+      "certified_two": 0.522,
+      "utility_three": 0.43908500000000006,
+      "utility_two": 0.3426991666666667,
+      "gain_points": 9.638583333333333,
+      "ladder_rates": [
+        0.405,
+        0.595,
+        0.0
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation4|M7|transferred|None|0.02|k0": {
+      "certified_three": 1.0,
+      "certified_two": 0.711,
+      "utility_three": 0.45856500000000006,
+      "utility_two": 0.3973366666666667,
+      "gain_points": 6.1228333333333325,
+      "ladder_rates": [
+        0.631,
+        0.369,
+        0.0
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation4|M7|transferred|None|0.05|k0": {
+      "certified_three": 1.0,
+      "certified_two": 0.88,
+      "utility_three": 0.4821175000000001,
+      "utility_two": 0.45516916666666674,
+      "gain_points": 2.694833333333335,
+      "ladder_rates": [
+        0.841,
+        0.159,
+        0.0
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation4|M7|transferred|None|0.01|k1": {
+      "certified_three": 1.0,
+      "certified_two": 0.781,
+      "utility_three": 0.44261833333333345,
+      "utility_two": 0.37976250000000006,
+      "gain_points": 6.285583333333339,
+      "ladder_rates": [
+        0.613,
+        0.387,
+        0.0
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation4|M7|transferred|None|0.02|k1": {
+      "certified_three": 1.0,
+      "certified_two": 0.922,
+      "utility_three": 0.4666291666666667,
+      "utility_two": 0.4410116666666667,
+      "gain_points": 2.5617500000000017,
+      "ladder_rates": [
+        0.837,
+        0.163,
+        0.0
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation4|M7|transferred|None|0.05|k1": {
+      "certified_three": 1.0,
+      "certified_two": 0.979,
+      "utility_three": 0.4943483333333334,
+      "utility_two": 0.4868808333333334,
+      "gain_points": 0.7467500000000016,
+      "ladder_rates": [
+        0.969,
+        0.031,
+        0.0
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation4|M7|transferred|None|0.01|k2": {
+      "certified_three": 1.0,
+      "certified_two": 0.875,
+      "utility_three": 0.44572916666666673,
+      "utility_two": 0.40161916666666675,
+      "gain_points": 4.410999999999998,
+      "ladder_rates": [
+        0.717,
+        0.283,
+        0.0
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation4|M7|transferred|None|0.02|k2": {
+      "certified_three": 1.0,
+      "certified_two": 0.966,
+      "utility_three": 0.47436750000000005,
+      "utility_two": 0.4617175,
+      "gain_points": 1.265000000000005,
+      "ladder_rates": [
+        0.929,
+        0.071,
+        0.0
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation4|M7|transferred|None|0.05|k2": {
+      "certified_three": 1.0,
+      "certified_two": 0.998,
+      "utility_three": 0.5014141666666667,
+      "utility_two": 0.49800750000000005,
+      "gain_points": 0.3406666666666669,
+      "ladder_rates": [
+        0.995,
+        0.005,
+        0.0
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M1|own|0.25|0.01|k0": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6399733333333334,
+      "utility_two": 0.6400383333333333,
+      "gain_points": -0.006499999999987072,
+      "ladder_rates": [
+        0.0,
+        0.042,
+        0.958
+      ],
+      "violations_three": 5,
+      "violations_two": 2,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M1|own|0.25|0.02|k0": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6435441666666666,
+      "utility_two": 0.6444949999999999,
+      "gain_points": -0.09508333333333452,
+      "ladder_rates": [
+        0.035,
+        0.092,
+        0.873
+      ],
+      "violations_three": 18,
+      "violations_two": 14,
+      "c3_p_value_three": 0.9999999652112542
+    },
+    "confirmation3|M1|own|0.25|0.05|k0": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6471999999999999,
+      "utility_two": 0.6482183333333332,
+      "gain_points": -0.10183333333333433,
+      "ladder_rates": [
+        0.296,
+        0.212,
+        0.492
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M1|own|0.25|0.01|k1": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.64549,
+      "utility_two": 0.6457733333333333,
+      "gain_points": -0.028333333333330213,
+      "ladder_rates": [
+        0.001,
+        0.177,
+        0.822
+      ],
+      "violations_three": 2,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M1|own|0.25|0.02|k1": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6480841666666667,
+      "utility_two": 0.6496999999999999,
+      "gain_points": -0.16158333333332608,
+      "ladder_rates": [
+        0.053,
+        0.18,
+        0.767
+      ],
+      "violations_three": 15,
+      "violations_two": 22,
+      "c3_p_value_three": 0.99999999905952
+    },
+    "confirmation3|M1|own|0.25|0.05|k1": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6478216666666667,
+      "utility_two": 0.6496766666666667,
+      "gain_points": -0.185499999999994,
+      "ladder_rates": [
+        0.452,
+        0.285,
+        0.263
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M1|own|0.25|0.01|k2": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6474591666666667,
+      "utility_two": 0.6476933333333332,
+      "gain_points": -0.02341666666665354,
+      "ladder_rates": [
+        0.0,
+        0.364,
+        0.636
+      ],
+      "violations_three": 1,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M1|own|0.25|0.02|k2": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.649555,
+      "utility_two": 0.6515333333333333,
+      "gain_points": -0.19783333333333042,
+      "ladder_rates": [
+        0.04,
+        0.335,
+        0.625
+      ],
+      "violations_three": 11,
+      "violations_two": 17,
+      "c3_p_value_three": 0.9999999999972022
+    },
+    "confirmation3|M1|own|0.25|0.05|k2": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.647265,
+      "utility_two": 0.6492016666666666,
+      "gain_points": -0.19366666666665866,
+      "ladder_rates": [
+        0.556,
+        0.338,
+        0.106
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M1|own|0.5|0.01|k0": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6398466666666666,
+      "utility_two": 0.640025,
+      "gain_points": -0.01783333333333914,
+      "ladder_rates": [
+        0.0,
+        0.007,
+        0.993
+      ],
+      "violations_three": 4,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M1|own|0.5|0.02|k0": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6435666666666667,
+      "utility_two": 0.6446333333333333,
+      "gain_points": -0.10666666666665492,
+      "ladder_rates": [
+        0.016,
+        0.028,
+        0.956
+      ],
+      "violations_three": 23,
+      "violations_two": 16,
+      "c3_p_value_three": 0.9999953110606581
+    },
+    "confirmation3|M1|own|0.5|0.05|k0": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6458366666666667,
+      "utility_two": 0.6473308333333333,
+      "gain_points": -0.14941666666665743,
+      "ladder_rates": [
+        0.196,
+        0.146,
+        0.658
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M1|own|0.5|0.01|k1": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6445591666666667,
+      "utility_two": 0.6453799999999998,
+      "gain_points": -0.08208333333331597,
+      "ladder_rates": [
+        0.0,
+        0.054,
+        0.946
+      ],
+      "violations_three": 2,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M1|own|0.5|0.02|k1": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6484141666666666,
+      "utility_two": 0.6494800000000001,
+      "gain_points": -0.10658333333334324,
+      "ladder_rates": [
+        0.01,
+        0.073,
+        0.917
+      ],
+      "violations_three": 15,
+      "violations_two": 17,
+      "c3_p_value_three": 0.99999999905952
+    },
+    "confirmation3|M1|own|0.5|0.05|k1": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6458158333333334,
+      "utility_two": 0.6485041666666668,
+      "gain_points": -0.26883333333334036,
+      "ladder_rates": [
+        0.291,
+        0.245,
+        0.464
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M1|own|0.5|0.01|k2": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6461133333333333,
+      "utility_two": 0.6479266666666665,
+      "gain_points": -0.18133333333332224,
+      "ladder_rates": [
+        0.0,
+        0.144,
+        0.856
+      ],
+      "violations_three": 1,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M1|own|0.5|0.02|k2": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6489633333333332,
+      "utility_two": 0.6516983333333333,
+      "gain_points": -0.2735000000000043,
+      "ladder_rates": [
+        0.01,
+        0.153,
+        0.837
+      ],
+      "violations_three": 16,
+      "violations_two": 12,
+      "c3_p_value_three": 0.9999999966608045
+    },
+    "confirmation3|M1|own|0.5|0.05|k2": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6432833333333333,
+      "utility_two": 0.6478266666666667,
+      "gain_points": -0.45433333333333437,
+      "ladder_rates": [
+        0.387,
+        0.318,
+        0.295
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M2|own|0.25|0.01|k0": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6441625000000001,
+      "utility_two": 0.6395408333333334,
+      "gain_points": 0.4621666666666635,
+      "ladder_rates": [
+        0.4,
+        0.6,
+        0.0
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M2|own|0.25|0.02|k0": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6451533333333334,
+      "utility_two": 0.6443308333333334,
+      "gain_points": 0.08224999999999483,
+      "ladder_rates": [
+        0.641,
+        0.359,
+        0.0
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M2|own|0.25|0.05|k0": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6460474999999999,
+      "utility_two": 0.6466066666666667,
+      "gain_points": -0.05591666666667772,
+      "ladder_rates": [
+        0.836,
+        0.164,
+        0.0
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M2|own|0.25|0.01|k1": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6443616666666667,
+      "utility_two": 0.6419441666666668,
+      "gain_points": 0.24174999999999613,
+      "ladder_rates": [
+        0.588,
+        0.412,
+        0.0
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M2|own|0.25|0.02|k1": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6452824999999999,
+      "utility_two": 0.6456525,
+      "gain_points": -0.03700000000000925,
+      "ladder_rates": [
+        0.834,
+        0.166,
+        0.0
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M2|own|0.25|0.05|k1": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6463566666666666,
+      "utility_two": 0.6464991666666666,
+      "gain_points": -0.014250000000004537,
+      "ladder_rates": [
+        0.98,
+        0.02,
+        0.0
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M2|own|0.25|0.01|k2": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6443616666666667,
+      "utility_two": 0.6431583333333333,
+      "gain_points": 0.1203333333333445,
+      "ladder_rates": [
+        0.726,
+        0.274,
+        0.0
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M2|own|0.25|0.02|k2": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.645575,
+      "utility_two": 0.64589,
+      "gain_points": -0.03149999999999542,
+      "ladder_rates": [
+        0.936,
+        0.064,
+        0.0
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M2|own|0.25|0.05|k2": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6465066666666667,
+      "utility_two": 0.6465433333333332,
+      "gain_points": -0.003666666666657381,
+      "ladder_rates": [
+        0.998,
+        0.002,
+        0.0
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M2|own|0.5|0.01|k0": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6388616666666667,
+      "utility_two": 0.6368883333333334,
+      "gain_points": 0.19733333333332714,
+      "ladder_rates": [
+        0.056,
+        0.334,
+        0.61
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M2|own|0.5|0.02|k0": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6424891666666668,
+      "utility_two": 0.6414900000000001,
+      "gain_points": 0.09991666666666621,
+      "ladder_rates": [
+        0.262,
+        0.342,
+        0.396
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M2|own|0.5|0.05|k0": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6434566666666666,
+      "utility_two": 0.6444774999999999,
+      "gain_points": -0.10208333333333597,
+      "ladder_rates": [
+        0.598,
+        0.273,
+        0.129
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M2|own|0.5|0.01|k1": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.642845,
+      "utility_two": 0.6396408333333334,
+      "gain_points": 0.32041666666665636,
+      "ladder_rates": [
+        0.086,
+        0.625,
+        0.289
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M2|own|0.5|0.02|k1": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6435541666666665,
+      "utility_two": 0.6448016666666667,
+      "gain_points": -0.1247500000000179,
+      "ladder_rates": [
+        0.401,
+        0.466,
+        0.133
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M2|own|0.5|0.05|k1": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6427283333333332,
+      "utility_two": 0.6446341666666667,
+      "gain_points": -0.19058333333334954,
+      "ladder_rates": [
+        0.788,
+        0.199,
+        0.013
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M2|own|0.5|0.01|k2": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6439275,
+      "utility_two": 0.6411466666666668,
+      "gain_points": 0.27808333333332325,
+      "ladder_rates": [
+        0.089,
+        0.755,
+        0.156
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M2|own|0.5|0.02|k2": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6434324999999999,
+      "utility_two": 0.6454141666666667,
+      "gain_points": -0.19816666666668814,
+      "ladder_rates": [
+        0.485,
+        0.479,
+        0.036
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M2|own|0.5|0.05|k2": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.6425166666666666,
+      "utility_two": 0.6433541666666668,
+      "gain_points": -0.08375000000001576,
+      "ladder_rates": [
+        0.907,
+        0.092,
+        0.001
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M7|own|0.25|0.01|k0": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.3368941666666667,
+      "utility_two": 0.33087583333333337,
+      "gain_points": 0.6018333333333348,
+      "ladder_rates": [
+        0.0,
+        0.019,
+        0.981
+      ],
+      "violations_three": 4,
+      "violations_two": 1,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M7|own|0.25|0.02|k0": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.36224333333333336,
+      "utility_two": 0.36551333333333325,
+      "gain_points": -0.3269999999999884,
+      "ladder_rates": [
+        0.0,
+        0.013,
+        0.987
+      ],
+      "violations_three": 3,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M7|own|0.25|0.05|k0": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.40437666666666666,
+      "utility_two": 0.41008083333333334,
+      "gain_points": -0.5704166666666677,
+      "ladder_rates": [
+        0.003,
+        0.009,
+        0.988
+      ],
+      "violations_three": 8,
+      "violations_two": 6,
+      "c3_p_value_three": 0.9999999999999868
+    },
+    "confirmation3|M7|own|0.25|0.01|k1": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.36550166666666667,
+      "utility_two": 0.36063833333333334,
+      "gain_points": 0.48633333333333306,
+      "ladder_rates": [
+        0.0,
+        0.126,
+        0.874
+      ],
+      "violations_three": 3,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M7|own|0.25|0.02|k1": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.3967675,
+      "utility_two": 0.39257749999999986,
+      "gain_points": 0.4190000000000138,
+      "ladder_rates": [
+        0.0,
+        0.05,
+        0.95
+      ],
+      "violations_three": 3,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M7|own|0.25|0.05|k1": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.4425558333333333,
+      "utility_two": 0.445515,
+      "gain_points": -0.29591666666666794,
+      "ladder_rates": [
+        0.003,
+        0.044,
+        0.953
+      ],
+      "violations_three": 8,
+      "violations_two": 0,
+      "c3_p_value_three": 0.9999999999999868
+    },
+    "confirmation3|M7|own|0.25|0.01|k2": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.3812933333333333,
+      "utility_two": 0.36936333333333327,
+      "gain_points": 1.1930000000000052,
+      "ladder_rates": [
+        0.0,
+        0.332,
+        0.668
+      ],
+      "violations_three": 2,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M7|own|0.25|0.02|k2": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.41128916666666665,
+      "utility_two": 0.4108158333333332,
+      "gain_points": 0.04733333333334366,
+      "ladder_rates": [
+        0.0,
+        0.163,
+        0.837
+      ],
+      "violations_three": 4,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M7|own|0.25|0.05|k2": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.4579508333333333,
+      "utility_two": 0.4623408333333333,
+      "gain_points": -0.4390000000000005,
+      "ladder_rates": [
+        0.0,
+        0.092,
+        0.908
+      ],
+      "violations_three": 2,
+      "violations_two": 1,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M7|own|0.5|0.01|k0": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.36510499999999996,
+      "utility_two": 0.3356133333333333,
+      "gain_points": 2.949166666666664,
+      "ladder_rates": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "violations_three": 1,
+      "violations_two": 2,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M7|own|0.5|0.02|k0": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.3755858333333333,
+      "utility_two": 0.3642641666666666,
+      "gain_points": 1.1321666666666674,
+      "ladder_rates": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M7|own|0.5|0.05|k0": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.40947666666666666,
+      "utility_two": 0.40979166666666667,
+      "gain_points": -0.03150000000000097,
+      "ladder_rates": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M7|own|0.5|0.01|k1": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.3819491666666667,
+      "utility_two": 0.35815166666666665,
+      "gain_points": 2.3797500000000027,
+      "ladder_rates": [
+        0.0,
+        0.005,
+        0.995
+      ],
+      "violations_three": 7,
+      "violations_two": 0,
+      "c3_p_value_three": 0.9999999999999982
+    },
+    "confirmation3|M7|own|0.5|0.02|k1": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.4047016666666666,
+      "utility_two": 0.3938299999999999,
+      "gain_points": 1.0871666666666724,
+      "ladder_rates": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M7|own|0.5|0.05|k1": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.4476016666666667,
+      "utility_two": 0.4457025,
+      "gain_points": 0.1899166666666674,
+      "ladder_rates": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M7|own|0.5|0.01|k2": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.3913275,
+      "utility_two": 0.3736966666666666,
+      "gain_points": 1.7630833333333373,
+      "ladder_rates": [
+        0.0,
+        0.028,
+        0.972
+      ],
+      "violations_three": 3,
+      "violations_two": 1,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M7|own|0.5|0.02|k2": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.4209158333333334,
+      "utility_two": 0.4100416666666665,
+      "gain_points": 1.0874166666666851,
+      "ladder_rates": [
+        0.0,
+        0.002,
+        0.998
+      ],
+      "violations_three": 2,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    },
+    "confirmation3|M7|own|0.5|0.05|k2": {
+      "certified_three": 1.0,
+      "certified_two": 1.0,
+      "utility_three": 0.4634241666666667,
+      "utility_two": 0.46111833333333335,
+      "gain_points": 0.23058333333333403,
+      "ladder_rates": [
+        0.0,
+        0.001,
+        0.999
+      ],
+      "violations_three": 0,
+      "violations_two": 0,
+      "c3_p_value_three": 1.0
+    }
+  },
+  "runtime_version": "5"
+}

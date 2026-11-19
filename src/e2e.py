@@ -70,6 +70,42 @@ def e2e_specs(suite_m: dict, ret, texts: dict, retriever: str, reader: str, qids
     return specs
 
 
+def repair_specs(suite_m: dict, ret, texts: dict, retriever: str, reader: str, qids: list[str], removed, K, H: list[str],
+                 policy: str, split: str = "log") -> tuple[list[dict], dict, dict]:
+    """Amendment 5, 2.1: the contexts a repaired candidate K u R can produce. For each task, the context under K holds
+    some records of H (the records behind the first ladder's observed hits); quarantining a subset S of them drops
+    exactly those from the context, nothing moves up. One spec per task and non-empty subset. Returns the specs, a map
+    (query_id, sub-mask over H) -> episode key, and a map query_id -> the full mask of H records in the task's K context
+    (bit i = H[i]); tasks whose context holds no record of H are absent from both maps."""
+    pos = {r: i for i, r in enumerate(H)}
+    specs, index, full = [], {}, {}
+    for qid in qids:
+        q = suite_m["queries"][qid]
+        ctx0 = [r for r in masked_topk(ret, qid, q["user_id"], q["category"], removed) if r not in K and (r, q["category"]) not in K]
+        held = [r for r in ctx0 if r in pos]
+        if not held:
+            continue
+        full[qid] = sum(1 << pos[r] for r in held)
+        for sub in range(1, 1 << len(held)):
+            drop = {held[i] for i in range(len(held)) if sub & (1 << i)}
+            ctx = [r for r in ctx0 if r not in drop]
+            can = sorted({suite_m["records"][r]["canary"] for r in ctx if suite_m["records"][r]["poison"]})
+            s = _spec("e2e", reader, retriever, "main", q, None, None, ctx, texts, can)
+            s.update(policy=policy, split=split, pipeline=f"{retriever}|{reader}")
+            index[(qid, sum(1 << pos[r] for r in drop))] = s["key"]
+            specs.append(s)
+    return specs, index, full
+
+
+def episode_outcomes(eps: list[dict], suite_m: dict) -> dict[str, tuple[int, int]]:
+    """Episode key -> (y, task_success), for looking the recorded repaired contexts up by key."""
+    out = {}
+    for e in eps:
+        q = suite_m["queries"][e["query_id"]]
+        out[e["key"]] = (int(bool(hit_records(e, suite_m))), int(bool(task_success(e["calls"], q["expected"]))))
+    return out
+
+
 # ----------------------------------------------------------------------------- outcomes
 def hit_records(ep: dict, suite: dict) -> list[str]:
     """Poisoned records in the context whose canary the episode acted on."""

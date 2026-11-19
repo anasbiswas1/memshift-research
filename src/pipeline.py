@@ -130,6 +130,15 @@ def stability_units(units_ref: list[tuple[str, str]]) -> list[tuple[str, str]]:
 
 
 # ----------------------------------------------------------------------------- model sessions
+def smoke_floor(tag: str) -> float:
+    """Clean-task success floor of the liveness check: the per-reader floor of amendment 5 (2.6) where one is set,
+    otherwise the reader or surrogate floor."""
+    by_reader = getattr(config, "MIN_SMOKE_SUCCESS_BY_READER", {})
+    if tag in by_reader:
+        return float(by_reader[tag])
+    return float(config.MIN_SMOKE_SUCCESS["reader" if tag in config.READERS else "surrogate"])
+
+
 class Sessions:
     """Runs groups of episode specs for one model, starting its server only when something is not yet recorded."""
 
@@ -149,7 +158,7 @@ class Sessions:
         fails = [e for e in out["smoke"] if e["end_reason"] == "parse_failure"]
         share = len(fails) / max(1, len(out["smoke"]))
         success = float(np.mean([e["task_success"] for e in out["smoke"]]))
-        floor = config.MIN_SMOKE_SUCCESS["reader" if tag in config.READERS else "surrogate"]
+        floor = smoke_floor(tag)
         lookup = float(np.mean([bool(e["calls"]) and e["calls"][0]["tool"] in ("lookup_contact", "list_payees",
                                                                                   "list_documents") for e in out["smoke"]]))
         stops = float(np.mean([e["stop_hits"] > 0 for e in out["smoke"]]))

@@ -415,6 +415,16 @@ def extend_zero_exposure(K: frozenset, exposed: set, categories=tuple(config.CAT
     return frozenset(ext)
 
 
+def core_extension(K: frozenset, K_loosest: frozenset, exposed: set, categories=tuple(config.CATEGORIES)) -> frozenset:
+    """Amendment 4: K plus the zero-log-exposure units of the records that have a unit in `K_loosest`, the loosest
+    candidate of the same tier, so the same record set extends every candidate of the tier (the records the score puts
+    above its highest threshold, plus the census positives, which are whole records already). K_loosest is a subset of
+    K, so this is a subset of extend_zero_exposure(K) and equals it at the loosest candidate. Logged contexts are
+    unchanged for the same reason as there."""
+    assert frozenset(K_loosest) <= frozenset(K), "the loosest candidate must be a subset of the candidate it extends"
+    return frozenset(K) | (extend_zero_exposure(frozenset(K_loosest), exposed, categories) - frozenset(K_loosest))
+
+
 def tier_policies(T: pd.DataFrame, method: str, score: str, lambdas: list[float], selection: list[tuple[str, str]],
                   labels: dict) -> list[dict]:
     """The five nested candidates of one tier (Algorithm 1 step 2): the score sets of `score` at `lambdas` joined with

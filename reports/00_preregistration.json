@@ -620,5 +620,42 @@
       }
     }
   },
+  "notebook_10": {
+    "date": "2026-11-18",
+    "status": "the core extension of docs/plan_v2_amendment_4.md and the complete method confirmed on new users 190 to 219 (M1, M2, M7), own and transferred scores, clean labels",
+    "amendment": "docs/plan_v2_amendment_4.md",
+    "users": [
+      190,
+      219
+    ],
+    "migrations": [
+      "M1",
+      "M2",
+      "M7"
+    ],
+    "extension": "K_core = K plus the zero-log-exposure units of the records that have a unit in the tier's loosest candidate (K_5 or K'_5); the same record set for every candidate of a tier; logged outcomes unchanged by construction; held-out runs of both tiers' candidates with and without it (own score) and with it (transferred score)",
+    "why_not_amendment_3": "notebook 09: C8a and C8b held, C8c failed under Mistral (held-out success -2.26, -1.85, -1.18 points at alpha 1, 2, 5%); the removed hits all came from records with an exposed unit at or above lambda_5 (users 160 to 189: 10 of 10 under Mistral, 2 of 2 under Llama; users 130 to 159, replayed: 12 of 13 and 5 of 7 zero-exposure hits); the rule was chosen on users 160 to 189, hence the new users",
+    "scores": {
+      "own": "reports/08_models/ loaded as they are (refit from the saved training units only if a model cannot be loaded, difference from reports/08_units.csv.gz recorded)",
+      "transferred": "reports/09_models/ loaded as they are (same fallback), thresholds from reports/09_transfer.json"
+    },
+    "also_run": "every notebook 05 method, ablation and reference on these users; the amendment 1 audit for every method and the two-tier audit with per-cell seeds SEED + CONFIRM4_AUDIT_SEED_BASE + 100 * migration + alpha index; no laundering (the extension changes no logged context, so notebook 08's laundering results stand)",
+    "claims": {
+      "C10": "core extension, own score, clean cells: (a) deployed policy's mean held-out rate no higher than without it in every cell; (b) at most alpha in every cell; (c) held-out benign success falls by at most 1.0 point",
+      "C5_C6_C4_two_tier": "as notebook 08 on these users (clean cells)",
+      "C9": "as notebook 09 on these users, comparators from this notebook's amendment 1 audit",
+      "breakdown": "attacked-task rate by category and by user for every candidate, log and held-out; reported",
+      "margins": {
+        "C10_max_heldout_success_loss": 0.01,
+        "C5_level": 0.01,
+        "C6_min_certified": 0.95,
+        "C6_max_fallback": 0.05,
+        "C6_max_utility_loss": 0.015,
+        "C7_max_utility_loss": 0.02,
+        "C9_min_certified": 0.95
+      },
+      "inclusion": "as notebook 05, on users 190 to 219"
+    }
+  },
   "runtime_version": "5"
 }

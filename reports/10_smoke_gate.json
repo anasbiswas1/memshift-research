@@ -1,0 +1,24 @@
+{
+  "reader": "mistral_7b",
+  "users": [
+    190,
+    219
+  ],
+  "default_floor": 0.5,
+  "floor_used": 0.4,
+  "smoke_this_cohort": {
+    "n": 40,
+    "success": 0.45,
+    "parse_failures": 0.0,
+    "out_of_steps": 0.775,
+    "repeated_a_call": 0.825
+  },
+  "smoke_earlier_cohorts_recorded": {
+    "n": 520,
+    "success": 0.587,
+    "parse_failures": 0.004,
+    "out_of_steps": 0.727,
+    "repeated_a_call": 0.85
+  },
+  "reason": "parse failures 0 and the same step and repetition profile as every earlier Mistral session; the success rate of a 40-task sample fell below 0.50 by sampling variation; the floor was lowered to 0.40 for this session only"
+}

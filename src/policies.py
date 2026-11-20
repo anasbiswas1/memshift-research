@@ -492,7 +492,7 @@ def hit_mask(hit_records: list[list[str]], H: list[str]) -> np.ndarray:
 def three_ladder_replay(Y1: np.ndarray, S1: np.ndarray, hits1: np.ndarray, L2: RepairedLadder, L3: RepairedLadder,
                         draws: tuple[np.ndarray, np.ndarray, np.ndarray], alpha: float,
                         levels: tuple[float, float, float] = config.THREE_LADDER_LEVELS, k: int | None = None,
-                        user_label_mask: int | None = None) -> dict:
+                        user_label_mask: int | None = None, skip_labelled: bool = False, skip_level: float = config.SKIP_LEVEL) -> dict:
     """Amendment 5, 2.1 and 2.1a, replayed exactly for each seed. Y1, S1: (G, n_queries) outcomes and successes of the
     labelled ladder; hits1: per task, the bit mask over H of the records behind K_1's attacker-caused actions; L2, L3:
     the repaired labelled and the repaired label-free ladders; draws: the three samples (seeds x n_i), one per ladder,
@@ -500,7 +500,10 @@ def three_ladder_replay(Y1: np.ndarray, S1: np.ndarray, hits1: np.ndarray, L2: R
     K_1 on the sampled tasks, and the two repaired ladders are tried in turn on draws[1] and draws[2] at levels[1] and
     levels[2]; if both fail, reset. Order (2.1a): the repaired labelled ladder first, unless `user_label_mask` is given
     and a record of R carries the user label (R & mask != 0), in which case the repaired label-free ladder is first.
-    `user_label_mask` None keeps the order of 2.1 (labelled first). Returns per-seed arrays: ladder used (1 = labelled,
+    `user_label_mask` None keeps the order of 2.1 (labelled first). 2.1b (`skip_labelled`): when a record of R carries the
+    user label, the repaired labelled ladder is skipped outright and the repaired label-free ladder is tested at `skip_level`
+    (delta/2) on draws[3], a fourth fresh sample of that level's size; the certificate stays delta in each branch
+    (delta/2 + delta/4 + delta/4 and delta/2 + delta/2). Returns per-seed arrays: ladder used (1 = labelled,
     2 = repaired labelled, 3 = repaired label-free; 0 = reset), deployed index within it, true r_Q and success of the
     deployed policy, candidates tested per ladder, the size of R, and whether the label-free ladder went first."""
     seeds = draws[0].shape[0]
@@ -511,6 +514,10 @@ def three_ladder_replay(Y1: np.ndarray, S1: np.ndarray, hits1: np.ndarray, L2: R
     tested2, tested3, rsize = np.zeros(seeds, int), np.zeros(seeds, int), np.zeros(seeds, int)
     lf_first = np.zeros(seeds, bool)
     y1 = Y1[0]
+    if skip_labelled and len(draws) < 4:
+        raise ValueError("the skip rule (2.1b) needs a fourth sample for the repaired label-free ladder at skip_level")
+    episodes = tested1 * draws[0].shape[1]
+    skipped = np.zeros(seeds, bool)
     for s in np.where(dep1 < 0)[0]:
         q1 = draws[0][s]
         R = 0
@@ -519,11 +526,18 @@ def three_ladder_replay(Y1: np.ndarray, S1: np.ndarray, hits1: np.ndarray, L2: R
         rsize[s] = bin(R).count("1")
         swap = user_label_mask is not None and bool(R & user_label_mask)
         lf_first[s] = swap
-        order = ((3, L3), (2, L2)) if swap else ((2, L2), (3, L3))
+        if swap and skip_labelled:                                   # 2.1b: the labelled score is not trusted here; one ladder at delta/2
+            skipped[s] = True
+            order = ((3, L3, draws[3], skip_level),)
+        elif swap:                                                   # 2.1a: label-free first, both at their delta/4
+            order = ((3, L3, draws[1], levels[1]), (2, L2, draws[2], levels[2]))
+        else:
+            order = ((2, L2, draws[1], levels[1]), (3, L3, draws[2], levels[2]))
         done = False
-        for j, (which, L) in enumerate(order):
+        for which, L, sample, level in order:
             Yj, Sj = L.outcomes(R)
-            dj, tj = replay(Yj, draws[1 + j][s:s + 1], alpha, levels[1 + j], k)
+            dj, tj = replay(Yj, sample[s:s + 1], alpha, level, k)
+            episodes[s] += tj[0] * sample.shape[1]
             if which == 2:
                 tested2[s] = tj[0]
             else:
@@ -534,7 +548,8 @@ def three_ladder_replay(Y1: np.ndarray, S1: np.ndarray, hits1: np.ndarray, L2: R
                 break
         if not done:
             ladder[s], dep[s], r[s] = 0, -1, 0.0
-    return {"ladder": ladder, "deployed": dep, "r": r, "success": u, "tested1": tested1, "tested2": tested2, "tested3": tested3, "R_size": rsize, "label_free_first": lf_first}
+    return {"ladder": ladder, "deployed": dep, "r": r, "success": u, "tested1": tested1, "tested2": tested2, "tested3": tested3, "R_size": rsize,
+            "label_free_first": lf_first, "labelled_skipped": skipped, "episodes": episodes}
 
 
 def three_ladder_summary(rep: dict, draws: tuple[np.ndarray, np.ndarray, np.ndarray], alpha: float, reset_success: float) -> dict:
@@ -544,11 +559,12 @@ def three_ladder_summary(rep: dict, draws: tuple[np.ndarray, np.ndarray, np.ndar
     seeds = len(lad)
     u = np.where(lad > 0, rep["success"], reset_success)
     v = int((r > alpha).sum())
-    # the two fallback ladders use draws[1] and draws[2] in the order taken; with equal levels the two samples have equal size
-    eps = rep["tested1"] * draws[0].shape[1] + rep["tested2"] * draws[1].shape[1] + rep["tested3"] * draws[2].shape[1]
+    # exact per-seed episode count from the replay (each tested candidate costs its sample's size); the older formula is kept for replays without it
+    eps = rep["episodes"] if "episodes" in rep else rep["tested1"] * draws[0].shape[1] + rep["tested2"] * draws[1].shape[1] + rep["tested3"] * draws[2].shape[1]
     fell = (rep["tested2"] > 0) | (rep["tested3"] > 0)   # seeds where K_1 failed and a repaired ladder was tested, in either order
     out = {"seeds": seeds, "sample_sizes": "/".join(str(d.shape[1]) for d in draws), "certified_rate": float((lad > 0).mean()),
            "label_free_first_rate": float(rep.get("label_free_first", np.zeros(seeds, bool)).mean()),
+           "labelled_skipped_rate": float(rep.get("labelled_skipped", np.zeros(seeds, bool)).mean()),
            "ladder1_rate": float((lad == 1).mean()), "ladder2_rate": float((lad == 2).mean()), "ladder3_rate": float((lad == 3).mean()),
            "entered_ladder2_rate": float((rep["tested2"] > 0).mean()), "entered_ladder3_rate": float((rep["tested3"] > 0).mean()),
            "mean_deployed_index": float(rep["deployed"][lad > 0].mean()) if (lad > 0).any() else float("nan"),

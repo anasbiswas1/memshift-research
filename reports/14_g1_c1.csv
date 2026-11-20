@@ -1,0 +1,2 @@
+migration,inert_old,newly_active,rate,wilson_lo,wilson_hi,r_new_survivor,attacker_actions,r_wilson_lo,r_wilson_hi,c1_holds,enters_C2_to_C4,round1_removed,round2_removed
+M7,154,126,0.8181818181818182,0.7497716778068901,0.8711044892950657,0.2633333333333333,316,0.239196992003507,0.2889800816388726,True,True,54,9

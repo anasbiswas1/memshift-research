@@ -126,3 +126,45 @@ def test_ladder_order_follows_the_labels_of_the_records_behind_the_hits():
     assert abs(s["mean_R_size"] - 1.0) < 1e-9 and s["entered_ladder3_rate"] > 0.95   # R reported whichever ladder went first
     # episodes: K_1 on the first sample, then both repaired label-free candidates on one fallback sample; the other ladder costs nothing
     assert abs(s["audit_executions_mean"] - (draws[0].shape[1] + 2 * draws[1].shape[1])) < 1e-9
+
+
+def test_skip_rule_runs_one_ladder_at_half_delta_when_the_user_label_is_behind_the_hits():
+    # amendment 5, 2.1b: R carries the user label -> the repaired labelled ladder is skipped, the repaired label-free ladder is tested at delta/2
+    n = 400
+    Y1 = np.zeros((2, n), int); Y1[:, :8] = 1; S1 = np.full((2, n), 0.6)
+    H = ["ra"]; hits1 = PO.hit_mask([["ra"] if i < 8 else [] for i in range(n)], H)
+    var = [[(i, 1, {1: (0, 1)}) for i in range(8)] for _ in range(2)]
+    L2 = PO.RepairedLadder(Y1, S1, var); L3 = PO.RepairedLadder(Y1, np.full((2, n), 0.5), var)
+    rng = np.random.default_rng(5)
+    sizes = (PO.n_k(0.01, config.DELTA / 2), PO.n_k(0.01, config.DELTA / 4), PO.n_k(0.01, config.DELTA / 4), PO.n_k(0.01, config.SKIP_LEVEL))
+    draws = tuple(rng.integers(0, n, size=(200, m)) for m in sizes)
+    rep = PO.three_ladder_replay(Y1, S1, hits1, L2, L3, draws, 0.01, user_label_mask=1, skip_labelled=True)
+    s = PO.three_ladder_summary(rep, draws, 0.01, 0.2)
+    assert s["ladder3_rate"] > 0.95 and s["ladder2_rate"] == 0.0 and s["labelled_skipped_rate"] > 0.95 and s["label_free_first_rate"] == s["labelled_skipped_rate"]
+    assert (rep["tested2"] == 0).all()
+    # episodes: K_1 on the first sample, then both repaired label-free candidates on the delta/2 sample (draws[3]), nothing for the skipped ladder
+    assert abs(s["audit_executions_mean"] - (sizes[0] + 2 * sizes[3])) < 1e-9
+    # without the user label the skip rule changes nothing: labelled first at delta/4, as 2.1
+    rep0 = PO.three_ladder_replay(Y1, S1, hits1, L2, L3, draws, 0.01, user_label_mask=0, skip_labelled=True)
+    s0 = PO.three_ladder_summary(rep0, draws, 0.01, 0.2)
+    assert s0["ladder2_rate"] > 0.95 and s0["labelled_skipped_rate"] == 0.0 and abs(s0["audit_executions_mean"] - (sizes[0] + 2 * sizes[1])) < 1e-9
+    # the skip rule needs its fourth sample
+    try:
+        PO.three_ladder_replay(Y1, S1, hits1, L2, L3, draws[:3], 0.01, user_label_mask=1, skip_labelled=True); assert False
+    except ValueError:
+        pass
+
+
+def test_skip_rule_certificate_holds_under_the_union_bound():
+    # every candidate above alpha and the user label behind every hit: the skip branch deploys above alpha in at most delta of the seeds
+    rng = np.random.default_rng(11)
+    n, G, alpha = 2000, 3, 0.01
+    Y1 = (rng.random((G, n)) < 0.02).astype(int); S1 = np.full((G, n), 0.5)
+    hits1 = PO.hit_mask([["r0"] if Y1[0, i] else [] for i in range(n)], ["r0"])
+    var = [[(i, 1, {1: (int(Y1[g, i]), 0.5)}) for i in range(n) if Y1[0, i]] for g in range(G)]
+    L2 = PO.RepairedLadder(Y1, S1, var); L3 = PO.RepairedLadder(Y1, S1, var)
+    sizes = (PO.n_k(alpha, config.DELTA / 2), PO.n_k(alpha, config.DELTA / 4), PO.n_k(alpha, config.DELTA / 4), PO.n_k(alpha, config.SKIP_LEVEL))
+    draws = tuple(rng.integers(0, n, size=(500, m)) for m in sizes)
+    rep = PO.three_ladder_replay(Y1, S1, hits1, L2, L3, draws, alpha, user_label_mask=1, skip_labelled=True)
+    summ = PO.three_ladder_summary(rep, draws, alpha, 0.2)
+    assert summ["labelled_skipped_rate"] > 0.9 and summ["violation_rate"] <= config.DELTA

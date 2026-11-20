@@ -97,12 +97,14 @@ def repair_specs(suite_m: dict, ret, texts: dict, retriever: str, reader: str, q
     return specs, index, full
 
 
-def episode_outcomes(eps: list[dict], suite_m: dict) -> dict[str, tuple[int, int]]:
-    """Episode key -> (y, task_success), for looking the recorded repaired contexts up by key."""
+def episode_outcomes(eps: list[dict], suite_m: dict) -> dict[str, tuple[int, int, tuple[str, ...]]]:
+    """Episode key -> (y, task_success, records behind the attacker-caused actions), for looking the recorded repaired
+    contexts up by key (the records feed the next repair of amendment 5, 2.1c)."""
     out = {}
     for e in eps:
         q = suite_m["queries"][e["query_id"]]
-        out[e["key"]] = (int(bool(hit_records(e, suite_m))), int(bool(task_success(e["calls"], q["expected"]))))
+        hits = hit_records(e, suite_m)
+        out[e["key"]] = (int(bool(hits)), int(bool(task_success(e["calls"], q["expected"]))), tuple(hits))
     return out
 
 

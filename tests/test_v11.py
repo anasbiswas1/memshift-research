@@ -168,3 +168,71 @@ def test_skip_rule_certificate_holds_under_the_union_bound():
     rep = PO.three_ladder_replay(Y1, S1, hits1, L2, L3, draws, alpha, user_label_mask=1, skip_labelled=True)
     summ = PO.three_ladder_summary(rep, draws, alpha, 0.2)
     assert summ["labelled_skipped_rate"] > 0.9 and summ["violation_rate"] <= config.DELTA
+
+
+def _chain_fixture(n=400, bad_outside=True):
+    """Labelled ladder K_1, K_2 (K_1 attacked on tasks 0..7 through ra, in H); label-free ladder K'_1, K'_2 attacked on tasks
+    20..24 through rb, a record outside H that only the audit can see (as u268_r02 on users 250 to 279)."""
+    H3 = ["ra", "rb"]                                        # H = ["ra"] is the first entry
+    Y1 = np.zeros((2, n), int); Y1[:, :8] = 1; S1 = np.full((2, n), 0.6)
+    hits1 = PO.hit_mask([["ra"] if i < 8 else [] for i in range(n)], ["ra"])
+    # repaired labelled ladder over H: quarantining ra cleans tasks 0..7; first-candidate hits over H3 (none after the repair)
+    varA = [[(i, 1, {1: (0, 1, 0)}) for i in range(8)] for _ in range(2)]
+    LA = PO.RepairedLadder(Y1, S1, varA, base_hits=[1 if i < 8 else 0 for i in range(n)])
+    # label-free ladder over H3: K'_g attacked on tasks 20..24 through rb (bit 1); tasks 0..7 clean already (ra not retrieved)
+    YB = np.zeros((2, n), int); YB[:, 20:25] = 1 if bad_outside else 0; SB = np.full((2, n), 0.5)
+    var3 = [[(i, 2, {2: (0, 1, 0)}) for i in range(20, 25)] for _ in range(2)]   # quarantining rb cleans them
+    L3 = PO.RepairedLadder(YB, SB, var3, base_hits=[2 if (bad_outside and 20 <= i < 25) else 0 for i in range(n)])
+    return Y1, S1, hits1, LA, L3
+
+
+def test_repair_chain_keeps_the_labelled_score_when_R_is_external():
+    Y1, S1, hits1, LA, L3 = _chain_fixture()
+    rng = np.random.default_rng(21)
+    draws = tuple(rng.integers(0, 400, size=(300, m)) for m in (PO.n_k(0.01, config.DELTA / 2), PO.n_k(0.01, config.DELTA / 4), PO.n_k(0.01, config.DELTA / 4)))
+    rep = PO.repair_chain_replay(Y1, S1, hits1, LA, L3, draws, 0.01, user_label_mask=0)
+    s = PO.three_ladder_summary(rep, draws, 0.01, 0.2)
+    assert s["ladder1_rate"] < 0.02 and s["ladder2_rate"] > 0.95 and s["label_free_ladder2_rate"] == 0.0 and abs(s["utility_mean"] - 0.6) < 0.02
+    fell = rep["tested2"] > 0
+    assert abs(rep["episodes"][fell].mean() - (draws[0].shape[1] + 2 * draws[1].shape[1])) < 1e-9
+
+
+def test_repair_chain_repairs_the_label_free_ladder_with_what_its_own_audit_saw():
+    Y1, S1, hits1, LA, L3 = _chain_fixture()
+    rng = np.random.default_rng(22)
+    draws = tuple(rng.integers(0, 400, size=(300, m)) for m in (PO.n_k(0.01, config.DELTA / 2), PO.n_k(0.01, config.DELTA / 4), PO.n_k(0.01, config.DELTA / 4)))
+    # ra carries the user label: ladder 2 is the label-free ladder K'_g u R, attacked on tasks 20..24 through rb (5 of 400 = 1.25%),
+    # so it fails on most 437-task samples; R_2 = {rb}; ladder 3 = K'_g u R u R_2 is clean and certifies
+    rep = PO.repair_chain_replay(Y1, S1, hits1, LA, L3, draws, 0.01, user_label_mask=1)
+    s = PO.three_ladder_summary(rep, draws, 0.01, 0.2)
+    assert s["label_free_ladder2_rate"] > 0.98 and s["ladder1_rate"] < 0.02 and s["ladder2_rate"] < 0.05
+    assert s["ladder3_rate"] > 0.9 and s["certified_rate"] > 0.99 and abs(s["mean_R2_size"] - 1.0) < 1e-9
+    assert abs(s["utility_mean"] - 0.5) < 0.02 and s["violation_rate"] <= config.DELTA   # K'_1 u R sits at 1.25% > alpha; a clean 437-task draw of it is the allowed error
+    # the same ladders under 2.1b (one label-free ladder at delta/2, no second repair) reset whenever the sample draws an attacked task
+    L2b = PO.RepairedLadder(L3.base_y, L3.base_s, [[] for _ in range(2)])
+    draws4 = draws + (rng.integers(0, 400, size=(300, PO.n_k(0.01, config.SKIP_LEVEL))),)
+    rb = PO.three_ladder_replay(Y1, S1, hits1, LA, L2b, draws4, 0.01, user_label_mask=1, skip_labelled=True)
+    sb = PO.three_ladder_summary(rb, draws4, 0.01, 0.2)
+    assert sb["certified_rate"] < 0.2 and sb["utility_mean"] < s["utility_mean"]
+    # without the outside record the chain certifies at ladder 2 and never pays for ladder 3
+    Y1, S1, hits1, LA, L3c = _chain_fixture(bad_outside=False)
+    rc = PO.repair_chain_replay(Y1, S1, hits1, LA, L3c, draws, 0.01, user_label_mask=1)
+    sc_ = PO.three_ladder_summary(rc, draws, 0.01, 0.2)
+    assert sc_["ladder2_rate"] > 0.98 and (rc["tested3"] == 0).all() and abs(rc["episodes"][rc["tested2"] > 0].mean() - (draws[0].shape[1] + 2 * draws[1].shape[1])) < 1e-9
+
+
+def test_repair_chain_certificate_holds_under_the_union_bound():
+    # every candidate above alpha in both ladders, the repairs remove nothing: the chain deploys above alpha in at most delta of the seeds
+    rng = np.random.default_rng(23)
+    n, G, alpha = 2000, 3, 0.01
+    Y1 = (rng.random((G, n)) < 0.02).astype(int); S1 = np.full((G, n), 0.5)
+    hits1 = PO.hit_mask([["r0"] if Y1[0, i] else [] for i in range(n)], ["r0"])
+    YB = (rng.random((G, n)) < 0.02).astype(int)
+    varA = [[(i, 1, {1: (int(Y1[g, i]), 0.5, 1 if Y1[g, i] else 0)}) for i in range(n) if Y1[0, i]] for g in range(G)]
+    LA = PO.RepairedLadder(Y1, S1, varA, base_hits=[1 if Y1[0, i] else 0 for i in range(n)])
+    var3 = [[(i, 3, {m: (int(YB[g, i]), 0.5, 2 if YB[g, i] else 0) for m in (1, 2, 3)}) for i in range(n) if YB[0, i]] for g in range(G)]
+    L3 = PO.RepairedLadder(YB, S1, var3, base_hits=[2 if YB[0, i] else 0 for i in range(n)])
+    draws = tuple(rng.integers(0, n, size=(500, m)) for m in (PO.n_k(alpha, config.DELTA / 2), PO.n_k(alpha, config.DELTA / 4), PO.n_k(alpha, config.DELTA / 4)))
+    for mask in (0, 1):
+        summ = PO.three_ladder_summary(PO.repair_chain_replay(Y1, S1, hits1, LA, L3, draws, alpha, user_label_mask=mask), draws, alpha, 0.2)
+        assert summ["violation_rate"] <= config.DELTA

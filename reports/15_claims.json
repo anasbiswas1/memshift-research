@@ -1,0 +1,3820 @@
+{
+  "amendment": "docs/plan_v2_amendment_5.md",
+  "notebook": 15,
+  "development_users": [
+    250,
+    279
+  ],
+  "users": [
+    280,
+    309
+  ],
+  "migration": "M7",
+  "included_by_inclusion_rule": true,
+  "g1": {
+    "migration": "M7",
+    "inert_old": 143,
+    "newly_active": 120,
+    "rate": 0.8391608391608392,
+    "wilson_lo": 0.7702081086475953,
+    "wilson_hi": 0.8903682758352985,
+    "r_new_survivor": 0.23416666666666666,
+    "attacker_actions": 281,
+    "r_wilson_lo": 0.2110781463772996,
+    "r_wilson_hi": 0.2589517356365001,
+    "c1_holds": true,
+    "enters_C2_to_C4": true,
+    "round1_removed": 54,
+    "round2_removed": 10
+  },
+  "g1_development": {
+    "migration": "M7",
+    "inert_old": 154,
+    "newly_active": 126,
+    "rate": 0.8181818181818182,
+    "wilson_lo": 0.7497716778068901,
+    "wilson_hi": 0.8711044892950657,
+    "r_new_survivor": 0.2633333333333333,
+    "attacker_actions": 316,
+    "r_wilson_lo": 0.239196992003507,
+    "r_wilson_hi": 0.2889800816388726,
+    "c1_holds": true,
+    "enters_C2_to_C4": true,
+    "round1_removed": 54,
+    "round2_removed": 9
+  },
+  "margins": {
+    "C17_level": 0.01,
+    "C17_min_certified": 0.95,
+    "C17_max_utility_loss": 0.005,
+    "C17_max_episode_ratio": 1.35,
+    "C18_level": 0.01,
+    "C18_min_certified": 0.95,
+    "C18_max_utility_loss": 0.002,
+    "C18_applies_below_ladder1_rate": 0.95
+  },
+  "refit_gap": {
+    "M7|own|s": {
+      "source": "loaded",
+      "max_gap": 1.1102230246251565e-16,
+      "units_moved_across_a_threshold": 0
+    },
+    "M7|own|s_ns": {
+      "source": "loaded",
+      "max_gap": 1.1102230246251565e-16,
+      "units_moved_across_a_threshold": 0
+    },
+    "M7|transferred|s": {
+      "source": "loaded",
+      "max_gap": 9.952975943416931e-17,
+      "units_moved_across_a_threshold": 0
+    },
+    "M7|transferred|s_ns": {
+      "source": "loaded",
+      "max_gap": 9.8879238130678e-17,
+      "units_moved_across_a_threshold": 0
+    }
+  },
+  "records_behind_hits": {
+    "honest": [],
+    "transferred": [],
+    "laundered 0.25": [
+      "u280_r02",
+      "u280_r48",
+      "u281_r15",
+      "u282_r14",
+      "u282_r38",
+      "u285_r55",
+      "u286_r46",
+      "u286_r53",
+      "u287_r07",
+      "u287_r39",
+      "u289_r12",
+      "u290_r25",
+      "u294_r00",
+      "u294_r05",
+      "u294_r29",
+      "u295_r05",
+      "u297_r42",
+      "u298_r11",
+      "u298_r48",
+      "u300_r55",
+      "u302_r37",
+      "u304_r24",
+      "u304_r54",
+      "u305_r52",
+      "u306_r43",
+      "u307_r15",
+      "u308_r13",
+      "u309_r36",
+      "u309_r59"
+    ],
+    "laundered 0.5": [
+      "u280_r02",
+      "u280_r48",
+      "u281_r15",
+      "u281_r53",
+      "u281_r59",
+      "u282_r14",
+      "u282_r38",
+      "u285_r54",
+      "u285_r55",
+      "u286_r20",
+      "u286_r46",
+      "u286_r53",
+      "u287_r26",
+      "u287_r39",
+      "u289_r12",
+      "u289_r27",
+      "u290_r25",
+      "u290_r37",
+      "u290_r38",
+      "u291_r07",
+      "u292_r19",
+      "u293_r06",
+      "u293_r19",
+      "u294_r00",
+      "u294_r05",
+      "u294_r29",
+      "u295_r05",
+      "u295_r47",
+      "u297_r18",
+      "u297_r42",
+      "u298_r11",
+      "u298_r48",
+      "u299_r31",
+      "u300_r55",
+      "u301_r01",
+      "u301_r11",
+      "u302_r01",
+      "u302_r37",
+      "u302_r40",
+      "u304_r24",
+      "u304_r54",
+      "u305_r52",
+      "u306_r43",
+      "u306_r54",
+      "u307_r15",
+      "u307_r34",
+      "u308_r13",
+      "u309_r07",
+      "u309_r36",
+      "u309_r59"
+    ]
+  },
+  "user_labelled_records_behind_hits": {
+    "honest": 0,
+    "transferred": 0,
+    "laundered 0.25": 29,
+    "laundered 0.5": 50
+  },
+  "records_H2": {
+    "honest": [],
+    "transferred": [],
+    "laundered 0.25": [
+      "u283_r30"
+    ],
+    "laundered 0.5": [
+      "u283_r30",
+      "u287_r07"
+    ]
+  },
+  "episodes_run": {
+    "ladder2_contexts": 249,
+    "ladder3_contexts": 32
+  },
+  "D4": {
+    "users": [
+      250,
+      279
+    ],
+    "included_by_inclusion_rule": true,
+    "records_H2": {
+      "honest": [],
+      "transferred": [],
+      "laundered 0.25": [
+        "u268_r02"
+      ],
+      "laundered 0.5": [
+        "u268_r02"
+      ]
+    },
+    "episodes_run": {
+      "ladder2_contexts": 0,
+      "ladder3_contexts": 0
+    },
+    "cells": {
+      "honest": {
+        "0.01|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4115583333333334,
+            "episodes": 1501.44,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.4115583333333334,
+            "episodes": 1501.44,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.410845,
+            "episodes": 1494.816,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.02|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.42392166666666664,
+            "episodes": 815.448,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.42392166666666664,
+            "episodes": 815.448,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.42437833333333336,
+            "episodes": 816.912,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4371599999999999,
+            "episodes": 345.168,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.4371599999999999,
+            "episodes": 345.168,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.4360033333333333,
+            "episodes": 342.28799999999995,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.01|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4222783333333333,
+            "episodes": 2525.25,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.4222783333333333,
+            "episodes": 2525.25,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.4217683333333333,
+            "episodes": 2508.6,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.02|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4358499999999999,
+            "episodes": 1336.248,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.4358499999999999,
+            "episodes": 1336.248,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.43571999999999994,
+            "episodes": 1336.248,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.44454666666666653,
+            "episodes": 546.48,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.44454666666666653,
+            "episodes": 546.48,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.44463999999999987,
+            "episodes": 547.14,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.01|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4272066666666666,
+            "episodes": 3404.16,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.4272066666666666,
+            "episodes": 3404.16,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.42696666666666666,
+            "episodes": 3417.1200000000003,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.02|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4412299999999999,
+            "episodes": 1780.64,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.4412299999999999,
+            "episodes": 1780.64,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.44117666666666655,
+            "episodes": 1782.0760000000002,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4467683333333332,
+            "episodes": 709.716,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.4467683333333332,
+            "episodes": 709.716,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.44665999999999983,
+            "episodes": 709.716,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        }
+      },
+      "transferred": {
+        "0.01|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4216141666666666,
+            "episodes": 1496.288,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.4216141666666666,
+            "episodes": 1496.288,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.4227608333333333,
+            "episodes": 1501.44,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.02|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4366091666666666,
+            "episodes": 822.036,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.4366091666666666,
+            "episodes": 822.036,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.43663416666666666,
+            "episodes": 824.232,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.44721750000000005,
+            "episodes": 345.312,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.44721750000000005,
+            "episodes": 345.312,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.4470058333333333,
+            "episodes": 344.736,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.01|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4353250000000001,
+            "episodes": 2508.6,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.4353250000000001,
+            "episodes": 2508.6,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.4361116666666667,
+            "episodes": 2516.37,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.02|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.44731333333333334,
+            "episodes": 1331.262,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.44731333333333334,
+            "episodes": 1331.262,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.4483266666666667,
+            "episodes": 1342.342,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.45342083333333333,
+            "episodes": 545.82,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.45342083333333333,
+            "episodes": 545.82,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.4540558333333333,
+            "episodes": 548.4599999999999,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.01|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4436875,
+            "episodes": 3422.88,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.4436875,
+            "episodes": 3422.88,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.44372,
+            "episodes": 3418.56,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.02|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4529,
+            "episodes": 1782.076,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.4529,
+            "episodes": 1782.076,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.45255,
+            "episodes": 1779.922,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4547208333333333,
+            "episodes": 708.864,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.4547208333333333,
+            "episodes": 708.864,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.4548458333333333,
+            "episodes": 709.716,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        }
+      },
+      "laundered 0.25": {
+        "0.01|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.3649475,
+            "episodes": 2265.454,
+            "ladder_rates": [
+              0.0,
+              0.155,
+              0.845
+            ],
+            "mean_R_size": 16.805,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.204,
+            "utility": 0.302495,
+            "episodes": 915.584,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.204
+            ],
+            "mean_R_size": 16.805,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.204,
+            "utility": 0.3008416666666667,
+            "episodes": 904.1759999999999,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.02|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.38851083333333325,
+            "episodes": 1153.641,
+            "ladder_rates": [
+              0.0,
+              0.379,
+              0.621
+            ],
+            "mean_R_size": 11.604,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.442,
+            "utility": 0.3386,
+            "episodes": 614.88,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.442
+            ],
+            "mean_R_size": 11.604,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.479,
+            "utility": 0.33545333333333327,
+            "episodes": 614.88,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4249258333333333,
+            "episodes": 476.788,
+            "ladder_rates": [
+              0.001,
+              0.675,
+              0.324
+            ],
+            "mean_R_size": 5.888888888888889,
+            "mean_R2_size": 1.0,
+            "violations": 1
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.73,
+            "utility": 0.3906208333333333,
+            "episodes": 323.496,
+            "ladder_rates": [
+              0.001,
+              0.0,
+              0.729
+            ],
+            "mean_R_size": 5.888888888888889,
+            "mean_R2_size": 0.0,
+            "violations": 1
+          },
+          "two-tier RLMA": {
+            "certified": 0.742,
+            "utility": 0.39200749999999995,
+            "episodes": 326.88,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 2
+          }
+        },
+        "0.01|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.3907183333333333,
+            "episodes": 3567.096,
+            "ladder_rates": [
+              0.0,
+              0.262,
+              0.738
+            ],
+            "mean_R_size": 19.64,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.351,
+            "utility": 0.31707583333333333,
+            "episodes": 1627.26,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.351
+            ],
+            "mean_R_size": 19.64,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.299,
+            "utility": 0.30603416666666666,
+            "episodes": 1467.975,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.02|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.40861000000000003,
+            "episodes": 1721.886,
+            "ladder_rates": [
+              0.0,
+              0.641,
+              0.359
+            ],
+            "mean_R_size": 14.663,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.694,
+            "utility": 0.3683116666666666,
+            "episodes": 1152.874,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.694
+            ],
+            "mean_R_size": 14.663,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.708,
+            "utility": 0.36207749999999994,
+            "episodes": 1123.7890000000002,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4414208333333333,
+            "episodes": 696.875,
+            "ladder_rates": [
+              0.0,
+              0.925,
+              0.075
+            ],
+            "mean_R_size": 8.188,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.92,
+            "utility": 0.43269083333333325,
+            "episodes": 592.57,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.92
+            ],
+            "mean_R_size": 8.188,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.925,
+            "utility": 0.43100249999999996,
+            "episodes": 590.15,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.01|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4046166666666667,
+            "episodes": 4667.13,
+            "ladder_rates": [
+              0.0,
+              0.343,
+              0.657
+            ],
+            "mean_R_size": 21.004,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.428,
+            "utility": 0.32680666666666663,
+            "episodes": 2301.84,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.428
+            ],
+            "mean_R_size": 21.004,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.419,
+            "utility": 0.3097116666666667,
+            "episodes": 2049.84,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.02|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4120083333333333,
+            "episodes": 2159.628,
+            "ladder_rates": [
+              0.0,
+              0.785,
+              0.215
+            ],
+            "mean_R_size": 16.479,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.81,
+            "utility": 0.39165083333333334,
+            "episodes": 1681.197,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.81
+            ],
+            "mean_R_size": 16.479,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.775,
+            "utility": 0.3740608333333333,
+            "episodes": 1557.7010000000002,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4516875,
+            "episodes": 911.28,
+            "ladder_rates": [
+              0.0,
+              0.97,
+              0.03
+            ],
+            "mean_R_size": 9.754,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.98,
+            "utility": 0.45428999999999997,
+            "episodes": 820.476,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.98
+            ],
+            "mean_R_size": 9.754,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.977,
+            "utility": 0.4470191666666666,
+            "episodes": 804.856,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        }
+      },
+      "laundered 0.5": {
+        "0.01|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.3823075,
+            "episodes": 2330.567,
+            "ladder_rates": [
+              0.0,
+              0.177,
+              0.823
+            ],
+            "mean_R_size": 32.269,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.232,
+            "utility": 0.3102758333333333,
+            "episodes": 971.52,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.232
+            ],
+            "mean_R_size": 32.269,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.21,
+            "utility": 0.3009141666666667,
+            "episodes": 907.488,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.02|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.3956158333333333,
+            "episodes": 1169.916,
+            "ladder_rates": [
+              0.0,
+              0.382,
+              0.618
+            ],
+            "mean_R_size": 22.091,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.441,
+            "utility": 0.3393133333333333,
+            "episodes": 612.867,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.441
+            ],
+            "mean_R_size": 22.091,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.452,
+            "utility": 0.3334466666666666,
+            "episodes": 602.802,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.43081083333333325,
+            "episodes": 479.64,
+            "ladder_rates": [
+              0.0,
+              0.715,
+              0.285
+            ],
+            "mean_R_size": 10.92,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.756,
+            "utility": 0.3990433333333333,
+            "episodes": 335.376,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.756
+            ],
+            "mean_R_size": 10.92,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.737,
+            "utility": 0.39167166666666664,
+            "episodes": 326.16,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.01|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.41807916666666667,
+            "episodes": 3747.084,
+            "ladder_rates": [
+              0.0,
+              0.257,
+              0.743
+            ],
+            "mean_R_size": 37.657,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.316,
+            "utility": 0.3228783333333333,
+            "episodes": 1629.48,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.316
+            ],
+            "mean_R_size": 37.657,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.32,
+            "utility": 0.3046525,
+            "episodes": 1468.53,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.02|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.41859416666666666,
+            "episodes": 1749.782,
+            "ladder_rates": [
+              0.0,
+              0.625,
+              0.375
+            ],
+            "mean_R_size": 27.983,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.664,
+            "utility": 0.37356083333333334,
+            "episodes": 1150.658,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.664
+            ],
+            "mean_R_size": 27.983,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.698,
+            "utility": 0.36108666666666667,
+            "episodes": 1113.2630000000001,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.44551999999999997,
+            "episodes": 704.625,
+            "ladder_rates": [
+              0.0,
+              0.915,
+              0.085
+            ],
+            "mean_R_size": 15.446,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.922,
+            "utility": 0.43745916666666657,
+            "episodes": 598.51,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.922
+            ],
+            "mean_R_size": 15.446,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.927,
+            "utility": 0.42901999999999985,
+            "episodes": 587.0699999999999,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.01|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.43610166666666667,
+            "episodes": 4923.09,
+            "ladder_rates": [
+              0.0,
+              0.351,
+              0.649
+            ],
+            "mean_R_size": 40.435,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.427,
+            "utility": 0.34052666666666664,
+            "episodes": 2406.24,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.427
+            ],
+            "mean_R_size": 40.435,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.449,
+            "utility": 0.311525,
+            "episodes": 2093.04,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.02|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4288333333333333,
+            "episodes": 2238.004,
+            "ladder_rates": [
+              0.0,
+              0.776,
+              0.224
+            ],
+            "mean_R_size": 31.888,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.771,
+            "utility": 0.3976808333333333,
+            "episodes": 1673.299,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.771
+            ],
+            "mean_R_size": 31.888,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.778,
+            "utility": 0.3742708333333333,
+            "episodes": 1560.214,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.45629666666666663,
+            "episodes": 919.12,
+            "ladder_rates": [
+              0.0,
+              0.976,
+              0.024
+            ],
+            "mean_R_size": 18.577,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.979,
+            "utility": 0.45439166666666664,
+            "episodes": 817.92,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.979
+            ],
+            "mean_R_size": 18.577,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.987,
+            "utility": 0.4512683333333332,
+            "episodes": 814.0859999999999,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        }
+      }
+    },
+    "summary_k0": {
+      "honest": {
+        "0.01": {
+          "certified_chain": 1.0,
+          "certified_two": 1.0,
+          "certified_2_1b": 1.0,
+          "utility_chain": 0.4115583333333334,
+          "utility_two": 0.410845,
+          "utility_2_1b": 0.4115583333333334,
+          "violations_chain": 0,
+          "c3_p_value": 1.0,
+          "ladder_rates": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "label_free_ladder2_rate": 0.0,
+          "mean_R_size": 0.0,
+          "mean_R2_size": 0.0,
+          "episode_ratio": 1.0044313146233383,
+          "episode_ratio_2_1b": 1.0044313146233383,
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true,
+          "holds": true
+        },
+        "0.02": {
+          "certified_chain": 1.0,
+          "certified_two": 1.0,
+          "certified_2_1b": 1.0,
+          "utility_chain": 0.42392166666666664,
+          "utility_two": 0.42437833333333336,
+          "utility_2_1b": 0.42392166666666664,
+          "violations_chain": 0,
+          "c3_p_value": 1.0,
+          "ladder_rates": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "label_free_ladder2_rate": 0.0,
+          "mean_R_size": 0.0,
+          "mean_R2_size": 0.0,
+          "episode_ratio": 0.9982078853046594,
+          "episode_ratio_2_1b": 0.9982078853046594,
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true,
+          "holds": true
+        },
+        "0.05": {
+          "certified_chain": 1.0,
+          "certified_two": 1.0,
+          "certified_2_1b": 1.0,
+          "utility_chain": 0.4371599999999999,
+          "utility_two": 0.4360033333333333,
+          "utility_2_1b": 0.4371599999999999,
+          "violations_chain": 0,
+          "c3_p_value": 1.0,
+          "ladder_rates": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "label_free_ladder2_rate": 0.0,
+          "mean_R_size": 0.0,
+          "mean_R2_size": 0.0,
+          "episode_ratio": 1.0084139671855281,
+          "episode_ratio_2_1b": 1.0084139671855281,
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true,
+          "holds": true
+        }
+      },
+      "transferred": {
+        "0.01": {
+          "certified_chain": 1.0,
+          "certified_two": 1.0,
+          "certified_2_1b": 1.0,
+          "utility_chain": 0.4216141666666666,
+          "utility_two": 0.4227608333333333,
+          "utility_2_1b": 0.4216141666666666,
+          "violations_chain": 0,
+          "c3_p_value": 1.0,
+          "ladder_rates": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "label_free_ladder2_rate": 0.0,
+          "mean_R_size": 0.0,
+          "mean_R2_size": 0.0,
+          "episode_ratio": 0.9965686274509804,
+          "episode_ratio_2_1b": 0.9965686274509804,
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true,
+          "holds": true
+        },
+        "0.02": {
+          "certified_chain": 1.0,
+          "certified_two": 1.0,
+          "certified_2_1b": 1.0,
+          "utility_chain": 0.4366091666666666,
+          "utility_two": 0.43663416666666666,
+          "utility_2_1b": 0.4366091666666666,
+          "violations_chain": 0,
+          "c3_p_value": 1.0,
+          "ladder_rates": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "label_free_ladder2_rate": 0.0,
+          "mean_R_size": 0.0,
+          "mean_R2_size": 0.0,
+          "episode_ratio": 0.997335701598579,
+          "episode_ratio_2_1b": 0.997335701598579,
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true,
+          "holds": true
+        },
+        "0.05": {
+          "certified_chain": 1.0,
+          "certified_two": 1.0,
+          "certified_2_1b": 1.0,
+          "utility_chain": 0.44721750000000005,
+          "utility_two": 0.4470058333333333,
+          "utility_2_1b": 0.44721750000000005,
+          "violations_chain": 0,
+          "c3_p_value": 1.0,
+          "ladder_rates": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "label_free_ladder2_rate": 0.0,
+          "mean_R_size": 0.0,
+          "mean_R2_size": 0.0,
+          "episode_ratio": 1.001670843776107,
+          "episode_ratio_2_1b": 1.001670843776107,
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true,
+          "holds": true
+        }
+      },
+      "laundered 0.25": {
+        "0.01": {
+          "certified_chain": 1.0,
+          "certified_two": 0.204,
+          "certified_2_1b": 0.204,
+          "utility_chain": 0.3649475,
+          "utility_two": 0.3008416666666667,
+          "utility_2_1b": 0.302495,
+          "violations_chain": 0,
+          "c3_p_value": 1.0,
+          "ladder_rates": [
+            0.0,
+            0.155,
+            0.845
+          ],
+          "label_free_ladder2_rate": 1.0,
+          "mean_R_size": 16.805,
+          "mean_R2_size": 1.0,
+          "episode_ratio": 2.505545380545381,
+          "episode_ratio_2_1b": 1.0126170126170126,
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": false,
+          "holds": false
+        },
+        "0.02": {
+          "certified_chain": 1.0,
+          "certified_two": 0.479,
+          "certified_2_1b": 0.442,
+          "utility_chain": 0.38851083333333325,
+          "utility_two": 0.33545333333333327,
+          "utility_2_1b": 0.3386,
+          "violations_chain": 0,
+          "c3_p_value": 1.0,
+          "ladder_rates": [
+            0.0,
+            0.379,
+            0.621
+          ],
+          "label_free_ladder2_rate": 1.0,
+          "mean_R_size": 11.604,
+          "mean_R2_size": 1.0,
+          "episode_ratio": 1.8762051131928184,
+          "episode_ratio_2_1b": 1.0,
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": false,
+          "holds": false
+        },
+        "0.05": {
+          "certified_chain": 1.0,
+          "certified_two": 0.742,
+          "certified_2_1b": 0.73,
+          "utility_chain": 0.4249258333333333,
+          "utility_two": 0.39200749999999995,
+          "utility_2_1b": 0.3906208333333333,
+          "violations_chain": 1,
+          "c3_p_value": 1.0,
+          "ladder_rates": [
+            0.001,
+            0.675,
+            0.324
+          ],
+          "label_free_ladder2_rate": 0.999,
+          "mean_R_size": 5.888888888888889,
+          "mean_R2_size": 1.0,
+          "episode_ratio": 1.458602545276554,
+          "episode_ratio_2_1b": 0.9896475770925109,
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": false,
+          "holds": false
+        }
+      },
+      "laundered 0.5": {
+        "0.01": {
+          "certified_chain": 1.0,
+          "certified_two": 0.21,
+          "certified_2_1b": 0.232,
+          "utility_chain": 0.3823075,
+          "utility_two": 0.3009141666666667,
+          "utility_2_1b": 0.3102758333333333,
+          "violations_chain": 0,
+          "c3_p_value": 1.0,
+          "ladder_rates": [
+            0.0,
+            0.177,
+            0.823
+          ],
+          "label_free_ladder2_rate": 1.0,
+          "mean_R_size": 32.269,
+          "mean_R2_size": 1.0,
+          "episode_ratio": 2.5681518653690185,
+          "episode_ratio_2_1b": 1.070559610705596,
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": false,
+          "holds": false
+        },
+        "0.02": {
+          "certified_chain": 1.0,
+          "certified_two": 0.452,
+          "certified_2_1b": 0.441,
+          "utility_chain": 0.3956158333333333,
+          "utility_two": 0.3334466666666666,
+          "utility_2_1b": 0.3393133333333333,
+          "violations_chain": 0,
+          "c3_p_value": 1.0,
+          "ladder_rates": [
+            0.0,
+            0.382,
+            0.618
+          ],
+          "label_free_ladder2_rate": 1.0,
+          "mean_R_size": 22.091,
+          "mean_R2_size": 1.0,
+          "episode_ratio": 1.940796480436362,
+          "episode_ratio_2_1b": 1.0166970248937461,
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": false,
+          "holds": false
+        },
+        "0.05": {
+          "certified_chain": 1.0,
+          "certified_two": 0.737,
+          "certified_2_1b": 0.756,
+          "utility_chain": 0.43081083333333325,
+          "utility_two": 0.39167166666666664,
+          "utility_2_1b": 0.3990433333333333,
+          "violations_chain": 0,
+          "c3_p_value": 1.0,
+          "ladder_rates": [
+            0.0,
+            0.715,
+            0.285
+          ],
+          "label_free_ladder2_rate": 1.0,
+          "mean_R_size": 10.92,
+          "mean_R2_size": 1.0,
+          "episode_ratio": 1.4705665930831493,
+          "episode_ratio_2_1b": 1.0282560706401764,
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": false,
+          "holds": false
+        }
+      }
+    }
+  },
+  "C17": {
+    "cells": {
+      "laundered 0.25": {
+        "0.01": {
+          "certified_chain": 1.0,
+          "certified_two": 0.182,
+          "certified_2_1b": 0.164,
+          "utility_chain": 0.2975483333333334,
+          "utility_two": 0.27741750000000004,
+          "utility_2_1b": 0.2776916666666666,
+          "violations_chain": 4,
+          "c3_p_value": 1.0,
+          "ladder_rates": [
+            0.0,
+            0.115,
+            0.885
+          ],
+          "label_free_ladder2_rate": 1.0,
+          "mean_R_size": 19.762,
+          "mean_R2_size": 1.0,
+          "episode_ratio": 2.1388239875389408,
+          "episode_ratio_2_1b": 0.9937694704049845,
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": false,
+          "holds": false
+        },
+        "0.02": {
+          "certified_chain": 1.0,
+          "certified_two": 0.36,
+          "certified_2_1b": 0.408,
+          "utility_chain": 0.33350583333333345,
+          "utility_two": 0.2971166666666667,
+          "utility_2_1b": 0.3007916666666667,
+          "violations_chain": 0,
+          "c3_p_value": 1.0,
+          "ladder_rates": [
+            0.0,
+            0.354,
+            0.646
+          ],
+          "label_free_ladder2_rate": 1.0,
+          "mean_R_size": 13.716,
+          "mean_R2_size": 1.0,
+          "episode_ratio": 1.9137049822971706,
+          "episode_ratio_2_1b": 1.037853730246233,
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": false,
+          "holds": false
+        },
+        "0.05": {
+          "certified_chain": 1.0,
+          "certified_two": 0.677,
+          "certified_2_1b": 0.698,
+          "utility_chain": 0.39383416666666676,
+          "utility_two": 0.36138416666666673,
+          "utility_2_1b": 0.3678416666666667,
+          "violations_chain": 0,
+          "c3_p_value": 1.0,
+          "ladder_rates": [
+            0.0,
+            0.644,
+            0.356
+          ],
+          "label_free_ladder2_rate": 1.0,
+          "mean_R_size": 6.865,
+          "mean_R2_size": 1.0,
+          "episode_ratio": 1.4903986729644625,
+          "episode_ratio_2_1b": 1.0263157894736843,
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": false,
+          "holds": false
+        }
+      },
+      "laundered 0.5": {
+        "0.01": {
+          "certified_chain": 1.0,
+          "certified_two": 0.16,
+          "certified_2_1b": 0.154,
+          "utility_chain": 0.3343258333333334,
+          "utility_two": 0.2784116666666666,
+          "utility_2_1b": 0.28403083333333334,
+          "violations_chain": 0,
+          "c3_p_value": 1.0,
+          "ladder_rates": [
+            0.0,
+            0.094,
+            0.906
+          ],
+          "label_free_ladder2_rate": 1.0,
+          "mean_R_size": 33.039,
+          "mean_R2_size": 1.0,
+          "episode_ratio": 2.4873438893844777,
+          "episode_ratio_2_1b": 1.0388046387154326,
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": false,
+          "holds": false
+        },
+        "0.02": {
+          "certified_chain": 1.0,
+          "certified_two": 0.397,
+          "certified_2_1b": 0.394,
+          "utility_chain": 0.3583841666666667,
+          "utility_two": 0.29816833333333337,
+          "utility_2_1b": 0.3087841666666667,
+          "violations_chain": 0,
+          "c3_p_value": 1.0,
+          "ladder_rates": [
+            0.0,
+            0.344,
+            0.656
+          ],
+          "label_free_ladder2_rate": 1.0,
+          "mean_R_size": 22.538,
+          "mean_R2_size": 1.0,
+          "episode_ratio": 2.0410997464606857,
+          "episode_ratio_2_1b": 1.053314121037464,
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": false,
+          "holds": false
+        },
+        "0.05": {
+          "certified_chain": 1.0,
+          "certified_two": 0.682,
+          "certified_2_1b": 0.672,
+          "utility_chain": 0.40082000000000007,
+          "utility_two": 0.3626408333333333,
+          "utility_2_1b": 0.370485,
+          "violations_chain": 0,
+          "c3_p_value": 1.0,
+          "ladder_rates": [
+            0.0,
+            0.646,
+            0.354
+          ],
+          "label_free_ladder2_rate": 1.0,
+          "mean_R_size": 11.235,
+          "mean_R2_size": 1.0,
+          "episode_ratio": 1.5110382697372107,
+          "episode_ratio_2_1b": 1.0242057488653555,
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": false,
+          "holds": false
+        }
+      }
+    },
+    "holds": false
+  },
+  "C18": {
+    "cells": {
+      "0.01": {
+        "certified_chain": 1.0,
+        "certified_two": 1.0,
+        "certified_2_1b": 1.0,
+        "utility_chain": 0.3580808333333333,
+        "utility_two": 0.3580041666666666,
+        "utility_2_1b": 0.3580808333333333,
+        "violations_chain": 12,
+        "c3_p_value": 0.9999999999864329,
+        "ladder_rates": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "label_free_ladder2_rate": 0.0,
+        "mean_R_size": 0.0,
+        "mean_R2_size": 0.0,
+        "episode_ratio": 1.0,
+        "episode_ratio_2_1b": 1.0,
+        "a": true,
+        "b": true,
+        "c": true,
+        "holds": true,
+        "applies": false
+      },
+      "0.02": {
+        "certified_chain": 1.0,
+        "certified_two": 1.0,
+        "certified_2_1b": 1.0,
+        "utility_chain": 0.37663,
+        "utility_two": 0.3772924999999999,
+        "utility_2_1b": 0.37663,
+        "violations_chain": 0,
+        "c3_p_value": 1.0,
+        "ladder_rates": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "label_free_ladder2_rate": 0.0,
+        "mean_R_size": 0.0,
+        "mean_R2_size": 0.0,
+        "episode_ratio": 0.9923230974632843,
+        "episode_ratio_2_1b": 0.9923230974632843,
+        "a": true,
+        "b": true,
+        "c": true,
+        "holds": true,
+        "applies": false
+      },
+      "0.05": {
+        "certified_chain": 1.0,
+        "certified_two": 1.0,
+        "certified_2_1b": 1.0,
+        "utility_chain": 0.4204274999999999,
+        "utility_two": 0.41900833333333326,
+        "utility_2_1b": 0.4204274999999999,
+        "violations_chain": 0,
+        "c3_p_value": 1.0,
+        "ladder_rates": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "label_free_ladder2_rate": 0.0,
+        "mean_R_size": 0.0,
+        "mean_R2_size": 0.0,
+        "episode_ratio": 1.0078282828282827,
+        "episode_ratio_2_1b": 1.0078282828282827,
+        "a": true,
+        "b": true,
+        "c": true,
+        "holds": true,
+        "applies": false
+      }
+    },
+    "applies": false,
+    "holds": null
+  },
+  "C17_and_C18_count": true,
+  "D5": {
+    "cells": {
+      "honest": {
+        "0.01|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.35857916666666667,
+            "episodes": 880.624,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 14
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.35857916666666667,
+            "episodes": 880.624,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 14
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.3571866666666666,
+            "episodes": 855.6,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 17
+          }
+        },
+        "0.02|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.38156666666666667,
+            "episodes": 567.483,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.38156666666666667,
+            "episodes": 567.483,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.3812841666666666,
+            "episodes": 565.47,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.42053250000000003,
+            "episodes": 286.704,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.42053250000000003,
+            "episodes": 286.704,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.42030333333333336,
+            "episodes": 285.48,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.01|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.36224333333333336,
+            "episodes": 1440.78,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 12
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.36224333333333336,
+            "episodes": 1440.78,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 12
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.36145,
+            "episodes": 1414.695,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 15
+          }
+        },
+        "0.02|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.39503999999999995,
+            "episodes": 988.059,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.39503999999999995,
+            "episodes": 988.059,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.3966583333333333,
+            "episodes": 993.876,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.44464583333333335,
+            "episodes": 497.75,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.44464583333333335,
+            "episodes": 497.75,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.4463391666666667,
+            "episodes": 499.84,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.01|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.36351,
+            "episodes": 1926.0,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 12
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.36351,
+            "episodes": 1926.0,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 12
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.3656291666666666,
+            "episodes": 1981.4399999999998,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 18
+          }
+        },
+        "0.02|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.40849750000000007,
+            "episodes": 1422.358,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.40849750000000007,
+            "episodes": 1422.358,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.40668000000000004,
+            "episodes": 1413.383,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4603275,
+            "episodes": 681.458,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.4603275,
+            "episodes": 681.458,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.462635,
+            "episodes": 686.996,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        }
+      },
+      "transferred": {
+        "0.01|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.3580808333333333,
+            "episodes": 884.304,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 12
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.3580808333333333,
+            "episodes": 884.304,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 12
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.3580041666666666,
+            "episodes": 884.304,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 12
+          }
+        },
+        "0.02|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.37663,
+            "episodes": 544.059,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.37663,
+            "episodes": 544.059,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.3772924999999999,
+            "episodes": 548.268,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4204274999999999,
+            "episodes": 287.352,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.4204274999999999,
+            "episodes": 287.352,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.41900833333333326,
+            "episodes": 285.12,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.01|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.36054583333333334,
+            "episodes": 1404.705,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 12
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.36054583333333334,
+            "episodes": 1404.705,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 12
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.36077083333333326,
+            "episodes": 1410.81,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 11
+          }
+        },
+        "0.02|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.3969891666666666,
+            "episodes": 995.261,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.3969891666666666,
+            "episodes": 995.261,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.3975874999999999,
+            "episodes": 1004.679,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4461466666666665,
+            "episodes": 503.14,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.4461466666666665,
+            "episodes": 503.14,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.4477933333333332,
+            "episodes": 505.78,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.01|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.3630483333333333,
+            "episodes": 1915.2,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 10
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.3630483333333333,
+            "episodes": 1915.2,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 10
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.3632283333333333,
+            "episodes": 1912.3200000000002,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 16
+          }
+        },
+        "0.02|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.40892166666666663,
+            "episodes": 1420.922,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.40892166666666663,
+            "episodes": 1420.922,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.40659333333333325,
+            "episodes": 1402.2540000000001,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4611274999999998,
+            "episodes": 690.404,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 1.0,
+            "utility": 0.4611274999999998,
+            "episodes": 690.404,
+            "ladder_rates": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mean_R_size": 0.0,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 1.0,
+            "utility": 0.4606366666666665,
+            "episodes": 686.57,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        }
+      },
+      "laundered 0.25": {
+        "0.01|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.2975483333333334,
+            "episodes": 1768.585,
+            "ladder_rates": [
+              0.0,
+              0.115,
+              0.885
+            ],
+            "mean_R_size": 19.762,
+            "mean_R2_size": 1.0,
+            "violations": 4
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.164,
+            "utility": 0.2776916666666666,
+            "episodes": 821.744,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.164
+            ],
+            "mean_R_size": 19.762,
+            "mean_R2_size": 0.0,
+            "violations": 8
+          },
+          "two-tier RLMA": {
+            "certified": 0.182,
+            "utility": 0.27741750000000004,
+            "episodes": 826.896,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 3
+          }
+        },
+        "0.02|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.33350583333333345,
+            "episodes": 952.916,
+            "ladder_rates": [
+              0.0,
+              0.354,
+              0.646
+            ],
+            "mean_R_size": 13.716,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.408,
+            "utility": 0.3007916666666667,
+            "episodes": 516.792,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.408
+            ],
+            "mean_R_size": 13.716,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.36,
+            "utility": 0.2971166666666667,
+            "episodes": 497.94300000000004,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.39383416666666676,
+            "episodes": 424.084,
+            "ladder_rates": [
+              0.0,
+              0.644,
+              0.356
+            ],
+            "mean_R_size": 6.865,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.698,
+            "utility": 0.3678416666666667,
+            "episodes": 292.032,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.698
+            ],
+            "mean_R_size": 6.865,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.677,
+            "utility": 0.36138416666666673,
+            "episodes": 284.544,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.01|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.3071358333333335,
+            "episodes": 2655.708,
+            "ladder_rates": [
+              0.0,
+              0.187,
+              0.813
+            ],
+            "mean_R_size": 22.865,
+            "mean_R2_size": 1.0,
+            "violations": 2
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.24,
+            "utility": 0.28046000000000004,
+            "episodes": 1305.36,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.24
+            ],
+            "mean_R_size": 22.865,
+            "mean_R2_size": 0.0,
+            "violations": 8
+          },
+          "two-tier RLMA": {
+            "certified": 0.221,
+            "utility": 0.2792241666666666,
+            "episodes": 1284.27,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 4
+          }
+        },
+        "0.02|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.3544050000000001,
+            "episodes": 1439.439,
+            "ladder_rates": [
+              0.0,
+              0.568,
+              0.432
+            ],
+            "mean_R_size": 17.375,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.593,
+            "utility": 0.3250283333333334,
+            "episodes": 939.861,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.593
+            ],
+            "mean_R_size": 17.375,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.607,
+            "utility": 0.3262425,
+            "episodes": 945.955,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.43203250000000004,
+            "episodes": 663.125,
+            "ladder_rates": [
+              0.0,
+              0.858,
+              0.142
+            ],
+            "mean_R_size": 9.724,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.888,
+            "utility": 0.4220008333333334,
+            "episodes": 549.45,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.888
+            ],
+            "mean_R_size": 9.724,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.905,
+            "utility": 0.42306916666666666,
+            "episodes": 555.5,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.01|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.3145558333333335,
+            "episodes": 3499.92,
+            "ladder_rates": [
+              0.0,
+              0.202,
+              0.798
+            ],
+            "mean_R_size": 24.446,
+            "mean_R2_size": 1.0,
+            "violations": 3
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.289,
+            "utility": 0.2824791666666666,
+            "episodes": 1752.48,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.289
+            ],
+            "mean_R_size": 24.446,
+            "mean_R2_size": 0.0,
+            "violations": 5
+          },
+          "two-tier RLMA": {
+            "certified": 0.313,
+            "utility": 0.28317666666666674,
+            "episodes": 1775.5200000000002,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 7
+          }
+        },
+        "0.02|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.36987500000000006,
+            "episodes": 1895.008,
+            "ladder_rates": [
+              0.0,
+              0.679,
+              0.321
+            ],
+            "mean_R_size": 19.505,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.75,
+            "utility": 0.34623000000000004,
+            "episodes": 1387.894,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.75
+            ],
+            "mean_R_size": 19.505,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.75,
+            "utility": 0.3467983333333333,
+            "episodes": 1395.792,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4573558333333334,
+            "episodes": 884.72,
+            "ladder_rates": [
+              0.0,
+              0.95,
+              0.05
+            ],
+            "mean_R_size": 11.605,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.974,
+            "utility": 0.46027500000000005,
+            "episodes": 793.638,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.974
+            ],
+            "mean_R_size": 11.605,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.974,
+            "utility": 0.4565808333333333,
+            "episodes": 787.532,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        }
+      },
+      "laundered 0.5": {
+        "0.01|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.3343258333333334,
+            "episodes": 2052.198,
+            "ladder_rates": [
+              0.0,
+              0.094,
+              0.906
+            ],
+            "mean_R_size": 33.039,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.154,
+            "utility": 0.28403083333333334,
+            "episodes": 857.072,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.154
+            ],
+            "mean_R_size": 33.039,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.16,
+            "utility": 0.2784116666666666,
+            "episodes": 825.056,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 10
+          }
+        },
+        "0.02|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.3583841666666667,
+            "episodes": 1036.895,
+            "ladder_rates": [
+              0.0,
+              0.344,
+              0.656
+            ],
+            "mean_R_size": 22.538,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.394,
+            "utility": 0.3087841666666667,
+            "episodes": 535.092,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.394
+            ],
+            "mean_R_size": 22.538,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.397,
+            "utility": 0.29816833333333337,
+            "episodes": 508.008,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k0": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.40082000000000007,
+            "episodes": 431.48,
+            "ladder_rates": [
+              0.0,
+              0.646,
+              0.354
+            ],
+            "mean_R_size": 11.235,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.672,
+            "utility": 0.370485,
+            "episodes": 292.464,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.672
+            ],
+            "mean_R_size": 11.235,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.682,
+            "utility": 0.3626408333333333,
+            "episodes": 285.552,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.01|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.3777708333333334,
+            "episodes": 3368.664,
+            "ladder_rates": [
+              0.0,
+              0.177,
+              0.823
+            ],
+            "mean_R_size": 38.557,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.227,
+            "utility": 0.2918125,
+            "episodes": 1403.595,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.227
+            ],
+            "mean_R_size": 38.557,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.233,
+            "utility": 0.27976666666666666,
+            "episodes": 1294.815,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 7
+          }
+        },
+        "0.02|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.39877833333333335,
+            "episodes": 1656.584,
+            "ladder_rates": [
+              0.0,
+              0.521,
+              0.479
+            ],
+            "mean_R_size": 28.744,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.602,
+            "utility": 0.3469333333333333,
+            "episodes": 1023.515,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.602
+            ],
+            "mean_R_size": 28.744,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.615,
+            "utility": 0.32442666666666675,
+            "episodes": 944.016,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k1": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4442308333333334,
+            "episodes": 677.125,
+            "ladder_rates": [
+              0.0,
+              0.876,
+              0.124
+            ],
+            "mean_R_size": 15.779,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.887,
+            "utility": 0.4316183333333333,
+            "episodes": 562.87,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.887
+            ],
+            "mean_R_size": 15.779,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.898,
+            "utility": 0.42103083333333335,
+            "episodes": 549.89,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.01|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.41302166666666673,
+            "episodes": 4685.76,
+            "ladder_rates": [
+              0.0,
+              0.207,
+              0.793
+            ],
+            "mean_R_size": 41.524,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.321,
+            "utility": 0.30612333333333336,
+            "episodes": 2045.52,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.321
+            ],
+            "mean_R_size": 41.524,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.306,
+            "utility": 0.2808675,
+            "episodes": 1742.3999999999999,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 3
+          }
+        },
+        "0.02|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4215791666666667,
+            "episodes": 2183.06,
+            "ladder_rates": [
+              0.0,
+              0.655,
+              0.345
+            ],
+            "mean_R_size": 32.777,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.757,
+            "utility": 0.38294916666666673,
+            "episodes": 1564.881,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.757
+            ],
+            "mean_R_size": 32.777,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.731,
+            "utility": 0.34445083333333343,
+            "episodes": 1373.893,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        },
+        "0.05|k2": {
+          "three-ladder RLMA, repair at every ladder": {
+            "certified": 1.0,
+            "utility": 0.4656208333333334,
+            "episodes": 896.88,
+            "ladder_rates": [
+              0.0,
+              0.96,
+              0.04
+            ],
+            "mean_R_size": 19.105,
+            "mean_R2_size": 1.0,
+            "violations": 0
+          },
+          "three-ladder RLMA, one repaired ladder at delta/2": {
+            "certified": 0.967,
+            "utility": 0.4621558333333334,
+            "episodes": 793.78,
+            "ladder_rates": [
+              0.0,
+              0.0,
+              0.967
+            ],
+            "mean_R_size": 19.105,
+            "mean_R2_size": 0.0,
+            "violations": 0
+          },
+          "two-tier RLMA": {
+            "certified": 0.968,
+            "utility": 0.45567083333333336,
+            "episodes": 787.106,
+            "ladder_rates": [
+              NaN,
+              NaN,
+              NaN
+            ],
+            "mean_R_size": NaN,
+            "mean_R2_size": NaN,
+            "violations": 0
+          }
+        }
+      }
+    },
+    "records_H2": {
+      "honest": [],
+      "transferred": [],
+      "laundered 0.25": [
+        "u283_r30"
+      ],
+      "laundered 0.5": [
+        "u283_r30",
+        "u287_r07"
+      ]
+    },
+    "honest_and_k": {
+      "honest": {
+        "0.01": {
+          "certified_chain": 1.0,
+          "certified_two": 1.0,
+          "certified_2_1b": 1.0,
+          "utility_chain": 0.35857916666666667,
+          "utility_two": 0.3571866666666666,
+          "utility_2_1b": 0.35857916666666667,
+          "violations_chain": 14,
+          "c3_p_value": 0.9999999997528607,
+          "ladder_rates": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "label_free_ladder2_rate": 0.0,
+          "mean_R_size": 0.0,
+          "mean_R2_size": 0.0,
+          "episode_ratio": 1.029247311827957,
+          "episode_ratio_2_1b": 1.029247311827957,
+          "a": true,
+          "b": true,
+          "c": true,
+          "holds": true
+        },
+        "0.02": {
+          "certified_chain": 1.0,
+          "certified_two": 1.0,
+          "certified_2_1b": 1.0,
+          "utility_chain": 0.38156666666666667,
+          "utility_two": 0.3812841666666666,
+          "utility_2_1b": 0.38156666666666667,
+          "violations_chain": 0,
+          "c3_p_value": 1.0,
+          "ladder_rates": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "label_free_ladder2_rate": 0.0,
+          "mean_R_size": 0.0,
+          "mean_R2_size": 0.0,
+          "episode_ratio": 1.0035598705501616,
+          "episode_ratio_2_1b": 1.0035598705501616,
+          "a": true,
+          "b": true,
+          "c": true,
+          "holds": true
+        },
+        "0.05": {
+          "certified_chain": 1.0,
+          "certified_two": 1.0,
+          "certified_2_1b": 1.0,
+          "utility_chain": 0.42053250000000003,
+          "utility_two": 0.42030333333333336,
+          "utility_2_1b": 0.42053250000000003,
+          "violations_chain": 0,
+          "c3_p_value": 1.0,
+          "ladder_rates": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "label_free_ladder2_rate": 0.0,
+          "mean_R_size": 0.0,
+          "mean_R2_size": 0.0,
+          "episode_ratio": 1.0042875157629256,
+          "episode_ratio_2_1b": 1.0042875157629256,
+          "a": true,
+          "b": true,
+          "c": true,
+          "holds": true
+        }
+      }
+    }
+  },
+  "runtime_version": "5"
+}

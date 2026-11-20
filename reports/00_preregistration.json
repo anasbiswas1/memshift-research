@@ -758,12 +758,45 @@
     }
   },
   "notebook_13": {
-    "status": "planned: confirmation of amendment 5 on users 220 to 249 (M7), claims frozen after notebook 12 is read",
+    "date": "2026-11-19",
+    "status": "amendment 5 confirmed on new users (frozen after notebook 12 was read; docs/plan_v2_amendment_5.md, Section 5)",
     "users": [
       220,
       249
     ],
-    "suite": "confirmation5"
+    "suite": "confirmation5",
+    "migration": "M7",
+    "cells": "honest own score; transferred score; laundered labels at 25% and 50% (own score)",
+    "method": {
+      "name": "three-ladder RLMA",
+      "levels": [
+        0.025,
+        0.0125,
+        0.0125
+      ],
+      "order": "repaired labelled ladder first unless a record of R carries the user label (the label the attacker can forge), then the repaired label-free ladder first; both at delta/4 on their own fresh samples",
+      "ks": [
+        0,
+        1,
+        2
+      ],
+      "runs": "old pipeline and survivor store, reuse all, reset, both tiers under the own and the transferred score, the laundered labelled ladders, every repaired context a sampled R can produce; no baselines, no held-out runs on this set",
+      "replay": "1,000 draws per cell and k, three-ladder against two-tier, seeds SEED + CONFIRM5_AUDIT_SEED_BASE + 1000 * k + 100 * cell index + alpha index"
+    },
+    "claims": {
+      "C13": "transferred-score cell, every alpha, k = 0: (a) no violation share with a binomial p-value below C13_level against delta; (b) certified in at least C13_min_certified of replays; (c) certified task success at least the two-tier value (same seeds) minus C13_max_utility_loss",
+      "C14": "laundered cells (25%, 50%), every alpha, k = 0: (a) as C13a; (b) certified in at least C14_min_certified; (c) task success at least the two-tier value minus C14_max_utility_loss; (d) audit episodes at most C14_max_episode_ratio times the two-tier's",
+      "D2": "development numbers reported, no claim: the honest own-score cell (three-ladder equals two-tier when the first ladder certifies), the gain where the first ladder failed, k = 1 and k = 2, the share of replays each ladder certified",
+      "margins": {
+        "C13_level": 0.01,
+        "C13_min_certified": 0.95,
+        "C13_max_utility_loss": 0.002,
+        "C14_min_certified": 0.95,
+        "C14_max_utility_loss": 0.005,
+        "C14_max_episode_ratio": 1.35
+      },
+      "inclusion": "as notebook 05 on these users: M7 must be admitted for C13 and C14 to count; otherwise reported"
+    }
   },
   "smoke_gate_by_reader": {
     "mistral_7b": 0.4

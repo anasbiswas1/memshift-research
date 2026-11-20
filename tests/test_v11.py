@@ -103,3 +103,26 @@ def test_preregistration_names_amendment_5():
     p = config.preregistration()
     assert p["notebook_11"]["amendment"] == "docs/plan_v2_amendment_5.md" and p["notebook_12"]["method"]["levels"] == config.THREE_LADDER_LEVELS
     assert abs(sum(config.THREE_LADDER_LEVELS) - config.DELTA) < 1e-12
+
+
+def test_ladder_order_follows_the_labels_of_the_records_behind_the_hits():
+    n = 400
+    Y1 = np.zeros((2, n), int); Y1[:, :8] = 1; S1 = np.full((2, n), 0.6)
+    H = ["ra"]; hits1 = PO.hit_mask([["ra"] if i < 8 else [] for i in range(n)], H)
+    var = [[(i, 1, {1: (0, 1)}) for i in range(8)] for _ in range(2)]
+    L2 = PO.RepairedLadder(Y1, S1, var)                               # repaired labelled: clean once ra is quarantined
+    L3 = PO.RepairedLadder(Y1, np.full((2, n), 0.5), var)             # repaired label-free: also clean, lower success
+    rng = np.random.default_rng(3)
+    draws = tuple(rng.integers(0, n, size=(200, m)) for m in (PO.n_k(0.01, config.DELTA / 2), PO.n_k(0.01, config.DELTA / 4), PO.n_k(0.01, config.DELTA / 4)))
+    # ra honestly labelled external (mask 0): labelled ladder first, certified there
+    rep = PO.three_ladder_replay(Y1, S1, hits1, L2, L3, draws, 0.01, user_label_mask=0)
+    s = PO.three_ladder_summary(rep, draws, 0.01, 0.2)
+    assert s["ladder2_rate"] > 0.95 and s["ladder3_rate"] == 0.0 and s["label_free_first_rate"] == 0.0 and abs(s["utility_mean"] - 0.6) < 0.02
+    # ra carries the user label (mask bit set): label-free ladder first, certified there, the labelled ladder never tested
+    rep = PO.three_ladder_replay(Y1, S1, hits1, L2, L3, draws, 0.01, user_label_mask=1)
+    s = PO.three_ladder_summary(rep, draws, 0.01, 0.2)
+    assert s["ladder3_rate"] > 0.95 and s["ladder2_rate"] == 0.0 and s["label_free_first_rate"] > 0.95 and abs(s["utility_mean"] - 0.5) < 0.02
+    assert (rep["tested2"][rep["ladder"] == 3] == 0).all()
+    assert abs(s["mean_R_size"] - 1.0) < 1e-9 and s["entered_ladder3_rate"] > 0.95   # R reported whichever ladder went first
+    # episodes: K_1 on the first sample, then both repaired label-free candidates on one fallback sample; the other ladder costs nothing
+    assert abs(s["audit_executions_mean"] - (draws[0].shape[1] + 2 * draws[1].shape[1])) < 1e-9

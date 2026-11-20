@@ -491,20 +491,25 @@ def hit_mask(hit_records: list[list[str]], H: list[str]) -> np.ndarray:
 
 def three_ladder_replay(Y1: np.ndarray, S1: np.ndarray, hits1: np.ndarray, L2: RepairedLadder, L3: RepairedLadder,
                         draws: tuple[np.ndarray, np.ndarray, np.ndarray], alpha: float,
-                        levels: tuple[float, float, float] = config.THREE_LADDER_LEVELS, k: int | None = None) -> dict:
-    """Amendment 5, 2.1, replayed exactly for each seed. Y1, S1: (G, n_queries) outcomes and successes of the labelled
-    ladder; hits1: per task, the bit mask over H of the records behind K_1's attacker-caused actions; L2, L3: the
-    repaired labelled and label-free ladders; draws: the three samples (seeds x n_i), one per ladder, drawn
-    independently. Per seed: ladder 1 on draws[0] at levels[0]; if K_1 fails, R = the records behind the hits of K_1 on
-    the sampled tasks, ladder 2 (K_g u R) on draws[1] at levels[1]; if K_1 u R fails, ladder 3 (K'_g u R) on draws[2]
-    at levels[2]; else reset. Returns per-seed arrays: ladder used (1, 2, 3; 0 = reset), deployed index within it,
-    true r_Q and success of the deployed policy, candidates tested per ladder, and the size of R."""
+                        levels: tuple[float, float, float] = config.THREE_LADDER_LEVELS, k: int | None = None,
+                        user_label_mask: int | None = None) -> dict:
+    """Amendment 5, 2.1 and 2.1a, replayed exactly for each seed. Y1, S1: (G, n_queries) outcomes and successes of the
+    labelled ladder; hits1: per task, the bit mask over H of the records behind K_1's attacker-caused actions; L2, L3:
+    the repaired labelled and the repaired label-free ladders; draws: the three samples (seeds x n_i), one per ladder,
+    drawn independently. Per seed: ladder 1 on draws[0] at levels[0]; if K_1 fails, R = the records behind the hits of
+    K_1 on the sampled tasks, and the two repaired ladders are tried in turn on draws[1] and draws[2] at levels[1] and
+    levels[2]; if both fail, reset. Order (2.1a): the repaired labelled ladder first, unless `user_label_mask` is given
+    and a record of R carries the user label (R & mask != 0), in which case the repaired label-free ladder is first.
+    `user_label_mask` None keeps the order of 2.1 (labelled first). Returns per-seed arrays: ladder used (1 = labelled,
+    2 = repaired labelled, 3 = repaired label-free; 0 = reset), deployed index within it, true r_Q and success of the
+    deployed policy, candidates tested per ladder, the size of R, and whether the label-free ladder went first."""
     seeds = draws[0].shape[0]
     dep1, tested1 = replay(Y1, draws[0], alpha, levels[0], k)
     ladder = np.where(dep1 >= 0, 1, 0); dep = dep1.copy()
     r = np.where(dep1 >= 0, Y1.mean(axis=1)[np.maximum(dep1, 0)], 0.0)
     u = np.where(dep1 >= 0, S1.mean(axis=1)[np.maximum(dep1, 0)], np.nan)
     tested2, tested3, rsize = np.zeros(seeds, int), np.zeros(seeds, int), np.zeros(seeds, int)
+    lf_first = np.zeros(seeds, bool)
     y1 = Y1[0]
     for s in np.where(dep1 < 0)[0]:
         q1 = draws[0][s]
@@ -512,20 +517,24 @@ def three_ladder_replay(Y1: np.ndarray, S1: np.ndarray, hits1: np.ndarray, L2: R
         for qi in q1[y1[q1] == 1]:
             R |= int(hits1[qi])
         rsize[s] = bin(R).count("1")
-        Y2, S2 = L2.outcomes(R)
-        d2, t2 = replay(Y2, draws[1][s:s + 1], alpha, levels[1], k)
-        tested2[s] = t2[0]
-        if d2[0] >= 0:
-            ladder[s], dep[s], r[s], u[s] = 2, d2[0], Y2[d2[0]].mean(), S2[d2[0]].mean()
-            continue
-        Y3, S3 = L3.outcomes(R)
-        d3, t3 = replay(Y3, draws[2][s:s + 1], alpha, levels[2], k)
-        tested3[s] = t3[0]
-        if d3[0] >= 0:
-            ladder[s], dep[s], r[s], u[s] = 3, d3[0], Y3[d3[0]].mean(), S3[d3[0]].mean()
-        else:
+        swap = user_label_mask is not None and bool(R & user_label_mask)
+        lf_first[s] = swap
+        order = ((3, L3), (2, L2)) if swap else ((2, L2), (3, L3))
+        done = False
+        for j, (which, L) in enumerate(order):
+            Yj, Sj = L.outcomes(R)
+            dj, tj = replay(Yj, draws[1 + j][s:s + 1], alpha, levels[1 + j], k)
+            if which == 2:
+                tested2[s] = tj[0]
+            else:
+                tested3[s] = tj[0]
+            if dj[0] >= 0:
+                ladder[s], dep[s], r[s], u[s] = which, dj[0], Yj[dj[0]].mean(), Sj[dj[0]].mean()
+                done = True
+                break
+        if not done:
             ladder[s], dep[s], r[s] = 0, -1, 0.0
-    return {"ladder": ladder, "deployed": dep, "r": r, "success": u, "tested1": tested1, "tested2": tested2, "tested3": tested3, "R_size": rsize}
+    return {"ladder": ladder, "deployed": dep, "r": r, "success": u, "tested1": tested1, "tested2": tested2, "tested3": tested3, "R_size": rsize, "label_free_first": lf_first}
 
 
 def three_ladder_summary(rep: dict, draws: tuple[np.ndarray, np.ndarray, np.ndarray], alpha: float, reset_success: float) -> dict:
@@ -535,12 +544,15 @@ def three_ladder_summary(rep: dict, draws: tuple[np.ndarray, np.ndarray, np.ndar
     seeds = len(lad)
     u = np.where(lad > 0, rep["success"], reset_success)
     v = int((r > alpha).sum())
+    # the two fallback ladders use draws[1] and draws[2] in the order taken; with equal levels the two samples have equal size
     eps = rep["tested1"] * draws[0].shape[1] + rep["tested2"] * draws[1].shape[1] + rep["tested3"] * draws[2].shape[1]
+    fell = (rep["tested2"] > 0) | (rep["tested3"] > 0)   # seeds where K_1 failed and a repaired ladder was tested, in either order
     out = {"seeds": seeds, "sample_sizes": "/".join(str(d.shape[1]) for d in draws), "certified_rate": float((lad > 0).mean()),
+           "label_free_first_rate": float(rep.get("label_free_first", np.zeros(seeds, bool)).mean()),
            "ladder1_rate": float((lad == 1).mean()), "ladder2_rate": float((lad == 2).mean()), "ladder3_rate": float((lad == 3).mean()),
            "entered_ladder2_rate": float((rep["tested2"] > 0).mean()), "entered_ladder3_rate": float((rep["tested3"] > 0).mean()),
            "mean_deployed_index": float(rep["deployed"][lad > 0].mean()) if (lad > 0).any() else float("nan"),
-           "mean_R_size": float(rep["R_size"][rep["tested2"] > 0].mean()) if (rep["tested2"] > 0).any() else 0.0,
+           "mean_R_size": float(rep["R_size"][fell].mean()) if fell.any() else 0.0,
            "true_r_mean": float(r.mean()), "true_r_max": float(r.max()), "violations": v, "violation_rate": v / seeds,
            "c3_p_value": float(binom.sf(v - 1, seeds, config.DELTA)) if v else 1.0,
            "utility_mean": float(u.mean()), "audit_executions_mean": float(eps.mean())}

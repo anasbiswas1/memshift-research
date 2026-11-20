@@ -262,8 +262,14 @@ PASS_RULE_CLAIMS = {"C11_level": CLAIM_C3["level"], "C11_max_utility_loss": 0.00
 REPAIR_CELLS = {"confirmation4": [("M7", "transferred", None)],
                 "confirmation3": [(m, "own", sh) for m in LAUNDER_MIGRATIONS for sh in LAUNDER_SHARES if sh > 0]}   # (migration, score, laundered share): where the first ladder failed
 AMEND5_AUDIT_SEED_BASE = 17000                   # per-cell seeds config.SEED + 17000 + 1000 * k + 100 * cell index + alpha index
-CONFIRM5_USERS = tuple(range(220, 250))          # notebook 13, generated only after notebook 12 is read
+CONFIRM5_USERS = tuple(range(220, 250))          # notebook 13, generated after notebook 12 was read (19 November 2026)
 CONFIRM5_SUITE = "confirmation5"
+CONFIRM5_MIGRATION = "M7"                        # the confirmation of amendment 5 is on the migration where the fallback was needed
+LADDER_ORDER_RULE = ("repaired labelled ladder first unless a record of R carries the user label (the label the attacker can forge), "
+                     "then the repaired label-free ladder first; both at delta/4 on their own fresh samples")   # amendment 5, 2.1a
+REPAIR_CLAIMS = {"C13_level": CLAIM_C3["level"], "C13_min_certified": 0.95, "C13_max_utility_loss": 0.002,
+                 "C14_min_certified": 0.95, "C14_max_utility_loss": 0.005, "C14_max_episode_ratio": 1.35}
+CONFIRM5_AUDIT_SEED_BASE = 19000                 # per-cell seeds config.SEED + 19000 + 1000 * k + 100 * cell index + alpha index (+ 7 j for ladder j, + 3 for the two-tier draw)
 # Frozen before notebooks 11 and 12 are run (docs/plan_v2_amendment_5.md). 2.1: when K_1 fails on S_1, R = the records whose
 # canary an attacker-caused action in K_1's audit episodes acted on; K_g u R (g = 1..5) are tested on a fresh sample S_2 at
 # delta/4; if K_1 u R fails, K'_g u R on a fresh S_3 at delta/4; else reset. Given S_1 each repaired ladder is a fixed sequence
@@ -473,8 +479,20 @@ def preregistration() -> dict:
                                    "replay": "1,000 draws per cell and k, seeds SEED + AMEND5_AUDIT_SEED_BASE + 1000 * k + 100 * cell index + alpha index"},
                         "claims": {"D1": "development, no claim: change in certified share and task success from the two-tier to the three-ladder procedure per cell, "
                                          "share of replays certified by each ladder, new episodes run"}},
-        "notebook_13": {"status": "planned: confirmation of amendment 5 on users 220 to 249 (M7), claims frozen after notebook 12 is read",
-                        "users": [CONFIRM5_USERS[0], CONFIRM5_USERS[-1]], "suite": CONFIRM5_SUITE},
+        "notebook_13": {"date": "2026-11-19", "status": "amendment 5 confirmed on new users (frozen after notebook 12 was read; docs/plan_v2_amendment_5.md, Section 5)",
+                        "users": [CONFIRM5_USERS[0], CONFIRM5_USERS[-1]], "suite": CONFIRM5_SUITE, "migration": CONFIRM5_MIGRATION,
+                        "cells": "honest own score; transferred score; laundered labels at 25% and 50% (own score)",
+                        "method": {"name": THREE_LADDER_NAME, "levels": THREE_LADDER_LEVELS, "order": LADDER_ORDER_RULE, "ks": PASS_KS,
+                                   "runs": "old pipeline and survivor store, reuse all, reset, both tiers under the own and the transferred score, the laundered "
+                                           "labelled ladders, every repaired context a sampled R can produce; no baselines, no held-out runs on this set",
+                                   "replay": "1,000 draws per cell and k, three-ladder against two-tier, seeds SEED + CONFIRM5_AUDIT_SEED_BASE + 1000 * k + 100 * cell index + alpha index"},
+                        "claims": {"C13": "transferred-score cell, every alpha, k = 0: (a) no violation share with a binomial p-value below C13_level against delta; "
+                                          "(b) certified in at least C13_min_certified of replays; (c) certified task success at least the two-tier value (same seeds) minus C13_max_utility_loss",
+                                   "C14": "laundered cells (25%, 50%), every alpha, k = 0: (a) as C13a; (b) certified in at least C14_min_certified; (c) task success at least the "
+                                          "two-tier value minus C14_max_utility_loss; (d) audit episodes at most C14_max_episode_ratio times the two-tier's",
+                                   "D2": "development numbers reported, no claim: the honest own-score cell (three-ladder equals two-tier when the first ladder certifies), "
+                                         "the gain where the first ladder failed, k = 1 and k = 2, the share of replays each ladder certified",
+                                   "margins": REPAIR_CLAIMS, "inclusion": "as notebook 05 on these users: M7 must be admitted for C13 and C14 to count; otherwise reported"}},
         "smoke_gate_by_reader": MIN_SMOKE_SUCCESS_BY_READER,
         "runtime_version": RUNTIME_VERSION,
     }
